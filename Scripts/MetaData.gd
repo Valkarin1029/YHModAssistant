@@ -37,10 +37,12 @@ func _on_CreatemetaDataBtn_pressed():
 	var file = File.new()
 	var pth = $"../../..".modfldrpth
 	
+	var _name = "Name that others write if it's a depency" if $"../../..".mod_name == '' else $"../../..".mod_name
+	
 	file.open(pth+"/_metadata", file.WRITE)
 	
 	file.store_string("""{
-	"name": "Name that others write if it's a depency",
+	"name": "{mod_name}",
 	"friendly_name": "Name that shows in modlist",
 	"description": "Put your description here",
 	"author": "PlaceHolder",
@@ -51,7 +53,7 @@ func _on_CreatemetaDataBtn_pressed():
 	"overwrites": false,
 	"client_side": false,
 	"priority": 0,
-}""")
+}""".format({"mod_name": _name}))
 	
 	file.close()
 	

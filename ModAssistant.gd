@@ -154,6 +154,7 @@ func _on_UseMetaName_confirmed():
 	if contents.has('name'):
 		_name = contents.get('name')
 	else:
+		push_error("Couldn't use metadata name because it doesn't exist")
 		return
 	
 	$"%ModNameTB".text = _name
