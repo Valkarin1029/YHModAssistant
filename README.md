@@ -17,8 +17,8 @@ YHMod Assistant is a Godot plugin to help with the creations of mods for Yomi Hu
 - Export System
   - Auto Export
 - Project Templates (Unfinished)
-  - Character Template
-  - Overwrite Template
+  - Character Template (Unfinished)
+  - Overwrite Template (Unfinished)
 
 
 
