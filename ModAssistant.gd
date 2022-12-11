@@ -20,7 +20,7 @@ func _ready():
 	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
 	var output = []
 #	print(folderpath)
-	OS.execute("cmd.exe", ['/c','cd "{path}" && git fetch --tags'.format({'path':folderpath})], true, output)
+	OS.execute("cmd.exe", ['/c','cd "{path}" && git diff'.format({'path':folderpath})], true, output)
 	
 	var new_versionsTags = output[0].split("\n")
 	for x in new_versionsTags:
@@ -28,6 +28,8 @@ func _ready():
 			new_version = true
 	
 	print(output)
+	
+	get_node("UI/VBoxContainer/Update").visible = new_version
 	
 	EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 #	print(EXPORTPATH)
