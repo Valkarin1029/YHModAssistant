@@ -315,6 +315,13 @@ margin_bottom = 510.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
+[node name="Update" type="Button" parent="UI/VBoxContainer"]
+visible = false
+margin_top = 491.0
+margin_right = 1022.0
+margin_bottom = 511.0
+text = "A New version is avaliable! Press to update"
+
 [node name="ExtraStuff" type="RichTextLabel" parent="UI/VBoxContainer"]
 margin_top = 514.0
 margin_right = 1022.0
@@ -323,13 +330,13 @@ size_flags_vertical = 8
 size_flags_stretch_ratio = 0.1
 bbcode_enabled = true
 bbcode_text = "[center][b]
-[i][u]Version {version}[/u][/i]
+[i][u]Version 1.1.1[/u][/i]
 
 If you experienced a bug [url=<https://forms.gle/ca9jR6kzo5KnWJPJ7>]{Click Here}[/url]
 If you have a suggestion or an Idea that you would like to see [url=<https://forms.gle/5oZMzoZw1GGqfETb7>]{Click Here}[/url]
 [/b][/center]"
 text = "
-Version {version}
+Version 1.1.1
 
 If you experienced a bug {Click Here}
 If you have a suggestion or an Idea that you would like to see {Click Here}
@@ -355,4 +362,5 @@ script = ExtResource( 4 )
 [connection signal="pressed" from="UI/VBoxContainer/OpenExportFolder" to="." method="_on_OpenExportFolder_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/MakeCFG" to="." method="_on_MakeCFG_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/ClearExportFolderBtn" to="." method="_on_ClearExportFolderBtn_pressed"]
+[connection signal="pressed" from="UI/VBoxContainer/Update" to="." method="_on_Update_pressed"]
 [connection signal="meta_clicked" from="UI/VBoxContainer/ExtraStuff" to="." method="_on_FeedBack_meta_clicked"]

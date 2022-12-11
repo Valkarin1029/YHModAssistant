@@ -8,22 +8,40 @@ var modfldrpth = ''
 
 var EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 
+var new_version = false
+
 func _init():
 	
 	pass
 
 
 func _ready():
-	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+#	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
 	var output = []
 #	print(folderpath)
-	OS.execute("git.exe", ['cd "{path}" && dir'], true, output)
-
+	OS.execute("cmd.exe", ['/c','cd "{path}" && git fetch --tags'.format({'path':folderpath})], true, output)
+	
+	var new_versionsTags = output[0].split("\n")
+	for x in new_versionsTags:
+		if x.match("*[new tag]*"):
+			new_version = true
+	
+	print(output)
 	
 	EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 #	print(EXPORTPATH)
 	$"%ExportPath".placeholder_text = EXPORTPATH
 
+func _on_Update_pressed():
+#	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
+	var output = []
+#	print(folderpath)
+	OS.execute("cmd.exe", ['/c','cd "{path}" && git pull'.format({'path':folderpath})], true, output, true, true)
+	OS.execute("cmd.exe", ['/c', 'cd "%s" && %s' % [OS.get_executable_path().get_base_dir(), OS.get_executable_path().get_file()]])
+#	print(OS.get_executable_path().get_file())
+	OS.kill(OS.get_process_id())
 
 func _on_FolderBrowseButton_pressed():
 	$"%ModFolderPath".popup()
@@ -231,3 +249,6 @@ func _on_OpenExportFolder_pressed():
 
 func _on_ClearExportFolderBtn_pressed():
 	$"%ClearExportFolder".popup()
+
+
+
