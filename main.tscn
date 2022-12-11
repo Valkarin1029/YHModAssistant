@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/ModAssistant.gd" type="Script" id=1]
 [ext_resource path="res://addons/YHModAssistant/Scripts/MetaData.gd" type="Script" id=2]
 [ext_resource path="res://addons/YHModAssistant/icons/Folder.svg" type="Texture" id=3]
+[ext_resource path="res://addons/YHModAssistant/Scripts/ExtraStuff.gd" type="Script" id=4]
 
 [node name="Mod Assistant" type="Control"]
 anchor_right = 1.0
@@ -204,7 +205,7 @@ icon = ExtResource( 3 )
 [node name="MetaData" type="VBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 94.0
 margin_right = 1022.0
-margin_bottom = 99.0
+margin_bottom = 98.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 script = ExtResource( 2 )
@@ -227,9 +228,9 @@ size_flags_vertical = 3
 text = "Edit _metadata"
 
 [node name="Export" type="VBoxContainer" parent="UI/VBoxContainer"]
-margin_top = 103.0
+margin_top = 102.0
 margin_right = 1022.0
-margin_bottom = 242.0
+margin_bottom = 241.0
 
 [node name="ExportPathLbl" type="RichTextLabel" parent="UI/VBoxContainer/Export"]
 margin_right = 1022.0
@@ -285,9 +286,9 @@ size_flags_stretch_ratio = 0.1
 text = "Export"
 
 [node name="OpenExportFolder" type="Button" parent="UI/VBoxContainer"]
-margin_top = 246.0
+margin_top = 245.0
 margin_right = 1022.0
-margin_bottom = 266.0
+margin_bottom = 265.0
 hint_tooltip = "Will open the folder used for exporting"
 size_flags_stretch_ratio = 0.05
 text = "Open Export Folder"
@@ -308,28 +309,33 @@ margin_bottom = 289.0
 text = "Clear export Folder?"
 
 [node name="Padding" type="Control" parent="UI/VBoxContainer"]
-margin_top = 270.0
+margin_top = 269.0
 margin_right = 1022.0
-margin_bottom = 540.0
+margin_bottom = 510.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="FeedBack" type="RichTextLabel" parent="UI/VBoxContainer"]
-margin_top = 544.0
+[node name="ExtraStuff" type="RichTextLabel" parent="UI/VBoxContainer"]
+margin_top = 514.0
 margin_right = 1022.0
 margin_bottom = 604.0
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.1
 bbcode_enabled = true
 bbcode_text = "[center][b]
+[i][u]Version {version}[/u][/i]
+
 If you experienced a bug [url=<https://forms.gle/ca9jR6kzo5KnWJPJ7>]{Click Here}[/url]
 If you have a suggestion or an Idea that you would like to see [url=<https://forms.gle/5oZMzoZw1GGqfETb7>]{Click Here}[/url]
 [/b][/center]"
 text = "
+Version {version}
+
 If you experienced a bug {Click Here}
 If you have a suggestion or an Idea that you would like to see {Click Here}
 "
 fit_content_height = true
+script = ExtResource( 4 )
 
 [connection signal="about_to_show" from="PopUps/UseMetaName" to="PopUps" method="_on_UseMetaName_about_to_show"]
 [connection signal="confirmed" from="PopUps/UseMetaName" to="PopUps" method="_on_UseMetaName_confirmed"]
@@ -349,4 +355,4 @@ fit_content_height = true
 [connection signal="pressed" from="UI/VBoxContainer/OpenExportFolder" to="." method="_on_OpenExportFolder_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/MakeCFG" to="." method="_on_MakeCFG_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/ClearExportFolderBtn" to="." method="_on_ClearExportFolderBtn_pressed"]
-[connection signal="meta_clicked" from="UI/VBoxContainer/FeedBack" to="." method="_on_FeedBack_meta_clicked"]
+[connection signal="meta_clicked" from="UI/VBoxContainer/ExtraStuff" to="." method="_on_FeedBack_meta_clicked"]
