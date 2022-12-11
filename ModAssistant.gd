@@ -8,7 +8,25 @@ var modfldrpth = ''
 
 var EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 
+func _init():
+	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+	var output = []
+	print(folderpath)
+#	OS.execute("CMD.exe", ["/C", 'cd "{path}" && git fetch'.format({"path":folderpath})], true, output, false, true)
+	OS.execute("git.exe", ['cd "{path}" && dir'], true, output, false, true)
+
+	print(output)
+	pass
+	
+
 func _ready():
+#	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+#	var output = []
+#
+#	OS.execute("cmd.exe", ["/c", 'cd "{path}" && git fetch'.format({"path":folderpath})], true, output)
+#
+#	print(output)
+	
 	EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 #	print(EXPORTPATH)
 	$"%ExportPath".placeholder_text = EXPORTPATH
