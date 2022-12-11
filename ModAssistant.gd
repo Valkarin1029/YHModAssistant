@@ -201,9 +201,6 @@ func _create_cfg(mod_name = mod_name):
 	
 	modfldrpth = ProjectSettings.globalize_path(modfldrpth)
 	
-#	print(mod_name)
-#	print(modfldrpth)
-#	print(EXPORTPATH)
 	
 	var file = File.new()
 	file.open("res://addons/YHModAssistant/cfg.txt", file.WRITE)

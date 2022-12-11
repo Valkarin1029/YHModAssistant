@@ -22,10 +22,16 @@ func _exit_tree():
 
 
 func build():
-	var autoExport = dock.get_node_or_null("ScrollContainer/VBoxContainer/Export/AutoExport")
-	var exportSuccess = true
+	var autoExport = dock.get_node_or_null("UI/VBoxContainer/Export/AutoExport")
+	var exportSuccess = false
 	
-	if autoExport != null and autoExport.pressed:
+	if autoExport == null:
+		printerr("Auto Export Button not found")
+		return false
+	
+	if autoExport.pressed:
 		exportSuccess = dock.exportZip()
+	else:
+		exportSuccess = true
 	
 	return exportSuccess

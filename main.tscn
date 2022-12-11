@@ -205,7 +205,7 @@ icon = ExtResource( 3 )
 [node name="MetaData" type="VBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 94.0
 margin_right = 1022.0
-margin_bottom = 98.0
+margin_bottom = 100.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 script = ExtResource( 2 )
@@ -228,9 +228,9 @@ size_flags_vertical = 3
 text = "Edit _metadata"
 
 [node name="Export" type="VBoxContainer" parent="UI/VBoxContainer"]
-margin_top = 102.0
+margin_top = 104.0
 margin_right = 1022.0
-margin_bottom = 241.0
+margin_bottom = 243.0
 
 [node name="ExportPathLbl" type="RichTextLabel" parent="UI/VBoxContainer/Export"]
 margin_right = 1022.0
@@ -286,9 +286,9 @@ size_flags_stretch_ratio = 0.1
 text = "Export"
 
 [node name="OpenExportFolder" type="Button" parent="UI/VBoxContainer"]
-margin_top = 245.0
+margin_top = 247.0
 margin_right = 1022.0
-margin_bottom = 265.0
+margin_bottom = 267.0
 hint_tooltip = "Will open the folder used for exporting"
 size_flags_stretch_ratio = 0.05
 text = "Open Export Folder"
@@ -309,9 +309,9 @@ margin_bottom = 289.0
 text = "Clear export Folder?"
 
 [node name="Padding" type="Control" parent="UI/VBoxContainer"]
-margin_top = 269.0
+margin_top = 271.0
 margin_right = 1022.0
-margin_bottom = 510.0
+margin_bottom = 586.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
@@ -323,29 +323,19 @@ margin_bottom = 511.0
 text = "A New version is avaliable! Press to update"
 
 [node name="ExtraStuff" type="RichTextLabel" parent="UI/VBoxContainer"]
-margin_top = 514.0
+margin_top = 590.0
 margin_right = 1022.0
-margin_bottom = 604.0
+margin_bottom = 605.0
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.1
 bbcode_enabled = true
-bbcode_text = "[center][b]
-[i][u]Version 1.1.1[/u][/i]
-
-If you experienced a bug [url=<https://forms.gle/ca9jR6kzo5KnWJPJ7>]{Click Here}[/url]
-If you have a suggestion or an Idea that you would like to see [url=<https://forms.gle/5oZMzoZw1GGqfETb7>]{Click Here}[/url]
-[/b][/center]"
-text = "
-Version 1.1.1
-
-If you experienced a bug {Click Here}
-If you have a suggestion or an Idea that you would like to see {Click Here}
-"
+bbcode_text = "[center][b][i][u]Version 1.1.1[/u][/i][/b][/center]"
+text = "Version 1.1.1"
 fit_content_height = true
 script = ExtResource( 4 )
 
-[connection signal="about_to_show" from="PopUps/UseMetaName" to="PopUps" method="_on_UseMetaName_about_to_show"]
-[connection signal="confirmed" from="PopUps/UseMetaName" to="PopUps" method="_on_UseMetaName_confirmed"]
+[connection signal="about_to_show" from="PopUps/UseMetaName" to="." method="_on_UseMetaName_about_to_show"]
+[connection signal="confirmed" from="PopUps/UseMetaName" to="." method="_on_UseMetaName_confirmed"]
 [connection signal="dir_selected" from="PopUps/ModFolderPath" to="." method="_on_FileDialog_dir_selected"]
 [connection signal="about_to_show" from="PopUps/ExportFolderPath" to="." method="_on_ExportFolderPath_about_to_show"]
 [connection signal="dir_selected" from="PopUps/ExportFolderPath" to="." method="_on_ExportFolderPath_dir_selected"]
