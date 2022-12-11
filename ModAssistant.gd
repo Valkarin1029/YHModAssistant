@@ -3,23 +3,14 @@ extends Control
 
 
 var mod_name = ''
-
 var modfldrpth = ''
-
 var EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 
 var new_version = false
 
-func _init():
-	
-	pass
-
-
 func _ready():
-#	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
-	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
+	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
 	var output = []
-#	print(folderpath)
 	OS.execute("cmd.exe", ['/c','cd "{path}" && git diff'.format({'path':folderpath})], true, output)
 	
 	var new_versionsTags = output[0].split("\n")
@@ -27,22 +18,18 @@ func _ready():
 		if x.match("*[new tag]*"):
 			new_version = true
 	
-	print(output)
-	
-	get_node("UI/VBoxContainer/Update").visible = new_version
+#	print(output)
+#	get_node("UI/VBoxContainer/Update").visible = new_version
 	
 	EXPORTPATH = OS.get_executable_path().get_base_dir().plus_file("mods")
-#	print(EXPORTPATH)
 	$"%ExportPath".placeholder_text = EXPORTPATH
 
 func _on_Update_pressed():
-#	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
-	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
+	var folderpath = ProjectSettings.globalize_path("res://addons/YHModAssistant")
+#	var folderpath = "C:/Users/lucer/Downloads/YHModAssistant"
 	var output = []
-#	print(folderpath)
 	OS.execute("cmd.exe", ['/c','cd "{path}" && git pull'.format({'path':folderpath})], true, output, true, true)
 	OS.execute("cmd.exe", ['/c', 'cd "%s" && %s' % [OS.get_executable_path().get_base_dir(), OS.get_executable_path().get_file()]])
-#	print(OS.get_executable_path().get_file())
 	OS.kill(OS.get_process_id())
 
 func _on_FolderBrowseButton_pressed():
@@ -103,23 +90,21 @@ func exportZip():
 	zippth = ProjectSettings.globalize_path(zippth)
 	
 	OS.execute("cmd.exe", ["/c", 'py --version'], true, outputs)
-	
 	if not outputs[0].to_lower().match("python*"):
 		printerr("Python is not installed")
 	
-	
 	OS.execute("cmd.exe", ["/C",'cd "{pth}" && py .\\zipper.py'.format({"pth":zippth})], true, outputs)
-	
 	if file.file_exists(EXPORTPATH.plus_file(_mod_name+".zip")):
 		print("Export Sucessful")
+		dir.remove("res://addons/YHModAssistant/cfg.txt")
 		return true
 	else:
 		push_error("Export Failed! \nThis could be caused because the mods folder does not exist in your godot.exe folder location")
-		
-	dir.remove("res://addons/YHModAssistant/cfg.txt")
+		dir.remove("res://addons/YHModAssistant/cfg.txt")
+		return false
 	
-	return false
 	
+
 func _on_ModNameTB_text_changed(new_text):
 	mod_name = new_text
 	_update_auto_export()
