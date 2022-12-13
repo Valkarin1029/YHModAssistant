@@ -76,3 +76,9 @@ func _on_save_pressed():
 
 func _on_cancel_pressed():
 	metaEdit.hide()
+
+
+
+
+
+
