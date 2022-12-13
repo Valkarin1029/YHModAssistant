@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/ModAssistant.gd" type="Script" id=1]
 [ext_resource path="res://addons/YHModAssistant/Scripts/MetaData.gd" type="Script" id=2]
@@ -7,6 +7,14 @@
 [ext_resource path="res://addons/YHModAssistant/Scripts/PopUps.gd" type="Script" id=5]
 [ext_resource path="res://addons/YHModAssistant/Scripts/UI.gd" type="Script" id=6]
 [ext_resource path="res://addons/YHModAssistant/Scripts/Export.gd" type="Script" id=7]
+[ext_resource path="res://addons/YHModAssistant/Scripts/MakeTemplate.gd" type="Script" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.1408, 0.16324, 0.22, 1 )
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
 
 [node name="Mod Assistant" type="Control"]
 anchor_right = 1.0
@@ -142,6 +150,18 @@ the folders, files, etc to the recycle bin
 The export folder is the folder you have set
 int the export path"
 
+[node name="TemplatePopup" type="PopupMenu" parent="PopUps"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -49.0
+margin_right = 104.0
+margin_bottom = 49.0
+items = [ "Blank Template", null, 0, false, false, 0, 0, null, "", false, "Character Template", null, 0, false, false, 1, 0, null, "", false, "Overwrite Template", null, 0, false, false, 2, 0, null, "", false ]
+
 [node name="UI" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -210,16 +230,16 @@ icon = ExtResource( 3 )
 [node name="MetaData" type="VBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 94.0
 margin_right = 1022.0
-margin_bottom = 100.0
-size_flags_vertical = 3
+margin_bottom = 94.0
+size_flags_vertical = 5
 size_flags_stretch_ratio = 0.1
 script = ExtResource( 2 )
 
 [node name="CreatemetaDataBtn" type="Button" parent="UI/VBoxContainer/MetaData"]
 unique_name_in_owner = true
 visible = false
-margin_right = 1024.0
-margin_bottom = 37.0
+margin_right = 1022.0
+margin_bottom = 20.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 text = "_metadata Not Detected! Create One?"
@@ -227,15 +247,33 @@ text = "_metadata Not Detected! Create One?"
 [node name="EditmetaDataBtn" type="Button" parent="UI/VBoxContainer/MetaData"]
 unique_name_in_owner = true
 visible = false
-margin_right = 1024.0
-margin_bottom = 37.0
+margin_right = 1022.0
+margin_bottom = 20.0
 size_flags_vertical = 3
 text = "Edit _metadata"
 
-[node name="Export" type="VBoxContainer" parent="UI/VBoxContainer"]
-margin_top = 104.0
+[node name="MakeTemplate" type="MenuButton" parent="UI/VBoxContainer"]
+margin_top = 98.0
 margin_right = 1022.0
-margin_bottom = 267.0
+margin_bottom = 118.0
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+text = "Create mod form template"
+flat = false
+items = [ "Blank", null, 0, false, false, 0, 0, null, "", false, "Character", null, 0, false, false, 1, 0, null, "", false, "Overwrites", null, 0, false, false, 2, 0, null, "", false, "Stage Loader", null, 0, false, false, 3, 0, null, "", false ]
+script = ExtResource( 8 )
+
+[node name="Panel" type="Panel" parent="UI/VBoxContainer/MakeTemplate"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+custom_styles/panel = SubResource( 1 )
+
+[node name="Export" type="VBoxContainer" parent="UI/VBoxContainer"]
+margin_top = 122.0
+margin_right = 1022.0
+margin_bottom = 285.0
 script = ExtResource( 7 )
 
 [node name="ExportPathLbl" type="RichTextLabel" parent="UI/VBoxContainer/Export"]
@@ -315,7 +353,7 @@ margin_bottom = 289.0
 text = "Clear export Folder?"
 
 [node name="Padding" type="Control" parent="UI/VBoxContainer"]
-margin_top = 271.0
+margin_top = 289.0
 margin_right = 1022.0
 margin_bottom = 586.0
 size_flags_vertical = 3
@@ -347,11 +385,13 @@ script = ExtResource( 4 )
 [connection signal="dir_selected" from="PopUps/ExportFolderPath" to="PopUps" method="_on_ExportFolderPath_dir_selected"]
 [connection signal="pressed" from="PopUps/metadataEditor/HBoxContainer/cancel" to="UI/VBoxContainer/MetaData" method="_on_cancel_pressed"]
 [connection signal="pressed" from="PopUps/metadataEditor/HBoxContainer/save" to="UI/VBoxContainer/MetaData" method="_on_save_pressed"]
+[connection signal="id_pressed" from="PopUps/TemplatePopup" to="PopUps" method="_on_TemplatePopup_id_pressed"]
 [connection signal="text_changed" from="UI/VBoxContainer/ModNameTB" to="UI" method="_on_ModNameTB_text_changed"]
 [connection signal="text_changed" from="UI/VBoxContainer/FlolderPath/Folderpth" to="UI" method="_on_Folderpth_text_changed"]
 [connection signal="pressed" from="UI/VBoxContainer/FlolderPath/FolderBrowse" to="UI" method="_on_FolderBrowseButton_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/MetaData/CreatemetaDataBtn" to="UI/VBoxContainer/MetaData" method="_on_CreatemetaDataBtn_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/MetaData/EditmetaDataBtn" to="UI/VBoxContainer/MetaData" method="_on_EditmetaDataBtn_pressed"]
+[connection signal="about_to_show" from="UI/VBoxContainer/MakeTemplate" to="UI/VBoxContainer/MakeTemplate" method="_on_MakeTemplate_about_to_show"]
 [connection signal="text_changed" from="UI/VBoxContainer/Export/HBoxContainer/ExportPath" to="UI/VBoxContainer/Export" method="_on_ExportPath_text_changed"]
 [connection signal="pressed" from="UI/VBoxContainer/Export/HBoxContainer/ExportBrowse" to="UI/VBoxContainer/Export" method="_on_ExportBrowse_pressed"]
 [connection signal="pressed" from="UI/VBoxContainer/Export/Export" to="UI/VBoxContainer/Export" method="_on_Export_pressed"]

@@ -35,3 +35,6 @@ func _on_FolderBrowseButton_pressed():
 func _on_Folderpth_text_changed(new_text):
 	main.modfldrpth = new_text
 	Export._update_auto_export()
+
+
+
