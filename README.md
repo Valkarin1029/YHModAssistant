@@ -4,7 +4,7 @@
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 ![Downloads total](https://img.shields.io/github/downloads/Valkarin1029/YHModAssistant/total)
 
-YHMod Assistant is a Godot plugin to help with the creations of mods for Yomi Hustle
+YHMod Assistant is a Godot plugin to help with the creations of mods for YOMI Hustle (Your Only Move Is Hustle)
 
 
 ## Authors
@@ -16,7 +16,7 @@ YHMod Assistant is a Godot plugin to help with the creations of mods for Yomi Hu
 
 - Export System
   - Auto Export
-- Project Templates (Unfinished)
+- Project Templates (Working on it)
   - Character Template (Unfinished)
   - Overwrite Template (Unfinished)
 
