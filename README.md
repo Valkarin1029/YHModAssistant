@@ -6,6 +6,9 @@
 
 YHMod Assistant is a Godot plugin to help with the creations of mods for YOMI Hustle (Your Only Move Is Hustle)
 
+Like my plugin? Support me
+
+<a href="https://www.buymeacoffee.com/Valkarin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Authors
 
