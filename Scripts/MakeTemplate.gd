@@ -125,42 +125,44 @@ func _createBlank(mod_name):
 	pass
 
 func _createCharacter(mod_name):
-	
-#	if dir.make_dir(modpath+"/characters") != OK:
-#		printerr("Failed")
-	
-	if dir.make_dir_recursive(modpath+"/characters/"+mod_name) != OK:
+	var characterDir = modpath+"/characters/"+mod_name
+	if dir.make_dir_recursive(characterDir+'/') != OK:
 		printerr("Failed to make character directory")
 		return false
 	
+	var dirToMake = ['/sprites', '/states', '/sounds', '/projectiles', '/ActionUiData']
+	
+	for directory in dirToMake:
+		if dir.make_dir(characterDir+directory) != OK:
+			push_error("Failed to make sub directories for the character")
+			return false
 	
 	if file.open(modpath.plus_file("modmain.gd"), File.WRITE) != OK:
 		push_error("Failed to open modmain.gd")
 		return false
 	else:
-		file.store_string(\
+		file.store_string(
 """extends Node
 
 func _init(ml = ModLoader):
-	addCustomChar("{path}")
+	addCustomChar("{name}","{path}")
 	
 
-""".format({"path": modpath+"/characters/"+mod_name+".tscn"}))
+""".format({"name":mod_name,"path": modpath+"/characters/"+mod_name+".tscn"}))
+	
 		file.close()
 	
-#	var baseChar = load("res://characters/BaseChar.tscn").instance()
-#
-#	var test = Node.new().
-#
-#
-#	var pkscene = PackedScene.new()
-#	var result = pkscene.pack(baseChar)
-#	if result == OK:
-#		var err = ResourceSaver.save(modpath+"/characters/"+mod_name+".tscn", pkscene)
-#		if err != OK:
-#			push_error("Failed to save baseChar")
-#	else:
-#		push_error("Failed to pack baseChar.tscn")
-#
-#
-#	print("Created Character Mod Template")
+	var baseChar = load("res://characters/BaseChar.tscn")
+	
+	var newChar = PackedScene.new()
+	
+	newChar._bundled = {"base_scene": 0, "conn_count": 0, "conns": [], "editable_instances": [], 
+	"names": [mod_name], "node_count": 1, "node_paths": [], 
+	"nodes": [-1, -1, 2147483647, 0, -1, 0, 0], 
+	"variants": [baseChar], "version": 2}
+	
+	var err = ResourceSaver.save(characterDir+"/"+mod_name+".tscn", newChar)
+	if err != OK:
+		push_error("Failed to save baseChar")
+
+	print("Created Character Mod Template")

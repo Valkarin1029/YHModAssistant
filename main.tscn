@@ -165,21 +165,19 @@ items = [ "Blank Template", null, 0, false, false, 0, 0, null, "", false, "Chara
 [node name="UI" type="ScrollContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_right = -2.0
-margin_bottom = 5.0
-size_flags_horizontal = 0
+size_flags_horizontal = 8
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
 script = ExtResource( 6 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="UI"]
-margin_right = 1022.0
-margin_bottom = 605.0
+margin_right = 640.0
+margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="ModNameLbl" type="RichTextLabel" parent="UI/VBoxContainer"]
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 15.0
 hint_tooltip = "The Name of the Zip File"
 bbcode_enabled = true
@@ -191,13 +189,13 @@ scroll_active = false
 [node name="ModNameTB" type="LineEdit" parent="UI/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 19.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 43.0
 placeholder_text = "Mod Name"
 
 [node name="ModFldrPthLbl" type="RichTextLabel" parent="UI/VBoxContainer"]
 margin_top = 47.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 62.0
 hint_tooltip = "Base Directory EX: res://mod_name"
 bbcode_enabled = true
@@ -208,28 +206,28 @@ scroll_active = false
 
 [node name="FlolderPath" type="HBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 66.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 90.0
 size_flags_vertical = 5
 size_flags_stretch_ratio = 0.01
 
 [node name="Folderpth" type="LineEdit" parent="UI/VBoxContainer/FlolderPath"]
 unique_name_in_owner = true
-margin_right = 990.0
+margin_right = 608.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
 placeholder_text = "File path to mod here ex: (res://mod_name)"
 
 [node name="FolderBrowse" type="Button" parent="UI/VBoxContainer/FlolderPath"]
-margin_left = 994.0
-margin_right = 1022.0
+margin_left = 612.0
+margin_right = 640.0
 margin_bottom = 24.0
 size_flags_vertical = 3
 icon = ExtResource( 3 )
 
 [node name="MetaData" type="VBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 94.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 94.0
 size_flags_vertical = 5
 size_flags_stretch_ratio = 0.1
@@ -255,7 +253,7 @@ text = "Edit _metadata"
 [node name="MakeTemplate" type="MenuButton" parent="UI/VBoxContainer"]
 unique_name_in_owner = true
 margin_top = 98.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 118.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
@@ -273,12 +271,12 @@ custom_styles/panel = SubResource( 1 )
 
 [node name="Export" type="VBoxContainer" parent="UI/VBoxContainer"]
 margin_top = 122.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 285.0
 script = ExtResource( 7 )
 
 [node name="ExportPathLbl" type="RichTextLabel" parent="UI/VBoxContainer/Export"]
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 15.0
 hint_tooltip = "The path your mod will be exported to as a zip"
 bbcode_enabled = true
@@ -288,26 +286,26 @@ fit_content_height = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="UI/VBoxContainer/Export"]
 margin_top = 19.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 43.0
 
 [node name="ExportPath" type="LineEdit" parent="UI/VBoxContainer/Export/HBoxContainer"]
 unique_name_in_owner = true
-margin_right = 990.0
+margin_right = 608.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Others/YomiHustle Modding/Godot3.5.1 Steam/mods"
+placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Everything Godot/YomiHustle Modding/Godot3.5.1 Steam/mods"
 
 [node name="ExportBrowse" type="Button" parent="UI/VBoxContainer/Export/HBoxContainer"]
-margin_left = 994.0
-margin_right = 1022.0
+margin_left = 612.0
+margin_right = 640.0
 margin_bottom = 24.0
 icon = ExtResource( 3 )
 
 [node name="AutoExport" type="CheckButton" parent="UI/VBoxContainer/Export"]
 unique_name_in_owner = true
 margin_top = 47.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 87.0
 hint_tooltip = "This will export your mod before the game is launch for fast and easy testing"
 text = "Auto Export on load"
@@ -316,14 +314,14 @@ align = 1
 [node name="VersionNumIncludedName" type="CheckBox" parent="UI/VBoxContainer/Export"]
 unique_name_in_owner = true
 margin_top = 91.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 115.0
 text = "Export zip will contian version in name"
 
 [node name="Export" type="Button" parent="UI/VBoxContainer/Export"]
 unique_name_in_owner = true
 margin_top = 119.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 139.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -332,7 +330,7 @@ text = "Export"
 
 [node name="OpenExportFolder" type="Button" parent="UI/VBoxContainer/Export"]
 margin_top = 143.0
-margin_right = 1022.0
+margin_right = 640.0
 margin_bottom = 163.0
 hint_tooltip = "Will open the folder used for exporting"
 size_flags_stretch_ratio = 0.05
@@ -355,8 +353,8 @@ text = "Clear export Folder?"
 
 [node name="Padding" type="Control" parent="UI/VBoxContainer"]
 margin_top = 289.0
-margin_right = 1022.0
-margin_bottom = 586.0
+margin_right = 640.0
+margin_bottom = 341.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
@@ -368,9 +366,9 @@ margin_bottom = 511.0
 text = "A New version is avaliable! Press to update"
 
 [node name="ExtraStuff" type="RichTextLabel" parent="UI/VBoxContainer"]
-margin_top = 590.0
-margin_right = 1022.0
-margin_bottom = 605.0
+margin_top = 345.0
+margin_right = 640.0
+margin_bottom = 360.0
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.1
 bbcode_enabled = true
