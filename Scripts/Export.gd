@@ -1,7 +1,7 @@
 tool
 extends VBoxContainer
 
-onready var main = get_node("../../..")
+onready var main = $"../../.."
 
 func _ready():
 	

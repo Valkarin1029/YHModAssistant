@@ -10,8 +10,11 @@ var file = File.new()
 var modpath = ''
 
 func _init():
+	if not get_popup().is_connected("id_pressed", self, "_createTemplate"):
+		get_popup().connect("id_pressed", self, "_createTemplate")
+
+func _ready():
 	main = $"../../.."
-	get_popup().connect("id_pressed", self, "_createTemplate")
 
 func _on_MakeTemplate_about_to_show():
 #	print("test")
