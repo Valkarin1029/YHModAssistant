@@ -253,6 +253,7 @@ size_flags_vertical = 3
 text = "Edit _metadata"
 
 [node name="MakeTemplate" type="MenuButton" parent="UI/VBoxContainer"]
+unique_name_in_owner = true
 margin_top = 98.0
 margin_right = 1022.0
 margin_bottom = 118.0
@@ -386,6 +387,7 @@ script = ExtResource( 4 )
 [connection signal="pressed" from="PopUps/metadataEditor/HBoxContainer/cancel" to="UI/VBoxContainer/MetaData" method="_on_cancel_pressed"]
 [connection signal="pressed" from="PopUps/metadataEditor/HBoxContainer/save" to="UI/VBoxContainer/MetaData" method="_on_save_pressed"]
 [connection signal="id_pressed" from="PopUps/TemplatePopup" to="PopUps" method="_on_TemplatePopup_id_pressed"]
+[connection signal="modfldrPathUpdated" from="UI" to="UI" method="_on_UI_modfldrPathUpdated"]
 [connection signal="text_changed" from="UI/VBoxContainer/ModNameTB" to="UI" method="_on_ModNameTB_text_changed"]
 [connection signal="text_changed" from="UI/VBoxContainer/FlolderPath/Folderpth" to="UI" method="_on_Folderpth_text_changed"]
 [connection signal="pressed" from="UI/VBoxContainer/FlolderPath/FolderBrowse" to="UI" method="_on_FolderBrowseButton_pressed"]

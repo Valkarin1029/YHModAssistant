@@ -2,6 +2,7 @@ tool
 extends Control
 
 onready var main = get_parent()
+onready var UI = $"../UI"
 
 onready var Export = $"../UI/VBoxContainer/Export"
 
@@ -57,6 +58,7 @@ func _on_FileDialog_dir_selected(dir):
 	
 	main.checkFormetaData()
 	
+	UI.emit_signal("modfldrPathUpdated")
 	Export._update_auto_export()
 	pass # Replace with function body.
 

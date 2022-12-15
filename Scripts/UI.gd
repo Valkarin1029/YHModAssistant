@@ -5,6 +5,7 @@ onready var main = get_parent()
 
 onready var Export = get_node("VBoxContainer/Export")
 
+signal modfldrPathUpdated
 
 func _on_ModNameTB_text_changed(new_text):
 	main.mod_name = new_text
@@ -34,7 +35,15 @@ func _on_FolderBrowseButton_pressed():
 
 func _on_Folderpth_text_changed(new_text):
 	main.modfldrpth = new_text
+	emit_signal("modfldrPathUpdated")
 	Export._update_auto_export()
 
 
 
+
+
+func _on_UI_modfldrPathUpdated():
+	if main.modfldrpth == '':
+		$"%MakeTemplate".visible = true
+	else:
+		$"%MakeTemplate".visible = false
