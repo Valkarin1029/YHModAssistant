@@ -23,7 +23,7 @@ Like my plugin? Support me. It gives me a big boost to keep improving this.
   - Character Template (Unfinished)
   - Overwrite Template (Unfinished)
 
-
+**Suggest New Features in Issues as feature suggestion**
 
 ## Installation
 
