@@ -4,8 +4,11 @@
 [![GPLv3 License](https://img.shields.io/badge/License-GPL%20v3-yellow.svg)](https://opensource.org/licenses/)
 ![Downloads total](https://img.shields.io/github/downloads/Valkarin1029/YHModAssistant/total)
 
-YHMod Assistant is a Godot plugin to help with the creations of mods for Yomi Hustle
+YHMod Assistant is a Godot plugin to help with the creations of mods for YOMI Hustle (Your Only Move Is Hustle)
 
+Like my plugin? Support me. It gives me a big boost to keep improving this.
+
+<a href="https://www.buymeacoffee.com/Valkarin" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/default-blue.png" alt="Buy Me A Coffee" style="height: 60px !important;width: 217px !important;" ></a>
 
 ## Authors
 
@@ -16,11 +19,11 @@ YHMod Assistant is a Godot plugin to help with the creations of mods for Yomi Hu
 
 - Export System
   - Auto Export
-- Project Templates (Unfinished)
+- Project Templates (Working on it)
   - Character Template (Unfinished)
   - Overwrite Template (Unfinished)
 
-
+**Suggest New Features in Issues as feature suggestion**
 
 ## Installation
 
@@ -40,4 +43,3 @@ If done correctly a new dock should appear to the right of the file system dock
 ## Feedback
 
 If you have any feedback you can leave them in the [issues](https://github.com/Valkarin1029/YHModAssistant/issues). Use the right tags pls
-
