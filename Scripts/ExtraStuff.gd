@@ -18,4 +18,4 @@ func _ready():
 #	print(version)
 	
 	
-	self.bbcode_text = self.bbcode_text.format({"version": version})
+	self.bbcode_text = "[center][b][i][u]Version {version}[/u][/i][/b][/center]".format({"version": version})

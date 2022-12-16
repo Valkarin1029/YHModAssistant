@@ -12,6 +12,7 @@ func _enter_tree():
 	pass
 
 
+
 func _exit_tree():
 	
 	remove_control_from_docks(dock)
@@ -23,6 +24,7 @@ func _exit_tree():
 
 func build():
 	var autoExport = dock.get_node_or_null("UI/VBoxContainer/Export/AutoExport")
+	var Export = dock.get_node_or_null("UI/VBoxContainer/Export")
 	var exportSuccess = false
 	
 	if autoExport == null:
@@ -30,7 +32,7 @@ func build():
 		return false
 	
 	if autoExport.pressed:
-		exportSuccess = dock.exportZip()
+		exportSuccess = Export.exportZip()
 	else:
 		exportSuccess = true
 	
