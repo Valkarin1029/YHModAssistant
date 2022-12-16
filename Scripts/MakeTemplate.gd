@@ -23,6 +23,7 @@ func _on_MakeTemplate_about_to_show():
 
 func _createTemplate(id):
 #	print(main.mod_name)
+	main = $"../../.."
 	if id == 0:
 		
 		if not _setup(main.mod_name):
@@ -148,10 +149,27 @@ func _createCharacter(mod_name):
 """extends Node
 
 func _init(ml = ModLoader):
-	addCustomChar("{name}","{path}")
+	ml.installScriptExtension("res://{name}/CharacterSelect.gd")
 	
 
-""".format({"name":mod_name,"path": modpath+"/characters/"+mod_name+".tscn"}))
+""".format(\
+{"name":mod_name,"path": modpath+"/characters/"+mod_name+".tscn"}))
+	
+		file.close()
+		
+	if file.open(modpath.plus_file("CharacterSelect.gd"), file.WRITE) != OK:
+		push_error("Failed to open CharacterSelect.gd")
+		return false
+	else:
+		file.store_string(\
+"""extends "res://ui/CSS/CharacterSelect.gd"
+
+func _ready():
+	addCustomChar("{name}", "{characterDir}")
+	
+
+""".format(\
+{"name":mod_name, "characterDir":characterDir.plus_file(mod_name+'.tsnc')}))
 	
 		file.close()
 	

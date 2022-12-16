@@ -372,8 +372,8 @@ margin_bottom = 360.0
 size_flags_vertical = 8
 size_flags_stretch_ratio = 0.1
 bbcode_enabled = true
-bbcode_text = "[center][b][i][u]Version 1.1.4[/u][/i][/b][/center]"
-text = "Version 1.1.4"
+bbcode_text = "[center][b][i][u]Version 1.2.0[/u][/i][/b][/center]"
+text = "Version 1.2.0"
 fit_content_height = true
 script = ExtResource( 4 )
 
