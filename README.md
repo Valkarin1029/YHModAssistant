@@ -20,7 +20,7 @@ Like my plugin? Support me. It gives me a big boost to keep improving this.
 - Export System
   - Auto Export
 - Project Templates (Working on it)
-  - Character Template (Unfinished)
+  - Character Template (Completed)
   - Overwrite Template (Unfinished)
 
 **Suggest New Features in Issues as feature suggestion**
