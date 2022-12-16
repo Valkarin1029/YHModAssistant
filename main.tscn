@@ -259,7 +259,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 text = "Create mod form template"
 flat = false
-items = [ "Blank", null, 0, false, false, 0, 0, null, "", false, "Character", null, 0, false, false, 1, 0, null, "", false, "Overwrites", null, 0, false, false, 2, 0, null, "", false, "Stage Loader", null, 0, false, false, 3, 0, null, "", false ]
+items = [ "Blank", null, 0, false, false, 0, 0, null, "", false, "Character", null, 0, false, false, 1, 0, null, "", false, "Overwrites (Unfinished)", null, 0, false, true, 2, 0, null, "", false, "Stage Loader (Unfinished)", null, 0, false, true, 3, 0, null, "", false ]
 script = ExtResource( 8 )
 
 [node name="Panel" type="Panel" parent="UI/VBoxContainer/MakeTemplate"]
