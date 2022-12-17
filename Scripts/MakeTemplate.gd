@@ -22,7 +22,7 @@ func _on_MakeTemplate_about_to_show():
 	pass # Replace with function body.
 
 func _createTemplate(id):
-#	print(main.mod_name)
+#	print(typeof(id))
 	main = $"../../.."
 	if id == 0:
 		
@@ -30,7 +30,6 @@ func _createTemplate(id):
 			return
 		
 		_createBlank(main.mod_name)
-		
 	elif id == 1:
 		if not _setup(main.mod_name):
 			return
@@ -41,6 +40,9 @@ func _createTemplate(id):
 	elif id == 2:
 		if not _setup(main.mod_name):
 			return
+		
+		_createOverwrites(main.mod_name)
+		
 		pass
 	
 	EditorPlugin.new().get_editor_interface().get_resource_filesystem().scan()
@@ -187,3 +189,34 @@ func _ready():
 		push_error("Failed to save baseChar")
 
 	print("Created Character Mod Template")
+
+func _createOverwrites(mod_name):
+	var name_paths = {
+	"Ninja":"res://characters/stickman/NinjaGuy.tscn", 
+	"Cowboy":"res://characters/swordandgun/SwordGuy.tscn", 
+	"Wizard":"res://characters/wizard/Wizard.tscn", 
+	"Robot":"res://characters/robo/Robot.tscn", 
+	}
+	
+	var OverwritesFolder = modpath+'/Overwrites'
+	
+	if dir.make_dir(OverwritesFolder) != OK:
+		push_error("Failed to make Overwrites folder")
+		return false
+	
+	for chars in name_paths.keys():
+		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds')
+		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/StateSounds')
+		
+		if file.file_exists(name_paths.get(chars)):
+			var instCharTS = load(name_paths.get(chars)).instance()
+			var instCharAnim = instCharTS.get_node("Flip/Sprite")
+			var instCharFrames = instCharAnim.get_sprite_frames()
+#			print(instCharFrames.get_animation_names())
+			for animation in instCharFrames.get_animation_names():
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/'+animation)
+		else:
+			continue
+		
+		
+	print("Overwrites mod made")
