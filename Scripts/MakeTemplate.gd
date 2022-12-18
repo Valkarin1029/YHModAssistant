@@ -215,6 +215,13 @@ func _createOverwrites(mod_name):
 #			print(instCharFrames.get_animation_names())
 			for animation in instCharFrames.get_animation_names():
 				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/'+animation)
+			
+			if chars == "Cowboy":
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/ShootingArm/default')
+			elif chars == "Wizard":
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/LiftoffAir/defualt')
+			
+			instCharTS.free()
 		else:
 			continue
 		
