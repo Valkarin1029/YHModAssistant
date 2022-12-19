@@ -2,9 +2,9 @@ tool
 extends Control
 
 onready var main = get_parent()
-onready var UI = $"../UI"
+onready var UI = $"../Loaded"
 
-onready var Export = $"../UI/VBoxContainer/Export"
+onready var Export = $"../Loaded/VBoxContainer/Export"
 
 
 func _ready():

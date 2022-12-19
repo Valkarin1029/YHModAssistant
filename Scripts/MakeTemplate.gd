@@ -24,6 +24,9 @@ func _on_MakeTemplate_about_to_show():
 func _createTemplate(id):
 #	print(typeof(id))
 	main = $"../../.."
+	
+	print(get_popup().get_item_text(id))
+	
 	if id == 0:
 		
 		if not _setup(main.mod_name):
