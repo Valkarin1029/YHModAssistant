@@ -212,10 +212,10 @@ text = "Select an Existing Mod"
 
 [node name="Padding" parent="Menu/VBoxContainer" index="3"]
 margin_top = 48.0
-margin_bottom = 254.0
 
 [node name="Update" type="Button" parent="Menu/VBoxContainer" index="4"]
 unique_name_in_owner = true
+visible = false
 margin_top = 258.0
 margin_right = 640.0
 margin_bottom = 341.0
