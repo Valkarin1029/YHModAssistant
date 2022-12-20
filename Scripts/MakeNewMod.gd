@@ -196,7 +196,7 @@ func _ready():
 
 """.format({
 	"name":mod_name, 
-	"characterDir":characterDir.plus_file(mod_name+'.tsnc')
+	"characterDir":characterDir.plus_file(mod_name+'.tscn')
 	}))
 	
 		file.close()
