@@ -25,7 +25,7 @@ func _ready():
 	$"%ExportPath".placeholder_text = EXPORTPATH
 
 
-func checkFormetaData():
+func checkFormetaData(useMetaName = false):
 	var file = File.new()
 	if not file.file_exists(modfldrpth.plus_file("_metadata")):
 		$"%CreatemetaDataBtn".visible = true
@@ -34,8 +34,9 @@ func checkFormetaData():
 		$"%CreatemetaDataBtn".visible = false
 		$"%EditmetaDataBtn".visible = true
 		
+	if useMetaName:
 		var _name = ''
-		
+
 		file.open(modfldrpth.plus_file("_metadata"), File.READ)
 		var contents = JSON.parse(file.get_as_text()).result
 		file.close()
@@ -44,7 +45,12 @@ func checkFormetaData():
 		if _name == $"%ModNameTB".text:
 			print("Name matches meta_data")
 		else:
-			$"%UseMetaName".popup()
+			$"%ModNameTB".text = _name
+
+
+
+
+
 
 
 

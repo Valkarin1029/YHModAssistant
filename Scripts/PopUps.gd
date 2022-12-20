@@ -56,10 +56,20 @@ func _on_FileDialog_dir_selected(dir):
 	$"%Folderpth".text = dir
 	var file = File.new()
 	
-	main.checkFormetaData()
+	if file.file_exists(dir.plus_file('modmain.gd')) or file.file_exists(dir.plus_file('ModMain.gd')):
+		pass
+	else:
+		push_error("This folder does not contain a modmain.gd! Is this the right directory? If so make a modmain.gd and try again.")
+		return
+	
+	main.checkFormetaData(true)
 	
 	UI.emit_signal("modfldrPathUpdated")
 	Export._update_auto_export()
+	
+	$"%Menu".visible = false
+	$"%Loaded".visible = true
+	
 	pass # Replace with function body.
 
 
