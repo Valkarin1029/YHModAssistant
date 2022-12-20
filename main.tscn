@@ -226,6 +226,10 @@ custom_styles/hover = SubResource( 3 )
 custom_styles/normal = SubResource( 2 )
 text = "A New version is avaliable! Press to update"
 
+[node name="ExtraStuff" parent="Menu/VBoxContainer" index="5"]
+bbcode_text = "[center][b][i][u]Version 1.3.0[/u][/i][/b][/center]"
+text = "Version 1.3.0"
+
 [node name="ChooseTemplates" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
 visible = false
@@ -257,6 +261,10 @@ margin_top = 321.0
 margin_right = 640.0
 margin_bottom = 341.0
 text = "Back"
+
+[node name="ExtraStuff" parent="ChooseTemplates/VBoxContainer" index="5"]
+bbcode_text = "[center][b][i][u]Version 1.3.0[/u][/i][/b][/center]"
+text = "Version 1.3.0"
 
 [node name="MakeNewMod" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
@@ -369,6 +377,10 @@ margin_top = 321.0
 margin_right = 640.0
 margin_bottom = 341.0
 text = "Cancel"
+
+[node name="ExtraStuff" parent="MakeNewMod/VBoxContainer" index="12"]
+bbcode_text = "[center][b][i][u]Version 1.3.0[/u][/i][/b][/center]"
+text = "Version 1.3.0"
 
 [node name="Loaded" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
@@ -559,6 +571,10 @@ margin_top = 321.0
 margin_right = 640.0
 margin_bottom = 341.0
 text = "Close Current"
+
+[node name="ExtraStuff" parent="Loaded/VBoxContainer" index="12"]
+bbcode_text = "[center][b][i][u]Version 1.3.0[/u][/i][/b][/center]"
+text = "Version 1.3.0"
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true
