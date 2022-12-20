@@ -43,4 +43,3 @@ If done correctly a new dock should appear to the right of the file system dock
 ## Feedback
 
 If you have any feedback you can leave them in the [issues](https://github.com/Valkarin1029/YHModAssistant/issues). Use the right tags pls
-

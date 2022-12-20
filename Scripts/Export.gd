@@ -21,8 +21,8 @@ func _on_Export_pressed():
 func exportZip():
 	var dir = Directory.new()
 	var file = File.new()
-	var modfldrpth = ProjectSettings.globalize_path(main.modfldrpth)
-	var _mod_name = main.mod_name
+	var modfldrpth = ProjectSettings.globalize_path($"%Folderpth".text)
+	var _mod_name = $"%ModNameTB".text
 	
 	var EXPORTPATH = main.EXPORTPATH
 	

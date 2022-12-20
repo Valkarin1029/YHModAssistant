@@ -47,3 +47,13 @@ func _on_UI_modfldrPathUpdated():
 		$"%MakeTemplate".visible = true
 	else:
 		$"%MakeTemplate".visible = false
+
+
+func _on_CloseCurrent_pressed():
+	self.visible = false
+	$"%Menu".visible = true
+	
+	$"%ModNameTB".text = ''
+	$"%Folderpth".text = ''
+	$"%AutoExport".pressed = false
+	

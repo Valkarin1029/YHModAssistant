@@ -1,55 +1,70 @@
 tool
-extends MenuButton
+extends ScrollContainer
 
+var mod_type = "blank"
 
-onready var main = $"../../.."
+onready var main = $".."
 
 var dir = Directory.new()
 var file = File.new()
 
 var modpath = ''
 
-func _init():
-	if not get_popup().is_connected("id_pressed", self, "_createTemplate"):
-		get_popup().connect("id_pressed", self, "_createTemplate")
-
 func _ready():
-	main = $"../../.."
+	main = $".."
 
-func _on_MakeTemplate_about_to_show():
-#	print("test")
-	
-	pass # Replace with function body.
+func _on_Cancel_pressed():
+	self.visible = false
+	$"%Menu".visible = true
 
-func _createTemplate(id):
-#	print(typeof(id))
-	main = $"../../.."
+func _on_Create_pressed():
+	main = $".."
 	
-	print(get_popup().get_item_text(id))
 	
-	if id == 0:
+	if $"%ModNameNewTB".text == '':
+		push_error("Name cannot be empty")
+		return
+	elif $"%ModFriendlyNameNameTB".text == '':
+		push_error("Friendly name cannot be empty")
+		return
+	elif $"%Description".text == '':
+		push_error("Description cannot be empty")
+		return
+	elif $"%AuthorTL".text == '':
+		push_error("Author name cannot be empty")
+		return
+	
+	var modName = $"%ModNameNewTB".text
+	
+	if mod_type == 'blank':
 		
-		if not _setup(main.mod_name):
+		if not _setup(modName):
 			return
 		
-		_createBlank(main.mod_name)
-	elif id == 1:
-		if not _setup(main.mod_name):
+		_createBlank(modName)
+	elif mod_type == 'character':
+		if not _setup(modName):
 			return
 		
-		_createCharacter(main.mod_name)
+		_createCharacter(modName)
 		
 		pass
-	elif id == 2:
-		if not _setup(main.mod_name):
+	elif mod_type == 'overwrite':
+		if not _setup(modName):
 			return
 		
-		_createOverwrites(main.mod_name)
+		_createOverwrites(modName)
 		
 		pass
+	
+	self.visible = false
+	$"%Loaded".visible = true
+	
+	
+	$"%ModNameTB".text = $"%ModNameNewTB".text
+	$"%Folderpth".text = main.modfldrpth
 	
 	EditorPlugin.new().get_editor_interface().get_resource_filesystem().scan()
-
 
 func _setup(_name):
 	modpath = ''
@@ -102,7 +117,6 @@ func _init(ml = ModLoader):
 """)
 	file.close()
 	
-	var _name = "Name that others write if it's a depency" if main.mod_name == '' else main.mod_name
 	
 	if file.open(modpath.plus_file("_metadata"), file.WRITE) == OK:
 		pass
@@ -112,9 +126,9 @@ func _init(ml = ModLoader):
 	file.store_string(\
 """{
 	"name": "{mod_name}",
-	"friendly_name": "Name that shows in modlist",
-	"description": "Put your description here",
-	"author": "PlaceHolder",
+	"friendly_name": "{friendly_name}",
+	"description": "{description}",
+	"author": "{author}",
 	"version": "0.0.0",
 	"link": "",
 	"id": "00001",
@@ -122,7 +136,12 @@ func _init(ml = ModLoader):
 	"overwrites": false,
 	"client_side": false,
 	"priority": 0,
-}""".format({"mod_name": _name}))
+}""".format({
+	"mod_name": $"%ModNameNewTB".text,
+	"friendly_name": $"%ModFriendlyNameNameTB".text,
+	"description": $"%Description".text,
+	"author": $"%AuthorTL".text,
+	}))
 	
 	file.close()
 	
@@ -157,8 +176,10 @@ func _init(ml = ModLoader):
 	ml.installScriptExtension("res://{name}/CharacterSelect.gd")
 	
 
-""".format(\
-{"name":mod_name,"path": modpath+"/characters/"+mod_name+".tscn"}))
+""".format({
+	"name":mod_name,
+	"path": modpath+"/characters/"+mod_name+".tscn",
+	}))
 	
 		file.close()
 		
@@ -173,10 +194,40 @@ func _ready():
 	addCustomChar("{name}", "{characterDir}")
 	
 
-""".format(\
-{"name":mod_name, "characterDir":characterDir.plus_file(mod_name+'.tsnc')}))
+""".format({
+	"name":mod_name, 
+	"characterDir":characterDir.plus_file(mod_name+'.tsnc')
+	}))
 	
 		file.close()
+	
+	
+	if file.open(modpath.plus_file("_metadata"), file.WRITE) == OK:
+		pass
+	else:
+		return false
+	
+	file.store_string(\
+"""{
+	"name": "{mod_name}",
+	"friendly_name": "{friendly_name}",
+	"description": "{description}",
+	"author": "{author}",
+	"version": "0.0.0",
+	"link": "",
+	"id": "00001",
+	"requires": ["char_loader"],
+	"overwrites": false,
+	"client_side": false,
+	"priority": 0,
+}""".format({
+	"mod_name": $"%ModNameNewTB".text,
+	"friendly_name": $"%ModFriendlyNameNameTB".text,
+	"description": $"%Description".text,
+	"author": $"%AuthorTL".text,
+	}))
+	
+	file.close()
 	
 	var baseChar = load("res://characters/BaseChar.tscn")
 	
@@ -229,4 +280,36 @@ func _createOverwrites(mod_name):
 			continue
 		
 		
+	
+	if file.open(modpath.plus_file("_metadata"), file.WRITE) == OK:
+		pass
+	else:
+		return false
+	
+	file.store_string(\
+"""{
+	"name": "{mod_name}",
+	"friendly_name": "{friendly_name}",
+	"description": "{description}",
+	"author": "{author}",
+	"version": "0.0.0",
+	"link": "",
+	"id": "00001",
+	"requires": [""],
+	"overwrites": true,
+	"client_side": true,
+	"priority": 0,
+}""".format({
+	"mod_name": $"%ModNameNewTB".text,
+	"friendly_name": $"%ModFriendlyNameNameTB".text,
+	"description": $"%Description".text,
+	"author": $"%AuthorTL".text,
+	}))
+	
+	file.close()
+	
 	print("Overwrites mod made")
+	
+
+
+
