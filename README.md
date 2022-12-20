@@ -21,7 +21,7 @@ Like my plugin? Support me. It gives me a big boost to keep improving this.
   - Auto Export
 - Project Templates (Working on it)
   - Character Template (Completed)
-  - Overwrite Template (Unfinished)
+  - Overwrite Template (Completed)
 
 **Suggest New Features in Issues as feature suggestion**
 
