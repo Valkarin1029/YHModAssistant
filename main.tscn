@@ -212,23 +212,19 @@ text = "Select an Existing Mod"
 
 [node name="Padding" parent="Menu/VBoxContainer" index="3"]
 margin_top = 48.0
-margin_bottom = 310.0
+margin_bottom = 254.0
 
 [node name="Update" type="Button" parent="Menu/VBoxContainer" index="4"]
 unique_name_in_owner = true
-margin_top = 314.0
+margin_top = 258.0
 margin_right = 640.0
-margin_bottom = 340.0
+margin_bottom = 341.0
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
+size_flags_stretch_ratio = 2.0
 custom_fonts/font = SubResource( 4 )
 custom_styles/hover = SubResource( 3 )
 custom_styles/normal = SubResource( 2 )
 text = "A New version is avaliable! Press to update"
-
-[node name="ExtraStuff" parent="Menu/VBoxContainer" index="5"]
-margin_top = 344.0
-margin_bottom = 359.0
 
 [node name="ChooseTemplates" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true

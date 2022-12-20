@@ -31,10 +31,7 @@ func _checkVersion(tagName):
 			break
 	file.close()
 	
-	print(version)
-#	print(tagName)
 	tagName = tagName.split('_')[0].lstrip('v')
-	print(tagName)
 	
 	var vnums = version.split('.')
 	var Tagvnums = tagName.split('.')
