@@ -103,3 +103,10 @@ func _update_auto_export():
 		_create_cfg()
 	
 	pass
+
+
+func _on_OpenExportFolder_pressed():
+	main = $"../../.."
+	
+	OS.shell_open(ProjectSettings.globalize_path(main.modfldrpth))
+	pass

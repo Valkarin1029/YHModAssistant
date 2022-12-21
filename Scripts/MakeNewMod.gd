@@ -266,7 +266,6 @@ func _createOverwrites(mod_name):
 			var instCharTS = load(name_paths.get(chars)).instance()
 			var instCharAnim = instCharTS.get_node("Flip/Sprite")
 			var instCharFrames = instCharAnim.get_sprite_frames()
-#			print(instCharFrames.get_animation_names())
 			for animation in instCharFrames.get_animation_names():
 				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/'+animation)
 			

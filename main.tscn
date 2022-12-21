@@ -602,6 +602,7 @@ unique_name_in_owner = true
 [connection signal="text_changed" from="Loaded/VBoxContainer/Export/HBoxContainer/ExportPath" to="Loaded/VBoxContainer/Export" method="_on_ExportPath_text_changed"]
 [connection signal="pressed" from="Loaded/VBoxContainer/Export/HBoxContainer/ExportBrowse" to="Loaded/VBoxContainer/Export" method="_on_ExportBrowse_pressed"]
 [connection signal="pressed" from="Loaded/VBoxContainer/Export/Export" to="Loaded/VBoxContainer/Export" method="_on_Export_pressed"]
+[connection signal="pressed" from="Loaded/VBoxContainer/Export/OpenExportFolder" to="Loaded/VBoxContainer/Export" method="_on_OpenExportFolder_pressed"]
 [connection signal="pressed" from="Loaded/VBoxContainer/CloseCurrent" to="Loaded" method="_on_CloseCurrent_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="Menu" method="_on_HTTPRequest_request_completed"]
 
