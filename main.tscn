@@ -176,7 +176,6 @@ items = [ "Blank Template", null, 0, false, false, 0, 0, null, "", false, "Chara
 
 [node name="Menu" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 4.0
@@ -429,6 +428,7 @@ text = "Version 1.3.2"
 
 [node name="Loaded" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 4.0
@@ -564,7 +564,7 @@ unique_name_in_owner = true
 margin_right = 608.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-placeholder_text = "Path to exported mods"
+placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Everything Godot/YomiHustle Modding/Godot3.5.1 Steam/mods"
 caret_blink = true
 caret_blink_speed = 0.5
 
