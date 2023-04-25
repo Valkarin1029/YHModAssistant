@@ -176,18 +176,17 @@ items = [ "Blank Template", null, 0, false, false, 0, 0, null, "", false, "Chara
 
 [node name="Menu" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 4.0
 margin_right = 640.0
-margin_bottom = 180.0
+margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 9 )
 
 [node name="VBoxContainer" parent="Menu" index="0"]
-margin_bottom = 176.0
+margin_bottom = 356.0
 
 [node name="MakeNewMod" type="Button" parent="Menu/VBoxContainer" index="0"]
 margin_right = 640.0
@@ -221,7 +220,7 @@ text = "Select an Existing Mod"
 
 [node name="Padding" parent="Menu/VBoxContainer" index="3"]
 margin_top = 48.0
-margin_bottom = 157.0
+margin_bottom = 337.0
 
 [node name="Update" type="Button" parent="Menu/VBoxContainer" index="4"]
 unique_name_in_owner = true
@@ -237,8 +236,8 @@ custom_styles/normal = SubResource( 2 )
 text = "A New version is avaliable! Press to update"
 
 [node name="ExtraStuff" parent="Menu/VBoxContainer" index="5"]
-margin_top = 161.0
-margin_bottom = 176.0
+margin_top = 341.0
+margin_bottom = 356.0
 bbcode_text = "[center][b][i][u]Version 1.3.2[/u][/i][/b][/center]"
 text = "Version 1.3.2"
 
@@ -429,6 +428,7 @@ text = "Version 1.3.2"
 
 [node name="Loaded" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 4.0
