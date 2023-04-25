@@ -245,12 +245,7 @@ func _ready():
 	print("Created Character Mod Template")
 
 func _createOverwrites(mod_name):
-	var name_paths = {
-	"Ninja":"res://characters/stickman/NinjaGuy.tscn", 
-	"Cowboy":"res://characters/swordandgun/SwordGuy.tscn", 
-	"Wizard":"res://characters/wizard/Wizard.tscn", 
-	"Robot":"res://characters/robo/Robot.tscn", 
-	}
+	var global = load("res://Global.gd").new()
 	
 	var OverwritesFolder = modpath+'/Overwrites'
 	
@@ -258,12 +253,12 @@ func _createOverwrites(mod_name):
 		push_error("Failed to make Overwrites folder")
 		return false
 	
-	for chars in name_paths.keys():
+	for chars in global.name_paths.keys():
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds')
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/StateSounds')
 		
-		if file.file_exists(name_paths.get(chars)):
-			var instCharTS = load(name_paths.get(chars)).instance()
+		if file.file_exists(global.name_paths.get(chars)):
+			var instCharTS = load(global.name_paths.get(chars)).instance()
 			var instCharAnim = instCharTS.get_node("Flip/Sprite")
 			var instCharFrames = instCharAnim.get_sprite_frames()
 #			print(instCharFrames.get_animation_names())
@@ -280,6 +275,8 @@ func _createOverwrites(mod_name):
 			continue
 		
 		
+	
+	global.free()
 	
 	if file.open(modpath.plus_file("_metadata"), file.WRITE) == OK:
 		pass

@@ -30,7 +30,7 @@ bg_color = Color( 0, 0.643137, 0.117647, 1 )
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.219608, 0, 0.286275, 1 )
 
-[node name="Mod Assistant" type="Control"]
+[node name="Mod Assistant" type="VBoxContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 4
@@ -38,10 +38,8 @@ size_flags_vertical = 3
 script = ExtResource( 1 )
 
 [node name="PopUps" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+size_flags_horizontal = 0
+size_flags_vertical = 0
 script = ExtResource( 5 )
 
 [node name="UseMetaName" type="ConfirmationDialog" parent="PopUps"]
@@ -178,7 +176,18 @@ items = [ "Blank Template", null, 0, false, false, 0, 0, null, "", false, "Chara
 
 [node name="Menu" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 4.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 9 )
+
+[node name="VBoxContainer" parent="Menu" index="0"]
+margin_bottom = 356.0
 
 [node name="MakeNewMod" type="Button" parent="Menu/VBoxContainer" index="0"]
 margin_right = 640.0
@@ -212,6 +221,7 @@ text = "Select an Existing Mod"
 
 [node name="Padding" parent="Menu/VBoxContainer" index="3"]
 margin_top = 48.0
+margin_bottom = 337.0
 
 [node name="Update" type="Button" parent="Menu/VBoxContainer" index="4"]
 unique_name_in_owner = true
@@ -227,49 +237,76 @@ custom_styles/normal = SubResource( 2 )
 text = "A New version is avaliable! Press to update"
 
 [node name="ExtraStuff" parent="Menu/VBoxContainer" index="5"]
+margin_top = 341.0
+margin_bottom = 356.0
 bbcode_text = "[center][b][i][u]Version 1.3.2[/u][/i][/b][/center]"
 text = "Version 1.3.2"
 
 [node name="ChooseTemplates" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
 visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 4.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 4 )
+
+[node name="VBoxContainer" parent="ChooseTemplates" index="0"]
+margin_bottom = 356.0
 
 [node name="BlankTemplate" type="Button" parent="ChooseTemplates/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 20.0
+hint_tooltip = "Sets up the mod folder with the basics"
 text = "Blank Template"
 
 [node name="CharacterTemplate" type="Button" parent="ChooseTemplates/VBoxContainer" index="1"]
 margin_top = 24.0
 margin_right = 640.0
 margin_bottom = 44.0
+hint_tooltip = "Sets up the mod files structured for a character and has alrady been set up to load through character loader"
 text = "Character Template"
 
 [node name="OverwritesTemplate" type="Button" parent="ChooseTemplates/VBoxContainer" index="2"]
 margin_top = 48.0
 margin_right = 640.0
 margin_bottom = 68.0
+hint_tooltip = "sets up the folder structured for making a texture overwrite mods"
 text = "Overwrites Template"
 
 [node name="Padding" parent="ChooseTemplates/VBoxContainer" index="3"]
 margin_top = 72.0
-margin_bottom = 317.0
+margin_bottom = 313.0
 
 [node name="Back" type="Button" parent="ChooseTemplates/VBoxContainer" index="4"]
-margin_top = 321.0
+margin_top = 317.0
 margin_right = 640.0
-margin_bottom = 341.0
+margin_bottom = 337.0
 text = "Back"
 
 [node name="ExtraStuff" parent="ChooseTemplates/VBoxContainer" index="5"]
+margin_top = 341.0
+margin_bottom = 356.0
 bbcode_text = "[center][b][i][u]Version 1.3.2[/u][/i][/b][/center]"
 text = "Version 1.3.2"
 
 [node name="MakeNewMod" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
 visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 4.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 11 )
+
+[node name="VBoxContainer" parent="MakeNewMod" index="0"]
+margin_bottom = 356.0
 
 [node name="TemplateLbl" type="RichTextLabel" parent="MakeNewMod/VBoxContainer" index="0"]
 margin_right = 640.0
@@ -299,6 +336,8 @@ margin_right = 640.0
 margin_bottom = 72.0
 text = "Place Holder"
 placeholder_text = "Mod Name"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="ModFriendlyNameLbl" type="RichTextLabel" parent="MakeNewMod/VBoxContainer" index="3"]
 margin_top = 76.0
@@ -319,6 +358,8 @@ margin_right = 640.0
 margin_bottom = 129.0
 text = "Place Holder"
 placeholder_text = "Friendly Mod Name"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="DescriptionLbl" type="RichTextLabel" parent="MakeNewMod/VBoxContainer" index="5"]
 margin_top = 133.0
@@ -336,16 +377,16 @@ scroll_active = false
 unique_name_in_owner = true
 margin_top = 162.0
 margin_right = 640.0
-margin_bottom = 188.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 text = "Place Holder"
 
 [node name="AuthorLbl" type="RichTextLabel" parent="MakeNewMod/VBoxContainer" index="7"]
-margin_top = 192.0
+margin_top = 190.0
 margin_right = 640.0
-margin_bottom = 217.0
+margin_bottom = 215.0
 hint_tooltip = "Shown as author when clicked in the mod list"
 custom_styles/normal = ExtResource( 12 )
 bbcode_enabled = true
@@ -356,36 +397,50 @@ scroll_active = false
 
 [node name="AuthorTL" type="LineEdit" parent="MakeNewMod/VBoxContainer" index="8"]
 unique_name_in_owner = true
-margin_top = 221.0
+margin_top = 219.0
 margin_right = 640.0
-margin_bottom = 245.0
+margin_bottom = 243.0
 text = "Place Holder"
 placeholder_text = "Your/All author names"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="Padding" parent="MakeNewMod/VBoxContainer" index="9"]
-margin_top = 249.0
-margin_bottom = 293.0
+margin_top = 247.0
+margin_bottom = 289.0
 
 [node name="Create" type="Button" parent="MakeNewMod/VBoxContainer" index="10"]
-margin_top = 297.0
+margin_top = 293.0
 margin_right = 640.0
-margin_bottom = 317.0
+margin_bottom = 313.0
 text = "Create"
 
 [node name="Cancel" type="Button" parent="MakeNewMod/VBoxContainer" index="11"]
-margin_top = 321.0
+margin_top = 317.0
 margin_right = 640.0
-margin_bottom = 341.0
+margin_bottom = 337.0
 text = "Cancel"
 
 [node name="ExtraStuff" parent="MakeNewMod/VBoxContainer" index="12"]
+margin_top = 341.0
+margin_bottom = 356.0
 bbcode_text = "[center][b][i][u]Version 1.3.2[/u][/i][/b][/center]"
 text = "Version 1.3.2"
 
 [node name="Loaded" parent="." instance=ExtResource( 10 )]
 unique_name_in_owner = true
-visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 4.0
+margin_right = 640.0
+margin_bottom = 360.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource( 6 )
+
+[node name="VBoxContainer" parent="Loaded" index="0"]
+margin_bottom = 356.0
+size_flags_horizontal = 3
 
 [node name="ModNameLbl" type="RichTextLabel" parent="Loaded/VBoxContainer" index="0"]
 margin_right = 640.0
@@ -404,6 +459,8 @@ margin_top = 29.0
 margin_right = 640.0
 margin_bottom = 53.0
 placeholder_text = "Mod Name"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="padding2" type="Control" parent="Loaded/VBoxContainer" index="2"]
 margin_top = 57.0
@@ -438,6 +495,8 @@ margin_bottom = 24.0
 size_flags_horizontal = 3
 editable = false
 placeholder_text = "File path to mod here ex: (res://mod_name)"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="FolderBrowse" type="Button" parent="Loaded/VBoxContainer/FlolderPath"]
 visible = false
@@ -475,14 +534,14 @@ text = "Edit _metadata"
 [node name="padding" type="Control" parent="Loaded/VBoxContainer" index="6"]
 margin_top = 122.0
 margin_right = 640.0
-margin_bottom = 123.0
+margin_bottom = 122.0
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="Export" type="VBoxContainer" parent="Loaded/VBoxContainer" index="7"]
-margin_top = 127.0
+margin_top = 126.0
 margin_right = 640.0
-margin_bottom = 300.0
+margin_bottom = 299.0
 script = ExtResource( 7 )
 
 [node name="ExportPathLbl" type="RichTextLabel" parent="Loaded/VBoxContainer/Export"]
@@ -505,7 +564,9 @@ unique_name_in_owner = true
 margin_right = 608.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Everything Godot/YomiHustle Modding/Godot3.5.1 Steam/mods"
+placeholder_text = "Path to exported mods"
+caret_blink = true
+caret_blink_speed = 0.5
 
 [node name="ExportBrowse" type="Button" parent="Loaded/VBoxContainer/Export/HBoxContainer"]
 margin_left = 612.0
@@ -528,6 +589,7 @@ margin_top = 101.0
 margin_right = 640.0
 margin_bottom = 125.0
 text = "Export zip will contian version in name"
+clip_text = true
 
 [node name="Export" type="Button" parent="Loaded/VBoxContainer/Export"]
 unique_name_in_owner = true
@@ -563,16 +625,18 @@ margin_bottom = 289.0
 text = "Clear export Folder?"
 
 [node name="Padding" parent="Loaded/VBoxContainer" index="10"]
-margin_top = 304.0
-margin_bottom = 317.0
+margin_top = 303.0
+margin_bottom = 312.0
 
 [node name="CloseCurrent" type="Button" parent="Loaded/VBoxContainer" index="11"]
-margin_top = 321.0
+margin_top = 316.0
 margin_right = 640.0
-margin_bottom = 341.0
+margin_bottom = 336.0
 text = "Close Current"
 
 [node name="ExtraStuff" parent="Loaded/VBoxContainer" index="12"]
+margin_top = 340.0
+margin_bottom = 355.0
 bbcode_text = "[center][b][i][u]Version 1.3.2[/u][/i][/b][/center]"
 text = "Version 1.3.2"
 
