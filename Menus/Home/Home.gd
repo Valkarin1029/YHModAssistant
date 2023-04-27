@@ -1,6 +1,7 @@
 tool
 extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
 
+signal LoadMod()
 
 func _on_Create_Mod_pressed():
 	pass
@@ -13,24 +14,9 @@ func _on_SelectFolder_dir_selected(dir):
 		printerr("This is not a mod folder or missing modmain.gd")
 		return
 	
+	YHAGlobal.current_mod_path = dir
+	
+	YHAGlobal.change_scene("Mod Editor")
+	
 
-func is_valid_mod(dir):
-	var d = Directory.new()
-	d.open(dir)
-	
-	if not d.list_dir_begin(true) == OK:
-		printerr("Folder Empty")
-		return
-	
-	while true:
-		var file = d.get_next()
-		
-		file = file.to_lower()
-		
-		if file == "":
-			return false
-		
-		if file == "modmain.gd":
-			return true
-		
-	
+
