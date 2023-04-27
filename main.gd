@@ -1,16 +1,23 @@
 tool
 extends VBoxContainer
 
+signal load_mod_info()
+
 var current_mod_path
 
 func _ready():
 	pass
 
-func change_scene(nodeName):
+func change_scene(scene):
+	if scene == null:
+		printerr("Scene could not be loaded")
+		return
+	
 	for node in get_children():
-		if node.name == nodeName:
+		if node.name == scene:
 			node.visible = true
 		else:
 			node.visible = false
-		
+	
+
 	

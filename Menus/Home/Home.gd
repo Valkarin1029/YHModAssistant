@@ -17,6 +17,8 @@ func _on_SelectFolder_dir_selected(dir):
 	YHAGlobal.current_mod_path = dir
 	
 	YHAGlobal.change_scene("Mod Editor")
+	YHAGlobal.emit_signal("load_mod_info")
+#	YHAGlobal.change_scene("res://addons/YHModAssistant/Menus/Mod Editor/Mod Editor.tscn")
 	
 
 

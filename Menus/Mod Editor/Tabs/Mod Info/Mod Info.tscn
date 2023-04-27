@@ -1,15 +1,17 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Mod Info/Mod Info.gd" type="Script" id=2]
 
 [node name="Mod Info" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="VBoxContainer" parent="." index="0"]
 scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" parent="VBoxContainer" index="0"]
 margin_right = 620.0
-margin_bottom = 387.0
+margin_bottom = 434.0
 
 [node name="FriendlyNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 620.0
@@ -23,6 +25,7 @@ fit_content_height = true
 scroll_active = false
 
 [node name="FriendlyName" type="LineEdit" parent="VBoxContainer/VBoxContainer/FriendlyNameContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
@@ -43,6 +46,7 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Name" type="LineEdit" parent="VBoxContainer/VBoxContainer/NameContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
@@ -63,6 +67,7 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Description" type="TextEdit" parent="VBoxContainer/VBoxContainer/DescriptionContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 119.0
@@ -83,6 +88,7 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Version" type="LineEdit" parent="VBoxContainer/VBoxContainer/VersionContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
@@ -103,31 +109,57 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Author" type="LineEdit" parent="VBoxContainer/VBoxContainer/AuthorContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Ex: Valkarin"
 
-[node name="Client Side" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="5"]
+[node name="RequiredContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="5"]
 margin_top = 311.0
 margin_right = 620.0
-margin_bottom = 335.0
+margin_bottom = 354.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RequiredLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/RequiredContainer" index="0"]
+margin_right = 620.0
+margin_bottom = 15.0
+text = "Required Mods (Mods needed for yours to work Ex: mod_options)"
+fit_content_height = true
+scroll_active = false
+
+[node name="Required" type="LineEdit" parent="VBoxContainer/VBoxContainer/RequiredContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 19.0
+margin_right = 620.0
+margin_bottom = 43.0
+placeholder_text = "Ex: char_loader, summon_lib"
+
+[node name="Client Side" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="6"]
+unique_name_in_owner = true
+margin_top = 358.0
+margin_right = 620.0
+margin_bottom = 382.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Client Side"
 clip_text = true
 
-[node name="Overwrites" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="6"]
-margin_top = 339.0
+[node name="Overwrites" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="7"]
+unique_name_in_owner = true
+margin_top = 386.0
 margin_right = 620.0
-margin_bottom = 363.0
+margin_bottom = 410.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Overwrites (Texture mods)"
 clip_text = true
 
-[node name="ApplyMeta" type="Button" parent="VBoxContainer/VBoxContainer" index="7"]
-margin_top = 367.0
+[node name="ApplyMeta" type="Button" parent="VBoxContainer/VBoxContainer" index="8"]
+margin_top = 414.0
 margin_right = 620.0
-margin_bottom = 387.0
+margin_bottom = 434.0
 text = "Apply to meta data"
+
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ApplyMeta" to="." method="_on_ApplyMeta_pressed"]

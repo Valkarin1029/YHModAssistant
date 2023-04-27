@@ -1,14 +1,10 @@
 tool
 extends Control
 
-onready var YHAGlobal = get_node("..")
+onready var YHAGlobal = find_parent("YH Mod Assistant")
 
 func _ready():
-	while YHAGlobal.name != "YH Mod Assistant":
-		YHAGlobal = YHAGlobal.get_node("..")
-		if YHAGlobal is ViewportContainer:
-			print("Cant find YH Mod Assistant")
-			return false
+	pass
 	
 
 func is_valid_mod(dir):
