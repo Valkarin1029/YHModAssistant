@@ -27,19 +27,21 @@ mode = 2
 
 [node name="Create_Mod" type="Button" parent="VBoxContainer" index="0"]
 margin_right = 640.0
-margin_bottom = 20.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
 text = "Create New Mod"
 clip_text = true
 
 [node name="Select_Mod" type="Button" parent="VBoxContainer" index="1"]
-margin_top = 24.0
+margin_top = 44.0
 margin_right = 640.0
-margin_bottom = 44.0
+margin_bottom = 84.0
+rect_min_size = Vector2( 0, 40 )
 text = "Select An Existing Mod"
 clip_text = true
 
 [node name="Padding" parent="VBoxContainer" index="2"]
-margin_top = 48.0
+margin_top = 88.0
 margin_bottom = 331.0
 
 [node name="Back" type="Button" parent="VBoxContainer" index="3"]

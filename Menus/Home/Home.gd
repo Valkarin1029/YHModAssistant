@@ -11,7 +11,7 @@ func _on_Select_Mod_pressed():
 
 func _on_SelectFolder_dir_selected(dir):
 	if not is_valid_mod(dir):
-		printerr("This is not a mod folder or missing modmain.gd")
+		printerr("This is not a mod folder or missing modmain.gd -YH Assistant")
 		return
 	
 	YHAGlobal.current_mod_path = dir

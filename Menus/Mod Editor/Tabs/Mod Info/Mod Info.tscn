@@ -7,11 +7,15 @@
 script = ExtResource( 2 )
 
 [node name="VBoxContainer" parent="." index="0"]
+margin_bottom = -29.0
 scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="VBoxContainer" parent="VBoxContainer" index="0"]
 margin_right = 620.0
-margin_bottom = 434.0
+margin_bottom = 410.0
 
 [node name="FriendlyNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 620.0
@@ -156,10 +160,12 @@ size_flags_vertical = 3
 text = "Overwrites (Texture mods)"
 clip_text = true
 
-[node name="ApplyMeta" type="Button" parent="VBoxContainer/VBoxContainer" index="8"]
-margin_top = 414.0
-margin_right = 620.0
-margin_bottom = 434.0
+[node name="ApplyMeta" type="Button" parent="." index="1"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -24.0
+margin_bottom = -4.0
 text = "Apply to meta data"
 
-[connection signal="pressed" from="VBoxContainer/VBoxContainer/ApplyMeta" to="." method="_on_ApplyMeta_pressed"]
+[connection signal="pressed" from="ApplyMeta" to="." method="_on_ApplyMeta_pressed"]

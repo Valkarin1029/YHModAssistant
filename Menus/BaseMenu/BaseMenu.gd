@@ -12,7 +12,7 @@ func is_valid_mod(dir):
 	d.open(dir)
 	
 	if not d.list_dir_begin(true) == OK:
-		printerr("Folder Empty")
+		printerr("Folder Empty -YH Assistant")
 		return
 	
 	while true:

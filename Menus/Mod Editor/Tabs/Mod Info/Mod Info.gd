@@ -12,7 +12,8 @@ func _ready():
 		current_mod_path = YHAGlobal.current_mod_path
 	
 	YHAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
-
+	
+	
 
 func _on_ApplyMeta_pressed():
 	YHAGlobal = find_parent("YH Mod Assistant")
@@ -53,12 +54,13 @@ func _on_ApplyMeta_pressed():
 		file.store_string(JSON.print(contents, "\t"))
 		file.close()
 		
+		print("Metadata updated -YH Assistant")
+		
 	else:
-		print("Making new metadata")
+		print("Making new metadata -YH Assistant")
 		file.open(meta_data_path, File.WRITE)
 		file.store_string(JSON.print(new_meta, "\t"))
 		file.close()
-	
 	
 	
 
@@ -87,4 +89,4 @@ func _load_mod_info_from_metadata():
 		$"%Client Side".pressed = contents.client_side if not null else ""
 		$"%Overwrites".pressed = contents.overwrites if not null else ""
 	
-	
+	print("Loaded Meta Data -YH Assistant")

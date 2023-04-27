@@ -10,7 +10,7 @@ func _ready():
 
 func change_scene(scene):
 	if scene == null:
-		printerr("Scene could not be loaded")
+		printerr("Scene could not be loaded -YH Assistant")
 		return
 	
 	for node in get_children():

@@ -28,7 +28,7 @@ func build():
 	var exportSuccess = false
 	
 	if autoExport == null:
-		printerr("Auto Export Button not found")
+		printerr("Auto Export Button not found -YH Assistant")
 		return false
 	
 	if autoExport.pressed:
