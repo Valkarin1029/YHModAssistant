@@ -9,106 +9,106 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" parent="VBoxContainer" index="0"]
 margin_right = 620.0
-margin_bottom = 359.0
+margin_bottom = 387.0
 
-[node name="VBoxContainer6" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
+[node name="FriendlyNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 43.0
 
-[node name="VBoxContainer@VBoxContainer@RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer6" index="0"]
+[node name="FriendlyNameLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/FriendlyNameContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 15.0
 text = "Friendly Mod Name (Mod name that is displayed)"
 fit_content_height = true
 scroll_active = false
 
-[node name="VBoxContainer@VBoxContainer@LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer6" index="1"]
+[node name="FriendlyName" type="LineEdit" parent="VBoxContainer/VBoxContainer/FriendlyNameContainer" index="1"]
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Ex: Chat Emojis"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
+[node name="NameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
 margin_top = 47.0
 margin_right = 620.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer2" index="0"]
+[node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/NameContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 15.0
 text = "Mod Name (Mod name that is used to refrence the mod in code)"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer2" index="1"]
+[node name="Name" type="LineEdit" parent="VBoxContainer/VBoxContainer/NameContainer" index="1"]
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Ex: chat_emoji"
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="2"]
+[node name="DescriptionContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="2"]
 margin_top = 94.0
 margin_right = 620.0
 margin_bottom = 213.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer3" index="0"]
+[node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/DescriptionContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 15.0
 text = "Description"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="TextEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer3" index="1"]
+[node name="Description" type="TextEdit" parent="VBoxContainer/VBoxContainer/DescriptionContainer" index="1"]
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 119.0
 rect_min_size = Vector2( 0, 100 )
 
-[node name="VBoxContainer4" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="3"]
+[node name="VersionContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="3"]
 margin_top = 217.0
 margin_right = 620.0
 margin_bottom = 260.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer4" index="0"]
+[node name="VersionLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VersionContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 15.0
 text = "Version (Suggest Semantic Versioning)"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer4" index="1"]
+[node name="Version" type="LineEdit" parent="VBoxContainer/VBoxContainer/VersionContainer" index="1"]
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Major Version. Minor Version. Patches. Ex: v1.3.2"
 
-[node name="VBoxContainer5" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="4"]
+[node name="AuthorContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="4"]
 margin_top = 264.0
 margin_right = 620.0
 margin_bottom = 307.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer5" index="0"]
+[node name="AuthorLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/AuthorContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 15.0
 text = "Author(s)"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer5" index="1"]
+[node name="Author" type="LineEdit" parent="VBoxContainer/VBoxContainer/AuthorContainer" index="1"]
 margin_top = 19.0
 margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Ex: Valkarin"
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="5"]
+[node name="Client Side" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="5"]
 margin_top = 311.0
 margin_right = 620.0
 margin_bottom = 335.0
@@ -117,8 +117,17 @@ size_flags_vertical = 3
 text = "Client Side"
 clip_text = true
 
-[node name="ApplyMeta" type="Button" parent="VBoxContainer/VBoxContainer" index="6"]
+[node name="Overwrites" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="6"]
 margin_top = 339.0
 margin_right = 620.0
-margin_bottom = 359.0
+margin_bottom = 363.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Overwrites (Texture mods)"
+clip_text = true
+
+[node name="ApplyMeta" type="Button" parent="VBoxContainer/VBoxContainer" index="7"]
+margin_top = 367.0
+margin_right = 620.0
+margin_bottom = 387.0
 text = "Apply to meta data"
