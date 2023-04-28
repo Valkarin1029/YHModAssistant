@@ -1,5 +1,14 @@
 import os
 import zipfile
+import argparse
+
+parser = argparse.ArgumentParser()
+
+parser.add_argument("-fn", dest="file_name")
+parser.add_argument("-td", dest="target_directory")
+parser.add_argument("-ep", dest="export_path")
+
+args = parser.parse_args()
 
 def zipfolder(zipname, target_dir, savepth = None):
     zipobj = zipfile.ZipFile('' if savepth == None else savepth + '/' + zipname + '.zip', 'w', zipfile.ZIP_DEFLATED)
@@ -15,12 +24,12 @@ def zipfolder(zipname, target_dir, savepth = None):
     zipobj.close()
 
 
-def get_paths():
-    contents = ''
-    with open("cfg.txt", "r") as file:
-        contents = file.read()
-    
-    return contents.split(',')
+#def get_paths():
+#    contents = ''
+#    with open("cfg.txt", "r") as file:
+#        contents = file.read()
+#    
+#    return contents.split(',')
 
 #zipname = input()
 #target_dir = input()
@@ -28,7 +37,7 @@ def get_paths():
 
 
 if __name__ == '__main__':
-    zipname, target_dir, savepth = get_paths()
+    zipname, target_dir, savepth = args.file_name, args.target_directory, args.export_path
 
     print(zipname)
     print(target_dir)

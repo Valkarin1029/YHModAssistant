@@ -24,7 +24,7 @@ func _exit_tree():
 
 func build():
 	var autoExport = dock.find_node("AutoExport")
-	var Export = dock.find("Export")
+	var Export = dock.find_node("Export")
 	var exportSuccess = false
 	
 	if autoExport == null:
@@ -32,7 +32,7 @@ func build():
 		return false
 	
 	if autoExport.pressed:
-		exportSuccess = Export.exportZip()
+		exportSuccess = Export._on_Export_pressed()
 	else:
 		exportSuccess = true
 	

@@ -18,6 +18,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
 margin_bottom = 360.0
+rect_min_size = Vector2( 0, 360 )
 
 [node name="Mod Editor" parent="." instance=ExtResource( 3 )]
 visible = false
@@ -25,6 +26,7 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 182.0
 margin_right = 640.0
-margin_bottom = 360.0
+margin_bottom = 542.0
+rect_min_size = Vector2( 0, 360 )
 
 [connection signal="LoadMod" from="Home" to="." method="_on_Home_LoadMod"]

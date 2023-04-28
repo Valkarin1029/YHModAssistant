@@ -53,7 +53,7 @@ placeholder_text = "Mod folder path"
 [node name="ExportPathContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
 margin_top = 47.0
 margin_right = 632.0
-margin_bottom = 90.0
+margin_bottom = 119.0
 
 [node name="Export Path Label" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="0"]
 margin_right = 632.0
@@ -74,7 +74,7 @@ unique_name_in_owner = true
 margin_right = 600.0
 margin_bottom = 24.0
 size_flags_horizontal = 3
-placeholder_text = "Exported Mod Path"
+placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Everything Godot/YomiHustle Modding/Godot3.5.1 Steam/mods"
 
 [node name="SelectExportPath" type="Button" parent="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
@@ -84,10 +84,17 @@ margin_bottom = 24.0
 icon = ExtResource( 2 )
 clip_text = true
 
-[node name="FileNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="2"]
-margin_top = 94.0
+[node name="OpenExportPath" type="Button" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="2"]
+margin_top = 47.0
 margin_right = 632.0
-margin_bottom = 165.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 0, 25 )
+text = "Open Export Path"
+
+[node name="FileNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="2"]
+margin_top = 123.0
+margin_right = 632.0
+margin_bottom = 194.0
 
 [node name="FileNameLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/FileNameContainer" index="0"]
 margin_right = 632.0
@@ -107,6 +114,7 @@ size_flags_horizontal = 3
 placeholder_text = "File Name"
 
 [node name="IncludeVersion" type="CheckBox" parent="VBoxContainer/VBoxContainer/FileNameContainer" index="2"]
+unique_name_in_owner = true
 margin_top = 47.0
 margin_right = 632.0
 margin_bottom = 71.0
@@ -116,7 +124,7 @@ clip_text = true
 
 [node name="Padding" parent="VBoxContainer/VBoxContainer" index="3"]
 visible = true
-margin_top = 169.0
+margin_top = 198.0
 margin_bottom = 250.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." index="2"]
@@ -146,3 +154,6 @@ clip_text = true
 [connection signal="dir_selected" from="SelectExportFolder" to="." method="_on_SelectExportFolder_dir_selected"]
 [connection signal="text_changed" from="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer/Export Path" to="." method="_on_Export_Path_text_changed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer/SelectExportPath" to="." method="_on_SelectExportPath_pressed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportPathContainer/OpenExportPath" to="." method="_on_OpenExportPath_pressed"]
+[connection signal="text_changed" from="VBoxContainer/VBoxContainer/FileNameContainer/FileName" to="." method="_on_FileName_text_changed"]
+[connection signal="pressed" from="VBoxContainer2/Export" to="." method="_on_Export_pressed"]
