@@ -23,8 +23,8 @@ func _exit_tree():
 
 
 func build():
-	var autoExport = dock.get_node_or_null("Loaded/VBoxContainer/Export/AutoExport")
-	var Export = dock.get_node_or_null("Loaded/VBoxContainer/Export")
+	var autoExport = dock.find_node("AutoExport")
+	var Export = dock.find("Export")
 	var exportSuccess = false
 	
 	if autoExport == null:

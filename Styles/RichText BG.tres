@@ -2,8 +2,8 @@
 
 [resource]
 content_margin_left = 8.0
-bg_color = Color( 0.17625, 0.135, 0.3, 1 )
-border_width_top = 5
-border_width_bottom = 5
-border_color = Color( 0.176471, 0.133333, 0.298039, 1 )
+bg_color = Color( 0.1037, 0.122485, 0.17, 1 )
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color( 0.121164, 0.140257, 0.187988, 1 )
 border_blend = true

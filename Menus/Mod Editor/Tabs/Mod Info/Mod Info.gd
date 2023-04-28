@@ -61,11 +61,14 @@ func _on_ApplyMeta_pressed():
 		file.store_string(JSON.print(new_meta, "\t"))
 		file.close()
 	
-	
+	YHAGlobal.emit_signal("load_mod_info", false)
 
-func _load_mod_info_from_metadata():
+func _load_mod_info_from_metadata(updateInfo):
 	YHAGlobal = find_parent("YH Mod Assistant")
 	current_mod_path = YHAGlobal.current_mod_path
+	
+	if not updateInfo:
+		return
 	
 	var meta_data_path = current_mod_path.plus_file("_metadata")
 	

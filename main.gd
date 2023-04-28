@@ -1,7 +1,7 @@
 tool
 extends VBoxContainer
 
-signal load_mod_info()
+signal load_mod_info(update_info_tab)
 
 var current_mod_path
 
