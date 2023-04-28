@@ -10,8 +10,7 @@ func _ready():
 	YHAGlobal = find_parent("YH Mod Assistant")
 	if not YHAGlobal == null:
 		current_mod_path = YHAGlobal.current_mod_path
-	
-	YHAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
+		YHAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
 	
 	
 

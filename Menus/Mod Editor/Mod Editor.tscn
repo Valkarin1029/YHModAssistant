@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Mod Info/Mod Info.tscn" type="PackedScene" id=2]
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Mod Editor.gd" type="Script" id=3]
+[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Export/Export.tscn" type="PackedScene" id=4]
 
 [node name="Mod Editor" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -16,6 +17,9 @@ size_flags_vertical = 3
 tab_align = 0
 
 [node name="Mod Info" parent="VBoxContainer/TabContainer" index="0" instance=ExtResource( 2 )]
+
+[node name="Export" parent="VBoxContainer/TabContainer" index="1" instance=ExtResource( 4 )]
+visible = false
 
 [node name="Padding" parent="VBoxContainer" index="1"]
 visible = false
