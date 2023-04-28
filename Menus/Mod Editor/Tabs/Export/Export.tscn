@@ -1,49 +1,95 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHModAssistant/icons/Folder.svg" type="Texture" id=2]
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Export/Export.gd" type="Script" id=3]
 
 [node name="Export" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
+[node name="SelectExportFolder" type="FileDialog" parent="." index="0"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -446.0
+margin_top = -248.0
+margin_right = 446.0
+margin_bottom = 248.0
+window_title = "Select the Folder for exported mods"
+mode_overrides_title = false
+mode = 2
+access = 2
+
+[node name="ModFolderPathContianer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 632.0
 margin_bottom = 43.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer" index="0"]
+[node name="ModFolderPathLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/ModFolderPathContianer" index="0"]
 margin_right = 632.0
 margin_bottom = 15.0
-text = "Mod Folder Path (The folder of the mod being exported.)"
+hint_tooltip = "The folder of the mod being exported.
+If this is wrong go home and reselect the mod"
+text = "Mod Folder Path"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer" index="1"]
+[node name="ModFolderPath" type="LineEdit" parent="VBoxContainer/VBoxContainer/ModFolderPathContianer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 632.0
 margin_bottom = 43.0
-hint_tooltip = "If this is wrong go home and reselect the mod"
 size_flags_horizontal = 3
 editable = false
 placeholder_text = "Mod folder path"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
+[node name="ExportPathContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="1"]
 margin_top = 47.0
 margin_right = 632.0
 margin_bottom = 90.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VBoxContainer2" index="0"]
+[node name="Export Path Label" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="0"]
 margin_right = 632.0
 margin_bottom = 15.0
-hint_tooltip = "The location on your system that your mod will be exported too"
+hint_tooltip = "The location on your system that your mod will be exported too.
+Leave empty if you want you mod to auto export to debugger location"
 text = "Export Path"
 fit_content_height = true
 scroll_active = false
 
-[node name="LineEdit" type="LineEdit" parent="VBoxContainer/VBoxContainer/VBoxContainer2" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="1"]
 margin_top = 19.0
 margin_right = 632.0
 margin_bottom = 43.0
-hint_tooltip = "If this is wrong go home and reselect the mod"
+
+[node name="Export Path" type="LineEdit" parent="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer" index="0"]
+unique_name_in_owner = true
+margin_right = 600.0
+margin_bottom = 24.0
 size_flags_horizontal = 3
-editable = false
-placeholder_text = "Mod folder path"
+placeholder_text = "Exported Mod Path"
+
+[node name="SelectExportPath" type="Button" parent="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer" index="1"]
+unique_name_in_owner = true
+margin_left = 604.0
+margin_right = 632.0
+margin_bottom = 24.0
+icon = ExtResource( 2 )
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="2"]
+margin_top = 94.0
+margin_right = 632.0
+margin_bottom = 118.0
+text = "Include Version in the Name on export"
+
+[node name="CheckButton" type="CheckButton" parent="VBoxContainer/VBoxContainer" index="3"]
+margin_top = 122.0
+margin_right = 632.0
+margin_bottom = 162.0
+text = "Auto Export Mod When Debugger Is Ran"
+clip_text = true
+
+[connection signal="dir_selected" from="SelectExportFolder" to="." method="_on_SelectExportFolder_dir_selected"]
+[connection signal="text_changed" from="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer/Export Path" to="." method="_on_Export_Path_text_changed"]
+[connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer/SelectExportPath" to="." method="_on_SelectExportPath_pressed"]
