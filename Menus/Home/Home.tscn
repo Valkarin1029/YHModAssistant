@@ -42,9 +42,10 @@ clip_text = true
 
 [node name="Padding" parent="VBoxContainer" index="2"]
 margin_top = 88.0
-margin_bottom = 297.0
+margin_bottom = 341.0
 
 [node name="Update_Assistant" type="Button" parent="VBoxContainer" index="3"]
+visible = false
 margin_top = 301.0
 margin_right = 640.0
 margin_bottom = 341.0
@@ -58,8 +59,8 @@ margin_top = 345.0
 margin_right = 640.0
 margin_bottom = 360.0
 bbcode_enabled = true
-bbcode_text = "[center]YH Mod Assistant v{version}[/center]"
-text = "YH Mod Assistant v{version}"
+bbcode_text = "[center]YH Mod Assistant v2.0.0-Beta-Build[/center]"
+text = "YH Mod Assistant v2.0.0-Beta-Build"
 fit_content_height = true
 
 [node name="Back" type="Button" parent="VBoxContainer" index="5"]
