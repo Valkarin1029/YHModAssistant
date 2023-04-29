@@ -3,6 +3,20 @@ extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
 
 signal LoadMod()
 
+func _ready():
+	
+	var plugin_config = ConfigFile.new()
+	
+	if plugin_config.load("res://addons/YHModAssistant/plugin.cfg") != OK:
+		printerr("Could not read config file -YH Mod Assistant")
+	
+	$"%AssistantVersionLabel".bbcode_text = $"%AssistantVersionLabel".bbcode_text.format(
+		{"version": plugin_config.get_value("plugin", "version")}
+		)
+	
+	
+	
+
 func _on_Create_Mod_pressed():
 	pass
 

@@ -42,8 +42,27 @@ clip_text = true
 
 [node name="Padding" parent="VBoxContainer" index="2"]
 margin_top = 88.0
+margin_bottom = 297.0
 
-[node name="Back" type="Button" parent="VBoxContainer" index="3"]
+[node name="Update_Assistant" type="Button" parent="VBoxContainer" index="3"]
+margin_top = 301.0
+margin_right = 640.0
+margin_bottom = 341.0
+rect_min_size = Vector2( 0, 40 )
+text = "A New Version Is Availiable! Press to update."
+clip_text = true
+
+[node name="AssistantVersionLabel" type="RichTextLabel" parent="VBoxContainer" index="4"]
+unique_name_in_owner = true
+margin_top = 345.0
+margin_right = 640.0
+margin_bottom = 360.0
+bbcode_enabled = true
+bbcode_text = "[center]YH Mod Assistant v{version}[/center]"
+text = "YH Mod Assistant v{version}"
+fit_content_height = true
+
+[node name="Back" type="Button" parent="VBoxContainer" index="5"]
 visible = false
 margin_top = 335.0
 margin_right = 640.0

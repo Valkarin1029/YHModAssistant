@@ -8,6 +8,10 @@
 [node name="Mod Editor" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 
+[node name="VBoxContainer" parent="." index="0"]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
 [node name="TabContainer" type="TabContainer" parent="VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 336.0
