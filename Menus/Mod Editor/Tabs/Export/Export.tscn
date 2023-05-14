@@ -122,7 +122,33 @@ hint_tooltip = "Includes the version when exported. Ex: chat_emojis_v1.1.3"
 text = "Include Version in the Export Name When Exported"
 clip_text = true
 
-[node name="Padding" parent="VBoxContainer/VBoxContainer" index="3"]
+[node name="MiscOptionsContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="3"]
+visible = false
+margin_top = 198.0
+margin_right = 632.0
+margin_bottom = 241.0
+
+[node name="MiscOptionsLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/MiscOptionsContainer" index="0"]
+margin_right = 632.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "[b][center]Misc Options"
+text = "Misc Options"
+fit_content_height = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer/MiscOptionsContainer" index="1"]
+margin_top = 19.0
+margin_right = 632.0
+margin_bottom = 43.0
+
+[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer/MiscOptionsContainer/VBoxContainer" index="0"]
+margin_right = 632.0
+margin_bottom = 24.0
+hint_tooltip = "This is something you should only enable if you need custom textures and they are not loading."
+text = "Include .import folder in zip"
+clip_text = true
+
+[node name="Padding" parent="VBoxContainer/VBoxContainer" index="4"]
 visible = true
 margin_top = 198.0
 margin_bottom = 250.0

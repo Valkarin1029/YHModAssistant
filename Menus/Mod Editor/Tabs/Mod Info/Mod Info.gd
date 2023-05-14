@@ -23,9 +23,17 @@ func _on_ApplyMeta_pressed():
 	var dir = Directory.new()
 	var file = File.new()
 	
-	var required_mods = []
+	var required_mods = [""]
 	
 	for required in $"%Required".text.split(",", false):
+		
+		required = required.strip_edges()
+		
+		if required_mods[0] == "":
+			required_mods.pop_front()
+			required_mods.append(required)
+			continue
+		
 		required_mods.append(required)
 	
 	var new_meta = {
@@ -37,7 +45,7 @@ func _on_ApplyMeta_pressed():
 		"client_side": $"%Client Side".pressed,
 		"overwrites": $"%Overwrites".pressed,
 		"requires": required_mods,
-		"priority": 0,
+		"priority": $"%Priority".value,
 		"id": 12345,
 		"link": "",
 	}
@@ -87,7 +95,8 @@ func _load_mod_info_from_metadata(updateInfo):
 		$"%Description".text = contents.description if not null else ""
 		$"%Version".text = contents.version if not null else ""
 		$"%Author".text = contents.author if not null else ""
-		$"%Required".text = PoolStringArray(contents.requires).join(',') if not null else ""
+		$"%Required".text = PoolStringArray(contents.requires).join(', ') if not null else ""
+		$"%Priority".value = contents.priority if not null else 0
 		$"%Client Side".pressed = contents.client_side if not null else ""
 		$"%Overwrites".pressed = contents.overwrites if not null else ""
 	

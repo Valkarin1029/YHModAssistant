@@ -15,7 +15,7 @@ __meta__ = {
 
 [node name="VBoxContainer" parent="VBoxContainer" index="0"]
 margin_right = 620.0
-margin_bottom = 410.0
+margin_bottom = 457.0
 
 [node name="FriendlyNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 620.0
@@ -147,22 +147,45 @@ margin_right = 620.0
 margin_bottom = 43.0
 placeholder_text = "Ex: char_loader, summon_lib"
 
-[node name="Client Side" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="6"]
-unique_name_in_owner = true
+[node name="PriorityContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="6"]
 margin_top = 358.0
 margin_right = 620.0
-margin_bottom = 382.0
+margin_bottom = 401.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PriorityLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/PriorityContainer" index="0"]
+margin_right = 620.0
+margin_bottom = 15.0
+hint_tooltip = "Lowest Priority gets ran first. If same as another mod has same priority it's done by alphabetical order."
+text = "Mod Priority"
+fit_content_height = true
+scroll_active = false
+
+[node name="Priority" type="SpinBox" parent="VBoxContainer/VBoxContainer/PriorityContainer" index="1"]
+unique_name_in_owner = true
+margin_top = 19.0
+margin_right = 620.0
+margin_bottom = 43.0
+allow_greater = true
+allow_lesser = true
+
+[node name="Client Side" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="7"]
+unique_name_in_owner = true
+margin_top = 405.0
+margin_right = 620.0
+margin_bottom = 429.0
 hint_tooltip = "Toggle if your mod is client side and does not affect the game as a whole"
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Client Side"
 clip_text = true
 
-[node name="Overwrites" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="7"]
+[node name="Overwrites" type="CheckBox" parent="VBoxContainer/VBoxContainer" index="8"]
 unique_name_in_owner = true
-margin_top = 386.0
+margin_top = 433.0
 margin_right = 620.0
-margin_bottom = 410.0
+margin_bottom = 457.0
 hint_tooltip = "Used if your mod has overwrite textures for characters aka A Retexture Mod"
 size_flags_horizontal = 3
 size_flags_vertical = 3
