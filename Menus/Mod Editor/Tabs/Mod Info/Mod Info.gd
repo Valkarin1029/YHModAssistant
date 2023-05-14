@@ -100,4 +100,6 @@ func _load_mod_info_from_metadata(updateInfo):
 		$"%Client Side".pressed = contents.client_side if not null else ""
 		$"%Overwrites".pressed = contents.overwrites if not null else ""
 	
-	print("Loaded Meta Data -YH Assistant")
+		print("Loaded Meta Data -YH Assistant")
+	else:
+		printerr("No Metadata to load from - YH Assistant")

@@ -41,10 +41,10 @@ func _load_mod_info(replace):
 		var contents = JSON.parse(file.get_as_text()).result
 		file.close()
 		mod_info = contents
-		
+#		print(mod_info)
 	
-	previous_export_name = mod_info.name
-	$"%FileName".placeholder_text = mod_info.name
+		previous_export_name = mod_info.name
+		$"%FileName".placeholder_text = mod_info.name
 
 func _on_SelectExportPath_pressed():
 	$"%SelectExportFolder".popup()
