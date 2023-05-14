@@ -18,7 +18,7 @@ func _ready():
 	
 
 func _on_Create_Mod_pressed():
-	pass
+	YHAGlobal.change_scene("TemplateSelection")
 
 func _on_Select_Mod_pressed():
 	$"%SelectFolder".popup()
