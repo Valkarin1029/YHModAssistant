@@ -97,8 +97,8 @@ func _load_mod_info_from_metadata(updateInfo):
 		$"%Author".text = contents.author if not null else ""
 		$"%Required".text = PoolStringArray(contents.requires).join(', ') if not null else ""
 		$"%Priority".value = contents.priority if not null else 0
-		$"%Client Side".pressed = contents.client_side if not null else ""
-		$"%Overwrites".pressed = contents.overwrites if not null else ""
+		$"%Client Side".pressed = contents.client_side if not null else false
+		$"%Overwrites".pressed = contents.overwrites if not null else false
 	
 		print("Loaded Meta Data -YH Assistant")
 	else:

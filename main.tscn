@@ -15,7 +15,6 @@ theme = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="Home" parent="." instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
@@ -32,9 +31,11 @@ margin_bottom = 542.0
 rect_min_size = Vector2( 0, 360 )
 
 [node name="New Mod" parent="." instance=ExtResource( 5 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
 margin_bottom = 360.0
+templateButtonGroup = null
 
 [connection signal="LoadMod" from="Home" to="." method="_on_Home_LoadMod"]

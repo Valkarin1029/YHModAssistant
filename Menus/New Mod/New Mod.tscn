@@ -9,7 +9,7 @@
 resource_name = "CharacterOptionsSlideIn"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:rect_min_size")
+tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -21,7 +21,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( 0, 90 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:visible")
+tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -37,7 +37,7 @@ tracks/1/keys = {
 resource_name = "CharacterOptionsSlideOut"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:rect_min_size")
+tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -49,7 +49,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 90 ), Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:visible")
+tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -65,7 +65,7 @@ tracks/1/keys = {
 resource_name = "OverwritesOptionsSlideIn"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:visible")
+tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -77,7 +77,7 @@ tracks/0/keys = {
 "values": [ true ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:rect_min_size")
+tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -93,7 +93,7 @@ tracks/1/keys = {
 resource_name = "OverwritesOptionsSlideOut"
 length = 0.5
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:visible")
+tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -105,7 +105,7 @@ tracks/0/keys = {
 "values": [ false ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:rect_min_size")
+tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -120,7 +120,7 @@ tracks/1/keys = {
 [sub_resource type="Animation" id=6]
 length = 0.001
 tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:rect_min_size")
+tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -132,7 +132,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/CharTempContainer/Options:visible")
+tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -144,7 +144,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:visible")
+tracks/2/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -156,7 +156,7 @@ tracks/2/keys = {
 "values": [ false ]
 }
 tracks/3/type = "value"
-tracks/3/path = NodePath("VBoxContainer/Templates/OverwritesTempContainer/Options:rect_min_size")
+tracks/3/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
@@ -170,22 +170,36 @@ tracks/3/keys = {
 
 [node name="New Mod" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+templateButtonGroup = SubResource( 1 )
 
 [node name="VBoxContainer" parent="." index="0"]
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Templates" type="VBoxContainer" parent="VBoxContainer" index="0"]
+unique_name_in_owner = true
 margin_right = 640.0
 margin_bottom = 360.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="BlankTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates" index="0"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/Templates" index="0"]
+margin_right = 640.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer" index="0"]
+margin_right = 640.0
+margin_bottom = 302.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BlankTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 40.0
 
-[node name="BlankTemp" type="Button" parent="VBoxContainer/Templates/BlankTempContainer" index="0"]
+[node name="BlankTemp" type="Button" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/BlankTempContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -195,7 +209,7 @@ group = SubResource( 1 )
 text = "Blank Template"
 clip_text = true
 
-[node name="Options" type="Control" parent="VBoxContainer/Templates/BlankTempContainer" index="1"]
+[node name="Options" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/BlankTempContainer" index="1"]
 visible = false
 margin_top = 44.0
 margin_right = 640.0
@@ -204,21 +218,21 @@ rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/BlankTempContainer/Options" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/BlankTempContainer/Options" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="CharTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates" index="1"]
+[node name="CharTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="1"]
 margin_top = 44.0
 margin_right = 640.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="CharTemp" type="Button" parent="VBoxContainer/Templates/CharTempContainer" index="0"]
+[node name="CharTemp" type="Button" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -227,7 +241,8 @@ group = SubResource( 1 )
 text = "Character Template"
 clip_text = true
 
-[node name="Options" type="Control" parent="VBoxContainer/Templates/CharTempContainer" index="1"]
+[node name="CharOptions" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer" index="1"]
+unique_name_in_owner = true
 visible = false
 margin_top = 44.0
 margin_right = 640.0
@@ -236,18 +251,18 @@ rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/CharTempContainer/Options" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 43.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer/VBoxContainer" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 15.0
 hint_tooltip = "Name of the character"
@@ -255,18 +270,19 @@ text = "Character Name"
 fit_content_height = true
 scroll_active = false
 
-[node name="CharName" type="LineEdit" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer/VBoxContainer" index="1"]
+[node name="CharName" type="LineEdit" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 640.0
 margin_bottom = 43.0
 placeholder_text = "Ex: Dab Em Up"
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer" index="1"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer" index="1"]
 margin_top = 47.0
 margin_right = 640.0
 margin_bottom = 90.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer/VBoxContainer2" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer/VBoxContainer2" index="0"]
 margin_right = 640.0
 margin_bottom = 15.0
 hint_tooltip = "Leave empty if you want it to be your character name"
@@ -274,18 +290,19 @@ text = "Character Button Name"
 fit_content_height = true
 scroll_active = false
 
-[node name="CharButtonName" type="LineEdit" parent="VBoxContainer/Templates/CharTempContainer/Options/VBoxContainer/VBoxContainer2" index="1"]
+[node name="CharButtonName" type="LineEdit" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions/VBoxContainer/VBoxContainer2" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 640.0
 margin_bottom = 43.0
 placeholder_text = "Leave Empty to be same as character anem"
 
-[node name="OverwritesTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates" index="2"]
+[node name="OverwritesTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="2"]
 margin_top = 88.0
 margin_right = 640.0
-margin_bottom = 128.0
+margin_bottom = 259.0
 
-[node name="OverwritesTemp" type="Button" parent="VBoxContainer/Templates/OverwritesTempContainer" index="0"]
+[node name="OverwritesTemp" type="Button" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
@@ -294,70 +311,75 @@ group = SubResource( 1 )
 text = "Overwrites Tempalte"
 clip_text = true
 
-[node name="Options" type="Control" parent="VBoxContainer/Templates/OverwritesTempContainer" index="1"]
+[node name="OWOptions" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer" index="1"]
+unique_name_in_owner = true
 visible = false
 margin_top = 44.0
 margin_right = 640.0
-margin_bottom = 44.0026
+margin_bottom = 171.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/OverwritesTempContainer/Options" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions" index="0"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer" index="0"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 127.0
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer/VBoxContainer" index="0"]
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer/VBoxContainer" index="0"]
 margin_right = 640.0
 margin_bottom = 15.0
 hint_tooltip = "This will create all the folders with their respective animation names for retexturing"
 text = "Make Folders For Character Animations"
 fit_content_height = true
 
-[node name="Ninja" type="CheckBox" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer/VBoxContainer" index="1"]
+[node name="Ninja" type="CheckBox" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer/VBoxContainer" index="1"]
+unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 640.0
 margin_bottom = 43.0
 text = "Ninja"
 clip_text = true
 
-[node name="Wizard" type="CheckBox" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer/VBoxContainer" index="2"]
+[node name="Wizard" type="CheckBox" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer/VBoxContainer" index="2"]
+unique_name_in_owner = true
 margin_top = 47.0
 margin_right = 640.0
 margin_bottom = 71.0
 text = "Wizard"
 clip_text = true
 
-[node name="Cowboy" type="CheckBox" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer/VBoxContainer" index="3"]
+[node name="Cowboy" type="CheckBox" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer/VBoxContainer" index="3"]
+unique_name_in_owner = true
 margin_top = 75.0
 margin_right = 640.0
 margin_bottom = 99.0
 text = "Cowboy"
 clip_text = true
 
-[node name="Robot" type="CheckBox" parent="VBoxContainer/Templates/OverwritesTempContainer/Options/VBoxContainer/VBoxContainer" index="4"]
+[node name="Robot" type="CheckBox" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions/VBoxContainer/VBoxContainer" index="4"]
+unique_name_in_owner = true
 margin_top = 103.0
 margin_right = 640.0
 margin_bottom = 127.0
 text = "Robot"
 clip_text = true
 
-[node name="Padding" type="Control" parent="VBoxContainer/Templates" index="3"]
-margin_top = 132.0
+[node name="Padding" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="3"]
+margin_top = 263.0
 margin_right = 640.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.8
 
-[node name="Next" type="Button" parent="VBoxContainer/Templates" index="4"]
+[node name="TemplatesNext" type="Button" parent="VBoxContainer/Templates" index="1"]
 margin_top = 306.0
 margin_right = 640.0
 margin_bottom = 336.0
@@ -365,7 +387,7 @@ rect_min_size = Vector2( 0, 30 )
 text = "Next"
 clip_text = true
 
-[node name="Home" type="Button" parent="VBoxContainer/Templates" index="5"]
+[node name="TemplatesHome" type="Button" parent="VBoxContainer/Templates" index="2"]
 margin_top = 340.0
 margin_right = 640.0
 margin_bottom = 360.0
@@ -373,6 +395,7 @@ text = "Home"
 clip_text = true
 
 [node name="ModInfo" type="VBoxContainer" parent="VBoxContainer" index="1"]
+unique_name_in_owner = true
 visible = false
 margin_right = 640.0
 margin_bottom = 360.0
@@ -436,7 +459,8 @@ margin_right = 628.0
 margin_bottom = 43.0
 placeholder_text = "Ex: chat_emoji"
 
-[node name="NameLabel2" type="RichTextLabel" parent="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer" index="2"]
+[node name="ModExistsError" type="RichTextLabel" parent="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer" index="2"]
+unique_name_in_owner = true
 visible = false
 margin_top = 47.0
 margin_right = 628.0
@@ -590,15 +614,16 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.8
 
-[node name="Next" type="Button" parent="VBoxContainer/ModInfo" index="1"]
+[node name="Create" type="Button" parent="VBoxContainer/ModInfo" index="1"]
+unique_name_in_owner = true
 margin_top = 306.0
 margin_right = 640.0
 margin_bottom = 336.0
 rect_min_size = Vector2( 0, 30 )
-text = "Next"
+text = "Create Mod"
 clip_text = true
 
-[node name="Back" type="Button" parent="VBoxContainer/ModInfo" index="2"]
+[node name="ModInfoBack" type="Button" parent="VBoxContainer/ModInfo" index="2"]
 margin_top = 340.0
 margin_right = 640.0
 margin_bottom = 360.0
@@ -610,9 +635,20 @@ visible = false
 margin_top = 169.0
 margin_bottom = 302.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="Tween" type="Tween" parent="." index="1"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 anims/CharacterOptionsSlideIn = SubResource( 2 )
 anims/CharacterOptionsSlideOut = SubResource( 3 )
 anims/OverwritesOptionsSlideIn = SubResource( 4 )
 anims/OverwritesOptionsSlideOut = SubResource( 5 )
 anims/RESET = SubResource( 6 )
+
+[connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/BlankTempContainer/BlankTemp" to="." method="_on_BlankTemp_toggled"]
+[connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharTemp" to="." method="_on_CharTemp_toggled"]
+[connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OverwritesTemp" to="." method="_on_OverwritesTemp_toggled"]
+[connection signal="pressed" from="VBoxContainer/Templates/TemplatesNext" to="." method="_on_TemplatesNext_pressed"]
+[connection signal="pressed" from="VBoxContainer/Templates/TemplatesHome" to="." method="_on_TemplatesHome_pressed"]
+[connection signal="text_changed" from="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer/Name" to="." method="_on_Name_text_changed"]
+[connection signal="pressed" from="VBoxContainer/ModInfo/Create" to="." method="_on_Create_pressed"]
+[connection signal="pressed" from="VBoxContainer/ModInfo/ModInfoBack" to="." method="_on_ModInfoBack_pressed"]

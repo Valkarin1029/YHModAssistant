@@ -10,7 +10,7 @@ func _ready():
 	if plugin_config.load("res://addons/YHModAssistant/plugin.cfg") != OK:
 		printerr("Could not read config file -YH Mod Assistant")
 	
-	$"%AssistantVersionLabel".bbcode_text = $"%AssistantVersionLabel".bbcode_text.format(
+	$"%AssistantVersionLabel".bbcode_text = $"%AssistantVersionLabel".text.format(
 		{"version": plugin_config.get_value("plugin", "version")}
 		)
 	
@@ -18,7 +18,7 @@ func _ready():
 	
 
 func _on_Create_Mod_pressed():
-	YHAGlobal.change_scene("TemplateSelection")
+	YHAGlobal.change_scene("New Mod")
 
 func _on_Select_Mod_pressed():
 	$"%SelectFolder".popup()
@@ -32,7 +32,6 @@ func _on_SelectFolder_dir_selected(dir):
 	
 	YHAGlobal.change_scene("Mod Editor")
 	YHAGlobal.emit_signal("load_mod_info", true)
-#	YHAGlobal.change_scene("res://addons/YHModAssistant/Menus/Mod Editor/Mod Editor.tscn")
 	
 
 

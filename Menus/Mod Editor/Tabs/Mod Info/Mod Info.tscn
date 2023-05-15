@@ -199,5 +199,6 @@ anchor_bottom = 1.0
 margin_top = -24.0
 margin_bottom = -4.0
 text = "Apply to meta data"
+clip_text = true
 
 [connection signal="pressed" from="ApplyMeta" to="." method="_on_ApplyMeta_pressed"]
