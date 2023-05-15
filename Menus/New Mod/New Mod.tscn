@@ -2,12 +2,11 @@
 
 [ext_resource path="res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/YHModAssistant/Menus/New Mod/New Mod.gd" type="Script" id=2]
-
-[sub_resource type="ButtonGroup" id=1]
+[ext_resource path="res://addons/YHModAssistant/Menus/New Mod/TemplateButtonGroup.tres" type="ButtonGroup" id=3]
 
 [node name="New Mod" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-templateButtonGroup = SubResource( 1 )
+templateButtonGroup = ExtResource( 3 )
 
 [node name="VBoxContainer" parent="." index="0"]
 size_flags_horizontal = 3
@@ -42,7 +41,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 hint_tooltip = "Empty mod template contiaing the needed files (modmain.gd and _metadata)"
 toggle_mode = true
-group = SubResource( 1 )
+group = ExtResource( 3 )
 text = "Blank Template"
 clip_text = true
 
@@ -74,7 +73,7 @@ margin_right = 640.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 toggle_mode = true
-group = SubResource( 1 )
+group = ExtResource( 3 )
 text = "Character Template"
 clip_text = true
 
@@ -144,7 +143,7 @@ margin_right = 640.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 toggle_mode = true
-group = SubResource( 1 )
+group = ExtResource( 3 )
 text = "Overwrites Tempalte"
 clip_text = true
 

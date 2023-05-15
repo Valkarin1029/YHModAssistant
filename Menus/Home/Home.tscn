@@ -30,7 +30,6 @@ margin_right = 640.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 0, 45 )
 hint_tooltip = "Creates a new mod using a selected template. (Currently WIP)"
-disabled = true
 text = "Create New Mod"
 clip_text = true
 
@@ -62,8 +61,8 @@ margin_top = 345.0
 margin_right = 640.0
 margin_bottom = 360.0
 bbcode_enabled = true
-bbcode_text = "[center]YH Mod Assistant {version}[/center]"
-text = "[center]YH Mod Assistant {version}[/center]"
+bbcode_text = "YH Mod Assistant v2.0.0-Beta.1"
+text = "YH Mod Assistant v2.0.0-Beta.1"
 fit_content_height = true
 
 [node name="Back" type="Button" parent="VBoxContainer" index="5"]
