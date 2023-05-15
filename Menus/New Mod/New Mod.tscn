@@ -1,172 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/YHModAssistant/Menus/New Mod/New Mod.gd" type="Script" id=2]
 
 [sub_resource type="ButtonGroup" id=1]
-
-[sub_resource type="Animation" id=2]
-resource_name = "CharacterOptionsSlideIn"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 2 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 90 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-
-[sub_resource type="Animation" id=3]
-resource_name = "CharacterOptionsSlideOut"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
-tracks/0/interp = 2
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 2, 0.5 ),
-"update": 0,
-"values": [ Vector2( 0, 90 ), Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-
-[sub_resource type="Animation" id=4]
-resource_name = "OverwritesOptionsSlideIn"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ true ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 2 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 127 ) ]
-}
-
-[sub_resource type="Animation" id=5]
-resource_name = "OverwritesOptionsSlideOut"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0.5 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
-tracks/1/interp = 2
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.5 ),
-"transitions": PoolRealArray( 0.5, 2 ),
-"update": 0,
-"values": [ Vector2( 0, 127 ), Vector2( 0, 0 ) ]
-}
-
-[sub_resource type="Animation" id=6]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:rect_min_size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharOptions:visible")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ false ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ false ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OWOptions:rect_min_size")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ) ]
-}
 
 [node name="New Mod" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -300,7 +137,7 @@ placeholder_text = "Leave Empty to be same as character anem"
 [node name="OverwritesTempContainer" type="VBoxContainer" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="2"]
 margin_top = 88.0
 margin_right = 640.0
-margin_bottom = 259.0
+margin_bottom = 128.0
 
 [node name="OverwritesTemp" type="Button" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer" index="0"]
 margin_right = 640.0
@@ -372,7 +209,7 @@ text = "Robot"
 clip_text = true
 
 [node name="Padding" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer" index="3"]
-margin_top = 263.0
+margin_top = 132.0
 margin_right = 640.0
 margin_bottom = 302.0
 size_flags_horizontal = 3
@@ -636,13 +473,6 @@ margin_top = 169.0
 margin_bottom = 302.0
 
 [node name="Tween" type="Tween" parent="." index="1"]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-anims/CharacterOptionsSlideIn = SubResource( 2 )
-anims/CharacterOptionsSlideOut = SubResource( 3 )
-anims/OverwritesOptionsSlideIn = SubResource( 4 )
-anims/OverwritesOptionsSlideOut = SubResource( 5 )
-anims/RESET = SubResource( 6 )
 
 [connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/BlankTempContainer/BlankTemp" to="." method="_on_BlankTemp_toggled"]
 [connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/CharTempContainer/CharTemp" to="." method="_on_CharTemp_toggled"]
