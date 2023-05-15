@@ -4,7 +4,7 @@
 [ext_resource path="res://addons/YHModAssistant/main.gd" type="Script" id=2]
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Mod Editor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://addons/YHModAssistant/Styles/YHAssistant.tres" type="Theme" id=4]
-[ext_resource path="res://addons/YHModAssistant/Menus/Template/TemplateSelection.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/YHModAssistant/Menus/New Mod/New Mod.tscn" type="PackedScene" id=5]
 
 [node name="YH Mod Assistant" type="VBoxContainer"]
 anchor_right = 1.0
@@ -31,7 +31,7 @@ margin_right = 640.0
 margin_bottom = 542.0
 rect_min_size = Vector2( 0, 360 )
 
-[node name="TemplateSelection" parent="." instance=ExtResource( 5 )]
+[node name="New Mod" parent="." instance=ExtResource( 5 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
