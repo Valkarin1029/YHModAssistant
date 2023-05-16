@@ -54,7 +54,21 @@ func _on_SelectExportFolder_dir_selected(dir):
 	$"%Export Path".text = dir
 
 func _on_Export_Path_text_changed(new_text):
-	export_path = new_text
+	var dir = Directory.new()
+	if not dir.dir_exists(new_text):
+		$"%ExportPathError".visible = true
+		$"%OpenExportPath".disabled = true
+		$"%AutoExport".disabled = true
+		$"%AutoExport".pressed = false
+		$"%Export".disabled = true
+		
+	else:
+		$"%ExportPathError".visible = false
+		$"%OpenExportPath".disabled = false
+		$"%AutoExport".disabled = false
+		$"%Export".disabled = false
+	
+		export_path = new_text
 
 func _on_FileName_text_changed(new_text):
 	export_name = new_text

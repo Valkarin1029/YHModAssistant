@@ -84,7 +84,21 @@ margin_bottom = 24.0
 icon = ExtResource( 2 )
 clip_text = true
 
-[node name="OpenExportPath" type="Button" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="2"]
+[node name="ExportPathError" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="2"]
+unique_name_in_owner = true
+visible = false
+margin_left = 588.0
+margin_top = 19.0
+margin_right = 588.0
+margin_bottom = 619.0
+bbcode_enabled = true
+bbcode_text = "[color=red]Folder does not exists! Can not Export!"
+text = "Folder does not exists! Can not Export!"
+fit_content_height = true
+scroll_active = false
+
+[node name="OpenExportPath" type="Button" parent="VBoxContainer/VBoxContainer/ExportPathContainer" index="3"]
+unique_name_in_owner = true
 margin_top = 47.0
 margin_right = 632.0
 margin_bottom = 72.0
@@ -161,6 +175,7 @@ margin_top = -74.0
 alignment = 2
 
 [node name="AutoExport" type="CheckButton" parent="VBoxContainer2" index="0"]
+unique_name_in_owner = true
 margin_top = 5.0
 margin_right = 632.0
 margin_bottom = 45.0
@@ -170,6 +185,7 @@ clip_text = true
 align = 1
 
 [node name="Export" type="Button" parent="VBoxContainer2" index="1"]
+unique_name_in_owner = true
 margin_top = 49.0
 margin_right = 632.0
 margin_bottom = 74.0
