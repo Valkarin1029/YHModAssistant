@@ -47,7 +47,7 @@ func _empty_inputs():
 	$"%Client Side".pressed = false
 	$"%Overwrites".pressed = false
 	
-	templateButtonGroup.get_pressed_button().pressed = false
+	$"%BlankTemp".pressed = true
 
 func _on_CharName_text_changed(new_text):
 	if new_text == "":
@@ -87,6 +87,13 @@ func _on_OverwritesTemp_toggled(button_pressed):
 func _on_TemplatesNext_pressed():
 	$"%Templates".visible = false
 	$"%ModInfo".visible = true
+	
+	if $"%Name".text == "":
+		$"%Create".disabled = true
+		$"%InputModName".visible = true
+	else:
+		$"%Create".disabled = false
+		$"%InputModName".visible = false
 
 func _on_TemplatesHome_pressed():
 	YHAGlobal.change_scene("Home")
@@ -102,9 +109,21 @@ func _on_Name_text_changed(new_text):
 	if dir.dir_exists("res://%s" % new_text) and new_text != "":
 		$"%Create".disabled = true
 		$"%ModExistsError".visible = true
+	elif new_text == "":
+		$"%Create".disabled = true
+		$"%ModExistsError".visible = false
+		$"%InputModName".visible = true
 	else:
 		$"%Create".disabled = false
 		$"%ModExistsError".visible = false
+		$"%InputModName".visible = false
+	
+#	if new_text == "":
+#		$"%Create".disabled = true
+#		$"%InputModName".visible = true
+#	else:
+#		$"%Create".disabled = false
+#		$"%InputModName".visible = false
 	
 
 func _on_Create_pressed():

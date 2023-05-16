@@ -42,6 +42,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 hint_tooltip = "Empty mod template contiaing the needed files (modmain.gd and _metadata)"
 toggle_mode = true
+pressed = true
 group = ExtResource( 3 )
 text = "Blank Template"
 clip_text = true
@@ -299,7 +300,7 @@ size_flags_vertical = 3
 [node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer" index="0"]
 margin_right = 628.0
 margin_bottom = 15.0
-hint_tooltip = "Mod name that is used to refrence the mod in code"
+hint_tooltip = "Mod name that is used to refrence the mod in code. (Not Case Sensitive)"
 text = "Mod Name"
 fit_content_height = true
 scroll_active = false
@@ -321,6 +322,19 @@ hint_tooltip = "Mod name that is used to refrence the mod in code"
 bbcode_enabled = true
 bbcode_text = "[color=red]A folder with that name already exists[/color]"
 text = "A folder with that name already exists"
+fit_content_height = true
+scroll_active = false
+
+[node name="InputModName" type="RichTextLabel" parent="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer" index="3"]
+unique_name_in_owner = true
+visible = false
+margin_top = 47.0
+margin_right = 628.0
+margin_bottom = 62.0
+hint_tooltip = "Mod name that is used to refrence the mod in code"
+bbcode_enabled = true
+bbcode_text = "[color=red]Must have at least a mod name first[/color]"
+text = "Must have at least a mod name first"
 fit_content_height = true
 scroll_active = false
 
