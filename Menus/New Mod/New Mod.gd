@@ -9,6 +9,7 @@ func _enter_tree():
 	templateButtonGroup = $"%BlankTemp".group
 #	print(templateButtonGroup)
 
+
 func slideAnime(object, open, distance):
 	var tween = $Tween
 	if open:
@@ -88,7 +89,7 @@ func _on_TemplatesNext_pressed():
 	$"%Templates".visible = false
 	$"%ModInfo".visible = true
 	
-	if $"%Name".text == "":
+	if $"%Name".text == "" or $"%FriendlyName".text == "":
 		$"%Create".disabled = true
 		$"%InputModName".visible = true
 	else:
@@ -109,7 +110,7 @@ func _on_Name_text_changed(new_text):
 	if dir.dir_exists("res://%s" % new_text) and new_text != "":
 		$"%Create".disabled = true
 		$"%ModExistsError".visible = true
-	elif new_text == "":
+	elif new_text == "" or $"%FriendlyName".text == "":
 		$"%Create".disabled = true
 		$"%ModExistsError".visible = false
 		$"%InputModName".visible = true
@@ -118,13 +119,14 @@ func _on_Name_text_changed(new_text):
 		$"%ModExistsError".visible = false
 		$"%InputModName".visible = false
 	
-#	if new_text == "":
-#		$"%Create".disabled = true
-#		$"%InputModName".visible = true
-#	else:
-#		$"%Create".disabled = false
-#		$"%InputModName".visible = false
 	
+func _on_FriendlyName_text_changed(new_text):
+	if new_text == "" or $"%Name".text == "":
+		$"%Create".disabled = true
+		$"%InputModName".visible = true
+	else:
+		$"%Create".disabled = false
+		$"%InputModName".visible = false
 
 func _on_Create_pressed():
 	var pressed = templateButtonGroup.get_pressed_button()
@@ -275,11 +277,11 @@ func _create_overwrites_mod():
 	if $"%Robot".pressed:
 		selected.append("Robot")
 	
-	print(selected)
+#	print(selected)
 	
 	for chars in selected:
-		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds')
-		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/StateSounds')
+		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/BaseSounds')
+		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/StateSounds')
 		
 		if file.file_exists(name_paths.get(chars)):
 			var instCharTS = load(name_paths.get(chars)).instance()
@@ -291,12 +293,18 @@ func _create_overwrites_mod():
 			if chars == "Cowboy":
 				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/ShootingArm/default')
 			elif chars == "Wizard":
-				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/LiftoffAir/defualt')
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/LiftoffAir/default')
+			elif chars == "Robot":
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/ChainsawArm/default')
+				dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/DriveJumpSprite/default')
 			
 			instCharTS.free()
 		else:
 			continue
 	
+
+
+
 
 
 

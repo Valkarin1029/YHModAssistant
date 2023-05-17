@@ -1,7 +1,7 @@
 tool
 extends EditorPlugin
 
-var dock = preload("res://addons/YHModAssistant/main.tscn").instance()
+var dock = preload("res://addons/YHModAssistant/YHmain.tscn").instance()
 
 const AUTOLOAD_NAME = "ExportOnRun"
 

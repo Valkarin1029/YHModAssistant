@@ -10,7 +10,7 @@ func _ready():
 	if plugin_config.load("res://addons/YHModAssistant/plugin.cfg") != OK:
 		printerr("Could not read config file -YH Mod Assistant")
 	
-	$"%AssistantVersionLabel".bbcode_text = $"%AssistantVersionLabel".text.format(
+	$"%AssistantVersionLabel".bbcode_text = "[center]YH Mod Assistant {version}[/center]".format(
 		{"version": plugin_config.get_value("plugin", "version")}
 		)
 	

@@ -103,3 +103,22 @@ func _load_mod_info_from_metadata(updateInfo):
 		print("Loaded Meta Data -YH Assistant")
 	else:
 		printerr("No Metadata to load from - YH Assistant")
+
+
+func _on_FriendlyName_text_changed(new_text):
+	if new_text == "" or $"%Name".text == "":
+		$"%ApplyMeta".disabled = true
+		$"%InputModName".visible = true
+	else:
+		$"%ApplyMeta".disabled = false
+		$"%InputModName".visible = false
+
+
+
+func _on_Name_text_changed(new_text):
+	if new_text == "" or $"%FriendlyName".text == "":
+		$"%ApplyMeta".disabled = true
+		$"%InputModName".visible = true
+	else:
+		$"%ApplyMeta".disabled = false
+		$"%InputModName".visible = false

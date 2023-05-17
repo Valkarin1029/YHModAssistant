@@ -333,8 +333,8 @@ margin_right = 628.0
 margin_bottom = 62.0
 hint_tooltip = "Mod name that is used to refrence the mod in code"
 bbcode_enabled = true
-bbcode_text = "[color=red]Must have at least a mod name first[/color]"
-text = "Must have at least a mod name first"
+bbcode_text = "[color=red]Must have at least a mod name and a Friendly Mod Namet[/color]"
+text = "Must have at least a mod name and a Friendly Mod Namet"
 fit_content_height = true
 scroll_active = false
 
@@ -359,6 +359,7 @@ margin_top = 19.0
 margin_right = 628.0
 margin_bottom = 119.0
 rect_min_size = Vector2( 0, 100 )
+wrap_enabled = true
 
 [node name="VersionContainer" type="VBoxContainer" parent="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer" index="3"]
 margin_top = 217.0
@@ -509,6 +510,7 @@ margin_bottom = 302.0
 [connection signal="toggled" from="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer/OverwritesTemp" to="." method="_on_OverwritesTemp_toggled"]
 [connection signal="pressed" from="VBoxContainer/Templates/TemplatesNext" to="." method="_on_TemplatesNext_pressed"]
 [connection signal="pressed" from="VBoxContainer/Templates/TemplatesHome" to="." method="_on_TemplatesHome_pressed"]
+[connection signal="text_changed" from="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/FriendlyNameContainer/FriendlyName" to="." method="_on_FriendlyName_text_changed"]
 [connection signal="text_changed" from="VBoxContainer/ModInfo/ScrollContainer/VBoxContainer/NameContainer/Name" to="." method="_on_Name_text_changed"]
 [connection signal="pressed" from="VBoxContainer/ModInfo/Create" to="." method="_on_Create_pressed"]
 [connection signal="pressed" from="VBoxContainer/ModInfo/ModInfoBack" to="." method="_on_ModInfoBack_pressed"]
