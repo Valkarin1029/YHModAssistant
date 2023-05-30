@@ -236,16 +236,37 @@ func _create_character_mod():
 	file.store_string(cfg.get_value("CharTemp.characterfiles", "character.gd"))
 	file.close()
 	
+	_create_character_scenes(character_folder)
+	
+
+func _create_character_scenes(character_folder):
+	
+	var basePlayerInfo = load("res://characters/PlayerInfo.tscn").instance(3)
+	var basePlayerExtra = load("res://ui/ActionSelector/PlayerExtra.tscn").instance(3)
 	var baseChar = load("res://characters/BaseChar.tscn").instance(3)
+	
+	var newPlayerInfo = PackedScene.new()
+	var newPlayerExtra = PackedScene.new()
 	var newChar = PackedScene.new()
+	
+	newPlayerInfo.pack(basePlayerInfo)
+	newPlayerExtra.pack(basePlayerExtra)
+	
+	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"), newPlayerInfo)
+	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"), newPlayerExtra)
 	
 	baseChar.name = $"%CharName".text
 	baseChar.set_script(load(character_folder.plus_file($"%CharName".text+".gd")))
+	baseChar.player_info_scene = load(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"))
+	baseChar.player_extra_params_scene = load(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"))
 	
 	newChar.pack(baseChar)
 	
 	ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
 	baseChar.queue_free()
+	basePlayerInfo.queue_free()
+	basePlayerExtra.queue_free()
+	
 
 func _create_overwrites_mod():
 	var dir = Directory.new()
