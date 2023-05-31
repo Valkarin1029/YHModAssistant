@@ -65,7 +65,7 @@ func _on_BlankTemp_toggled(button_pressed):
 func _on_CharTemp_toggled(button_pressed):
 	slideAnime($"%CharOptions", button_pressed, 145)
 	if button_pressed:
-		$"%Required".text = "char_loader, "
+		$"%Required".text = "char_loader"
 		if $"%CharName".text == "":
 			$"%CharNameLabel".bbcode_text = "[color=red]Character Name[/color]"
 			$"%TemplatesNext".disabled = true
@@ -184,6 +184,9 @@ func _gen_metadata(mod_dir):
 	for required in $"%Required".text.split(",", false):
 		
 		required = required.strip_edges()
+		
+		if required == "":
+			continue
 		
 		if required_mods[0] == "":
 			required_mods.pop_front()

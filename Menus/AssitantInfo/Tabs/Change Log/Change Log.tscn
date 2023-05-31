@@ -8,28 +8,24 @@
 alignment = 1
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer" index="0"]
-margin_top = 94.0
+margin_top = 109.0
 margin_right = 632.0
-margin_bottom = 229.0
+margin_bottom = 214.0
 size_flags_horizontal = 3
 size_flags_vertical = 5
 bbcode_enabled = true
 bbcode_text = "[center]
 Change Log:
 
-- Auto Updates Upon Launch
-- Updated Character Template
-- Character Template now also provides custom PlayerInfo and Player Extra Scenes
-- Added Assistant Info
-Has Credits, This Change Log, and more to be added in the future
+- Fixed the extra comma in required part of the _metadata when making a character form template
+
+Note: Not a lot I mainly wanted to test the update and also forgot to do this in the last one
 [/center]"
 text = "
 Change Log:
 
-- Auto Updates Upon Launch
-- Updated Character Template
-- Character Template now also provides custom PlayerInfo and Player Extra Scenes
-- Added Assistant Info
-Has Credits, This Change Log, and more to be added in the future
+- Fixed the extra comma in required part of the _metadata when making a character form template
+
+Note: Not a lot I mainly wanted to test the update and also forgot to do this in the last one
 "
 fit_content_height = true
