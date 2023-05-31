@@ -16,7 +16,9 @@ func _ready():
 	
 	if not output[0].match("*Already up to date*"):
 		change_scene("RestartRequired")
-		pass
+		print(output[0])
+	else:
+		change_scene("Home")
 
 func change_scene(scene):
 	if scene == null:
