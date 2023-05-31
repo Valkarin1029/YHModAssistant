@@ -7,12 +7,25 @@ var current_mod_path
 
 func _ready():
 	var output = []
-	OS.execute("CMD.exe",
-	["/C", "cd addons/YHModAssistant && git pull"],
-	true,
-	output
-	)
+	var git_path = "res://addons/YHModAssistant/Extras/PortableGit/cmd"
+	var assistant_path = "res://addons/YHModAssistant"
+	git_path = ProjectSettings.globalize_path(git_path)
+	assistant_path = ProjectSettings.globalize_path(assistant_path)
 	
+	OS.execute("CMD.exe",
+			["/C", 'cd {git_path} && git pull "{assistant_path}"'.format(
+				{
+					"git_path":git_path,
+					"assistant_path":assistant_path
+				}
+			)],
+			true,
+			output,
+			true,
+			false
+			)
+	
+	printt(output)
 	
 	if not output[0].match("*Already up to date*"):
 		change_scene("RestartRequired")

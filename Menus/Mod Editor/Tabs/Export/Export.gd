@@ -100,7 +100,7 @@ func _on_Export_pressed():
 	
 	previous_export_name = _export_name
 	
-	var python_pth = ".\\addons\\YHModAssistant\\python-3.10.11-embed-amd64"
+	var python_pth = ".\\addons\\YHModAssistant\\Extras\\Python\\python-3.10.11-embed-amd64"
 	
 	var output = []
 	OS.execute("CMD.exe", 
@@ -115,7 +115,9 @@ func _on_Export_pressed():
 		)
 	],
 	true, 
-	output)
+	output,
+	true,
+	false)
 #	printt("Output", output)
 	
 	if dir.file_exists(_export_path.plus_file(_export_name+'.zip')):
