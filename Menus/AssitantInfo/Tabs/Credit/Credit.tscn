@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Tabs/Credit/Credit.gd" type="Script" id=2]
+
+[node name="Credit" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="VBoxContainer" parent="VBoxContainer" index="0"]
+alignment = 1
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer" index="0"]
+margin_top = 57.0
+margin_right = 632.0
+margin_bottom = 267.0
+size_flags_horizontal = 3
+size_flags_vertical = 5
+bbcode_enabled = true
+bbcode_text = "[center]
+[b]Creator:[/b] [url=https://ko-fi.com/valkarin]Valkarin[/url]  
+[b]Contributers:[/b]
+[b]Temple Slug[/b] from Yomi Temple, They made an icon for me to use [font=res://addons/YHModAssistant/Styles/Img Offset.tres][img=40]res://addons/YHModAssistant/icons/ValkUtilities/Valkarin_Utilities.png[/img][/font]
+
+[b]Note from Creator[/b]
+So I'm no one special. I've made this because I wanted something to make exporting easier. The way I go about testing and working on things require me to export the mod a lot so I decided that I would look into a way of making that easier. Then I thought \"Why not try and make a plugin?\" and so I did. I then decided I should post it and make it be a tool that others can use. Now we are here. You are using my tool and that makes me happy especially if it can assist you as much as it has for me. So from the bottom of my heart [rainbow]Thank you very much[/rainbow] for using somehting I made.
+[/center]"
+text = "
+Creator: Valkarin  
+Contributers:
+Temple Slug from Yomi Temple, They made an icon for me to use 
+
+Note from Creator
+So I'm no one special. I've made this because I wanted something to make exporting easier. The way I go about testing and working on things require me to export the mod a lot so I decided that I would look into a way of making that easier. Then I thought \"Why not try and make a plugin?\" and so I did. I then decided I should post it and make it be a tool that others can use. Now we are here. You are using my tool and that makes me happy especially if it can assist you as much as it has for me. So from the bottom of my heart Thank you very much for using somehting I made.
+"
+fit_content_height = true
+
+[connection signal="meta_clicked" from="VBoxContainer/VBoxContainer/RichTextLabel" to="." method="_on_RichTextLabel_meta_clicked"]

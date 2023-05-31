@@ -33,3 +33,7 @@ func _on_SelectFolder_dir_selected(dir):
 	YHAGlobal.change_scene("Mod Editor")
 	YHAGlobal.emit_signal("load_mod_info", true)
 	
+
+
+func _on_ChangeLog_pressed():
+	YHAGlobal.change_scene("Assistant Info")
