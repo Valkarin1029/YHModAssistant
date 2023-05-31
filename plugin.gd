@@ -8,7 +8,7 @@ const AUTOLOAD_NAME = "ExportOnRun"
 func _enter_tree():
 	
 	add_control_to_dock(EditorPlugin.DOCK_SLOT_LEFT_BR, dock)
-
+	
 	pass
 
 

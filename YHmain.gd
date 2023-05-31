@@ -6,7 +6,17 @@ signal load_mod_info(update_info_tab)
 var current_mod_path
 
 func _ready():
-	pass
+	var output = []
+	OS.execute("CMD.exe",
+	["/C", "cd addons/YHModAssistant && git pull"],
+	true,
+	output
+	)
+	print(output)
+	
+	if not output[0].match("*Already up to date*"):
+		change_scene("RestartRequired")
+		pass
 
 func change_scene(scene):
 	if scene == null:
@@ -20,4 +30,4 @@ func change_scene(scene):
 			node.visible = false
 	
 
-	
+

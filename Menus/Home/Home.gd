@@ -33,15 +33,3 @@ func _on_SelectFolder_dir_selected(dir):
 	YHAGlobal.change_scene("Mod Editor")
 	YHAGlobal.emit_signal("load_mod_info", true)
 	
-
-
-
-
-func _on_Update_Assistant_pressed():
-	var output = []
-	OS.execute("CMD.exe",
-	["/C", "cd addons/YHModAssistant && git pull"],
-	true,
-	output
-	)
-	print(output)
