@@ -35,3 +35,13 @@ func _on_SelectFolder_dir_selected(dir):
 	
 
 
+
+
+func _on_Update_Assistant_pressed():
+	var output = []
+	OS.execute("CMD.exe",
+	["/C", "cd addons/YHModAssistant && git pull"],
+	true,
+	output
+	)
+	print(output)

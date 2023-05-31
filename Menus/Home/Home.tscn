@@ -44,10 +44,9 @@ clip_text = true
 
 [node name="Padding" parent="VBoxContainer" index="2"]
 margin_top = 98.0
-margin_bottom = 341.0
+margin_bottom = 297.0
 
 [node name="Update_Assistant" type="Button" parent="VBoxContainer" index="3"]
-visible = false
 margin_top = 301.0
 margin_right = 640.0
 margin_bottom = 341.0
@@ -61,8 +60,8 @@ margin_top = 345.0
 margin_right = 640.0
 margin_bottom = 360.0
 bbcode_enabled = true
-bbcode_text = "YH Mod Assistant v2.0.0-Beta.1"
-text = "YH Mod Assistant v2.0.0-Beta.1"
+bbcode_text = "[center]YH Mod Assistant v2.0.0-Beta.4[/center]"
+text = "YH Mod Assistant v2.0.0-Beta.4"
 fit_content_height = true
 
 [node name="Back" type="Button" parent="VBoxContainer" index="5"]
@@ -77,3 +76,4 @@ clip_text = true
 [connection signal="dir_selected" from="Popups/SelectFolder" to="." method="_on_SelectFolder_dir_selected"]
 [connection signal="pressed" from="VBoxContainer/Create_Mod" to="." method="_on_Create_Mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Select_Mod" to="." method="_on_Select_Mod_pressed"]
+[connection signal="pressed" from="VBoxContainer/Update_Assistant" to="." method="_on_Update_Assistant_pressed"]
