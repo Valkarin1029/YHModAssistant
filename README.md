@@ -26,10 +26,6 @@ Like my plugin? Support me. It gives me a big boost to keep improving this.
 
 ## Installation
 
-### Perquisites 
- In order for the export features to work you need python. You can download the latest version at https://www.python.org/downloads/ or off the windows Microsoft Store. Make sure you have it in your system path variable by opening CMD and doing `py --version`
-
-
 ### Intructions
 1. Install the latest release from (https://github.com/Valkarin1029/YHModAssistant/releases)
 2. Navigate to your Yomi Hustle Decompiled Folder
