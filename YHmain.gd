@@ -25,7 +25,7 @@ func _ready():
 			false
 			)
 	
-	printt(output)
+#	printt(output)
 	
 	if not output[0].match("*Already up to date*"):
 		change_scene("RestartRequired")
