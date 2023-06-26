@@ -5,6 +5,11 @@ signal load_mod_info(update_info_tab)
 
 var current_mod_path
 
+var _settings = {
+	"re-open-last-on-launch": false,
+	"experimental": false
+}
+
 func _ready():
 	var output = []
 	var git_path = "res://addons/YHModAssistant/Extras/PortableGit/cmd"
@@ -44,5 +49,6 @@ func change_scene(scene):
 		else:
 			node.visible = false
 	
+
 
 

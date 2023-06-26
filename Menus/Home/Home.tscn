@@ -84,4 +84,5 @@ clip_text = true
 [connection signal="dir_selected" from="Popups/SelectFolder" to="." method="_on_SelectFolder_dir_selected"]
 [connection signal="pressed" from="VBoxContainer/Create_Mod" to="." method="_on_Create_Mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Select_Mod" to="." method="_on_Select_Mod_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/ChangeLog" to="." method="_on_ChangeLog_pressed"]

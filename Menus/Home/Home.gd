@@ -37,3 +37,7 @@ func _on_SelectFolder_dir_selected(dir):
 
 func _on_ChangeLog_pressed():
 	YHAGlobal.change_scene("Assistant Info")
+
+
+func _on_Settings_pressed():
+	YHAGlobal.change_scene("Settings")
