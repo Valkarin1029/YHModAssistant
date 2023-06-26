@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Overwrites/Overwrites.gd" type="Script" id=2]
+
+[node name="Overwrites" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="FileDialog" type="FileDialog" parent="." index="0"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -405.0
+margin_top = -272.0
+margin_right = 405.0
+margin_bottom = 272.0
+window_title = "Open File(s)"
+mode = 1
+access = 2
+filters = PoolStringArray( "*.png", "*.jpg" )
+
+[node name="Button" type="Button" parent="VBoxContainer/VBoxContainer" index="0"]
+margin_right = 632.0
+margin_bottom = 20.0
+text = "FA"
+
+[node name="HFlowContainer" type="HFlowContainer" parent="VBoxContainer/VBoxContainer" index="2"]
+margin_top = 24.0
+margin_right = 632.0
+margin_bottom = 324.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="files_selected" from="FileDialog" to="." method="_on_FileDialog_files_selected"]
