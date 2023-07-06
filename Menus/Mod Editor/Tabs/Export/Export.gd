@@ -2,7 +2,8 @@ tool
 extends Tabs
 
 onready var YHAGlobal = find_parent("YH Mod Assistant")
-onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
+#onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
+onready var DEFAULT_EXPORT_PATH = YHAGlobal._settings["General"]["defualt_export_path"]
 
 var current_mod_path = null
 
@@ -15,6 +16,8 @@ var mod_info
 
 func _ready():
 	YHAGlobal = find_parent("YH Mod Assistant")
+	if DEFAULT_EXPORT_PATH == "":
+		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 	if not YHAGlobal == null:
 		current_mod_path = YHAGlobal.current_mod_path
 		YHAGlobal.connect("load_mod_info", self, "_load_mod_info")

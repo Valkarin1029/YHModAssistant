@@ -2,12 +2,24 @@ tool
 extends VBoxContainer
 
 signal load_mod_info(update_info_tab)
+signal loaded_settings()
 
 var current_mod_path
 
 var _settings = {
-	"re-open-last-on-launch": false,
-	"experimental": false
+	"General": {
+		"ReopenLast": false,
+		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods")
+	},
+	"Character Template": {
+		"char_loader_Support": true,
+	},
+	"Overwrites Template": {
+		"add_anim_folder_overwrites": true,
+	},
+	"Expermental": {
+		"experimental": false
+	}
 }
 
 func _ready():
@@ -37,6 +49,8 @@ func _ready():
 		print(output[0])
 	else:
 		change_scene("Home")
+		_get_settings()
+#		_create_settings_config()
 
 func change_scene(scene):
 	if scene == null:
@@ -50,5 +64,33 @@ func change_scene(scene):
 			node.visible = false
 	
 
+func _get_settings():
+	var file = File.new()
+	var dir = Directory.new()
+	
+	if not dir.file_exists("res://addons/YHModAssistant/settings.json"):
+		_create_settings_config()
+	
+	if not file.open("res://addons/YHModAssistant/settings.json", File.READ) == OK:
+		printerr("Could not open settings json file - YH Mod Assistnat")
+		return
+#	print("Loading previous")
+	_settings.merge(JSON.parse(file.get_as_text()).result, true)
+	file.close()
+	emit_signal("loaded_settings")
+#	print(_settings) 
 
-
+func _create_settings_config():
+#	var cfg = ConfigFile.new()
+	var file = File.new()
+	
+	if not file.open("res://addons/YHModAssistant/settings.json", File.WRITE) == OK:
+		printerr("Unable to make settings config file - YH Mod Assistant")
+		return
+	print("Creating Settings File For First Launch - YH Mod Assistant")
+	file.store_string(JSON.print(_settings))
+	file.close()
+	
+	
+	
+	
