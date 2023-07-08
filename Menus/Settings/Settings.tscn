@@ -51,6 +51,7 @@ unique_name_in_owner = true
 margin_top = 63.0
 margin_right = 640.0
 margin_bottom = 103.0
+hint_tooltip = "When enabled it will remember the previous mod name that was exported and delete that mod upon pressing (or auto) export"
 pressed = true
 text = "Remember Previous Mod Name After Restart"
 clip_text = true
@@ -80,8 +81,8 @@ margin_bottom = 42.0
 unique_name_in_owner = true
 margin_right = 608.0
 margin_bottom = 24.0
+hint_tooltip = "Will auto change the defualt export path to this when ever you open a mod. Leave empty for defualt location."
 size_flags_horizontal = 3
-placeholder_text = "C:/Users/lucer/OneDrive/Desktop/Everything Godot/YomiHustle Modding/Godot3.5.1 Steam/mods"
 
 [node name="SelectExportPath" type="Button" parent="VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true

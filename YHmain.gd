@@ -3,6 +3,7 @@ extends VBoxContainer
 
 signal load_mod_info(update_info_tab)
 signal loaded_settings()
+signal re_open_last()
 
 var current_mod_path
 
@@ -32,6 +33,9 @@ func _ready():
 	
 	change_scene("Home")
 	_get_settings()
+	
+	if _settings.General['ReopenLast']:
+		emit_signal("re_open_last")
 
 func _check_for_update():
 	var output = []

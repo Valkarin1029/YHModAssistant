@@ -6,6 +6,7 @@ extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
 func _ready():
 	_set_version_label()
 	_check_for_last_opened_dir()
+	YHAGlobal.connect("re_open_last", self, "_on_Continue_mod_pressed")
 
 func _set_version_label():
 	var dir = Directory.new()

@@ -105,7 +105,10 @@ func _on_Export_pressed():
 	
 	previous_export_name = _export_name
 	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
-	cfg.set_value("Export", "PreviousExportName", previous_export_name)
+	if YHAGlobal._settings["General"]["RememberPreviousModName"]:
+		cfg.set_value("Export", "PreviousExportName", previous_export_name)
+	else:
+		cfg.set_value("Export", "PreviousExportName", null)
 	cfg.save("res://addons/YHModAssistant/SaveData.cfg")
 	
 	var python_pth = ".\\addons\\YHModAssistant\\Extras\\Python\\python-3.10.11-embed-amd64"
