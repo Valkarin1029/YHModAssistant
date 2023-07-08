@@ -15,6 +15,7 @@ var previous_export_name = ""
 var mod_info
 
 func _ready():
+	var cfg = ConfigFile.new()
 	YHAGlobal = find_parent("YH Mod Assistant")
 	if DEFAULT_EXPORT_PATH == "":
 		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
@@ -24,7 +25,8 @@ func _ready():
 	
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 	
-	
+	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	previous_export_name = cfg.get_value("Export", "PreviousExportName", previous_export_name)
 	
 
 func _load_mod_info(replace):
@@ -82,7 +84,7 @@ func _on_OpenExportPath_pressed():
 
 func _on_Export_pressed():
 	var dir = Directory.new()
-	var file = Directory.new()
+	var cfg = ConfigFile.new()
 	
 	var _export_path = DEFAULT_EXPORT_PATH if export_path == "" else export_path
 	var _export_name = mod_info.name if export_name == "" else export_name
@@ -102,6 +104,9 @@ func _on_Export_pressed():
 		dir.remove(_export_path.plus_file(previous_export_name+".zip"))
 	
 	previous_export_name = _export_name
+	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	cfg.set_value("Export", "PreviousExportName", previous_export_name)
+	cfg.save("res://addons/YHModAssistant/SaveData.cfg")
 	
 	var python_pth = ".\\addons\\YHModAssistant\\Extras\\Python\\python-3.10.11-embed-amd64"
 	

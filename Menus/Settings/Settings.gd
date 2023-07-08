@@ -7,7 +7,7 @@ func _ready():
 	
 	for node in get_tree().get_nodes_in_group("setting"):
 		if node.has_signal("pressed"):
-			node.connect("pressed", self, "_save_settings")
+			node.connect("pressed", self, "_save_settings", [null])
 		if node.has_signal("text_changed"):
 			node.connect("text_changed", self, "_save_settings")
 	
@@ -20,6 +20,7 @@ func _load_settings():
 				$"%ReopenLast".pressed = _settings[section]['ReopenLast']
 #				print(_settings[section])
 				$"%defualt_export_path".text = _settings[section]["defualt_export_path"]
+				$"%RememberPreviousModName".pressed = _settings[section]["RememberPreviousModName"]
 			"Character Template":
 				$"%char_loader_Support".pressed = _settings[section]["char_loader_Support"]
 			"Overwrites Template":
@@ -34,6 +35,7 @@ func _save_settings(text):
 			"General":
 				_settings[section]['ReopenLast'] = $"%ReopenLast".pressed
 				_settings[section]["defualt_export_path"] = $"%defualt_export_path".text
+				_settings[section]["RememberPreviousModName"] = $"%RememberPreviousModName".pressed
 			"Character Template":
 				_settings[section]["char_loader_Support"] = $"%char_loader_Support".pressed
 			"Overwrites Template":
@@ -48,7 +50,7 @@ func _save_settings(text):
 		return
 #	print("Creating Settings File For First Launch - YH Mod Assistant")
 #	print(_settings)
-	file.store_string(JSON.print(_settings))
+	file.store_string(JSON.print(_settings, "\t"))
 	file.close()
 	
 

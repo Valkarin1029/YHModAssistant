@@ -25,7 +25,17 @@ resizable = true
 mode_overrides_title = false
 mode = 2
 
-[node name="Create_Mod" type="Button" parent="VBoxContainer" index="0"]
+[node name="Continue_mod" type="Button" parent="VBoxContainer" index="0"]
+unique_name_in_owner = true
+visible = false
+margin_right = 640.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 0, 45 )
+hint_tooltip = "Re-opens your last opened mod dir"
+text = "Re-Open Last Mod"
+clip_text = true
+
+[node name="Create_Mod" type="Button" parent="VBoxContainer" index="1"]
 margin_right = 640.0
 margin_bottom = 45.0
 rect_min_size = Vector2( 0, 45 )
@@ -33,7 +43,7 @@ hint_tooltip = "Creates a new mod using a selected template. (Currently WIP)"
 text = "Create New Mod"
 clip_text = true
 
-[node name="Select_Mod" type="Button" parent="VBoxContainer" index="1"]
+[node name="Select_Mod" type="Button" parent="VBoxContainer" index="2"]
 margin_top = 49.0
 margin_right = 640.0
 margin_bottom = 94.0
@@ -42,11 +52,11 @@ hint_tooltip = "Continue where you left off by selecting the mod folder"
 text = "Select An Existing Mod"
 clip_text = true
 
-[node name="Padding" parent="VBoxContainer" index="2"]
+[node name="Padding" parent="VBoxContainer" index="3"]
 margin_top = 98.0
 margin_bottom = 263.0
 
-[node name="Settings" type="Button" parent="VBoxContainer" index="3"]
+[node name="Settings" type="Button" parent="VBoxContainer" index="4"]
 margin_top = 267.0
 margin_right = 640.0
 margin_bottom = 302.0
@@ -54,7 +64,7 @@ rect_min_size = Vector2( 0, 35 )
 text = "Settings"
 clip_text = true
 
-[node name="ChangeLog" type="Button" parent="VBoxContainer" index="4"]
+[node name="ChangeLog" type="Button" parent="VBoxContainer" index="5"]
 margin_top = 306.0
 margin_right = 640.0
 margin_bottom = 341.0
@@ -62,7 +72,7 @@ rect_min_size = Vector2( 0, 35 )
 text = "YH Mod Assistant Info"
 clip_text = true
 
-[node name="AssistantVersionLabel" type="RichTextLabel" parent="VBoxContainer" index="5"]
+[node name="AssistantVersionLabel" type="RichTextLabel" parent="VBoxContainer" index="6"]
 unique_name_in_owner = true
 margin_top = 345.0
 margin_right = 640.0
@@ -72,7 +82,7 @@ bbcode_text = "[center]YH Mod Assistant v2.0.1[/center]"
 text = "YH Mod Assistant v2.0.1"
 fit_content_height = true
 
-[node name="Back" type="Button" parent="VBoxContainer" index="6"]
+[node name="Back" type="Button" parent="VBoxContainer" index="7"]
 visible = false
 margin_top = 335.0
 margin_right = 640.0
@@ -82,6 +92,7 @@ text = "Back Button"
 clip_text = true
 
 [connection signal="dir_selected" from="Popups/SelectFolder" to="." method="_on_SelectFolder_dir_selected"]
+[connection signal="pressed" from="VBoxContainer/Continue_mod" to="." method="_on_Continue_mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Create_Mod" to="." method="_on_Create_Mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Select_Mod" to="." method="_on_Select_Mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]

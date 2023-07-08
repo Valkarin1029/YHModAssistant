@@ -9,7 +9,8 @@ var current_mod_path
 var _settings = {
 	"General": {
 		"ReopenLast": false,
-		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods")
+		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods"),
+		"RememberPreviousModName": true,
 	},
 	"Character Template": {
 		"char_loader_Support": true,
@@ -23,6 +24,16 @@ var _settings = {
 }
 
 func _ready():
+	
+	
+	if _check_for_update():
+		change_scene("RestartRequired")
+		return
+	
+	change_scene("Home")
+	_get_settings()
+
+func _check_for_update():
 	var output = []
 	var git_path = "res://addons/YHModAssistant/Extras/PortableGit/cmd"
 	var assistant_path = "res://addons/YHModAssistant"
@@ -42,15 +53,11 @@ func _ready():
 			false
 			)
 	
-#	printt(output)
-	
 	if not output[0].match("*Already up to date*"):
-		change_scene("RestartRequired")
-		print(output[0])
+		return true
+#		print(output[0])
 	else:
-		change_scene("Home")
-		_get_settings()
-#		_create_settings_config()
+		return false
 
 func change_scene(scene):
 	if scene == null:
@@ -74,8 +81,13 @@ func _get_settings():
 	if not file.open("res://addons/YHModAssistant/settings.json", File.READ) == OK:
 		printerr("Could not open settings json file - YH Mod Assistnat")
 		return
-#	print("Loading previous")
-	_settings.merge(JSON.parse(file.get_as_text()).result, true)
+	
+	for sections in _settings:
+		var new_settings = JSON.parse(file.get_as_text()).result
+#		print(new_settings[sections])
+		_settings[sections].merge(new_settings[sections], true)
+	
+#	print(_settings)
 	file.close()
 	emit_signal("loaded_settings")
 #	print(_settings) 
@@ -88,9 +100,9 @@ func _create_settings_config():
 		printerr("Unable to make settings config file - YH Mod Assistant")
 		return
 	print("Creating Settings File For First Launch - YH Mod Assistant")
-	file.store_string(JSON.print(_settings))
+	file.store_string(JSON.print(_settings, "\t"))
 	file.close()
 	
 	
 	
-	
+

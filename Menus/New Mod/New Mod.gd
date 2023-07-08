@@ -133,6 +133,7 @@ func _on_Create_pressed():
 	var dir = Directory.new()
 	var file = File.new()
 	var cfg = ConfigFile.new()
+	var save_data_cfg = ConfigFile.new()
 	cfg.load("res://addons/YHModAssistant/Menus/New Mod/templates.cfg")
 	
 	var mod_dir = "res://%s" % $"%Name".text
@@ -167,6 +168,12 @@ func _on_Create_pressed():
 	
 	print("Mod successfully created. Happy modding! - YH Mod Assistant")
 	YHAGlobal.current_mod_path = mod_dir
+	save_data_cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
+	save_data_cfg.save("res://addons/YHModAssistant/SaveData.cfg")
+	YHAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
+#	print(YHAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
+	
 	YHAGlobal.change_scene("Mod Editor")
 	_empty_inputs()
 	YHAGlobal.emit_signal("load_mod_info", true)
