@@ -320,6 +320,9 @@ func _create_overwrites_mod():
 #	print(selected)
 	
 	for chars in selected:
+		dir.make_dir_recursive(OverwritesFolder+'/'+chars)
+		if not YHAGlobal.settings["Overwrite Template"]["add_anim_folder_overwrites"]:
+			continue
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/BaseSounds')
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/StateSounds')
 		
