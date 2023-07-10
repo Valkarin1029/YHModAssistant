@@ -7,7 +7,7 @@ signal re_open_last()
 
 var current_mod_path
 
-var _settings = {
+var settings = {
 	"General": {
 		"ReopenLast": false,
 		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods"),
@@ -34,7 +34,7 @@ func _ready():
 	change_scene("Home")
 	_get_settings()
 	
-	if _settings.General['ReopenLast']:
+	if settings.General['ReopenLast']:
 		emit_signal("re_open_last")
 
 func _check_for_update():
@@ -86,15 +86,15 @@ func _get_settings():
 		printerr("Could not open settings json file - YH Mod Assistnat")
 		return
 	
-	for sections in _settings:
+	for sections in settings:
 		var new_settings = JSON.parse(file.get_as_text()).result
 #		print(new_settings[sections])
-		_settings[sections].merge(new_settings[sections], true)
+		settings[sections].merge(new_settings[sections], true)
 	
-#	print(_settings)
+#	print(settings)
 	file.close()
 	emit_signal("loaded_settings")
-#	print(_settings) 
+#	print(settings) 
 
 func _create_settings_config():
 #	var cfg = ConfigFile.new()
@@ -104,7 +104,7 @@ func _create_settings_config():
 		printerr("Unable to make settings config file - YH Mod Assistant")
 		return
 	print("Creating Settings File For First Launch - YH Mod Assistant")
-	file.store_string(JSON.print(_settings, "\t"))
+	file.store_string(JSON.print(settings, "\t"))
 	file.close()
 	
 	

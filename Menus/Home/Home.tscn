@@ -78,8 +78,8 @@ margin_top = 345.0
 margin_right = 640.0
 margin_bottom = 360.0
 bbcode_enabled = true
-bbcode_text = "[center]YH Mod Assistant v2.0.1[/center]"
-text = "YH Mod Assistant v2.0.1"
+bbcode_text = "[center]YH Mod Assistant v2.1.0[/center]"
+text = "YH Mod Assistant v2.1.0"
 fit_content_height = true
 
 [node name="Back" type="Button" parent="VBoxContainer" index="7"]

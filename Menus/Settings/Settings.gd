@@ -13,33 +13,33 @@ func _ready():
 	
 
 func _load_settings():
-	var _settings = YHAGlobal._settings
-	for section in _settings:
+	var settings = YHAGlobal.settings
+	for section in settings:
 		match section:
 			"General":
-				$"%ReopenLast".pressed = _settings[section]['ReopenLast']
-#				print(_settings[section])
-				$"%defualt_export_path".text = _settings[section]["defualt_export_path"]
-				$"%RememberPreviousModName".pressed = _settings[section]["RememberPreviousModName"]
+				$"%ReopenLast".pressed = settings[section]['ReopenLast']
+#				print(settings[section])
+				$"%defualt_export_path".text = settings[section]["defualt_export_path"]
+				$"%RememberPreviousModName".pressed = settings[section]["RememberPreviousModName"]
 			"Character Template":
-				$"%char_loader_Support".pressed = _settings[section]["char_loader_Support"]
+				$"%char_loader_Support".pressed = settings[section]["char_loader_Support"]
 			"Overwrites Template":
-				$"%add_anim_folder_overwrites".pressed = _settings[section]["add_anim_folder_overwrites"]
+				$"%add_anim_folder_overwrites".pressed = settings[section]["add_anim_folder_overwrites"]
 			"Experimental":
 				pass
 
 func _save_settings(text):
-	var _settings = YHAGlobal._settings
-	for section in _settings:
+	var settings = YHAGlobal.settings
+	for section in settings:
 		match section:
 			"General":
-				_settings[section]['ReopenLast'] = $"%ReopenLast".pressed
-				_settings[section]["defualt_export_path"] = $"%defualt_export_path".text
-				_settings[section]["RememberPreviousModName"] = $"%RememberPreviousModName".pressed
+				settings[section]['ReopenLast'] = $"%ReopenLast".pressed
+				settings[section]["defualt_export_path"] = $"%defualt_export_path".text
+				settings[section]["RememberPreviousModName"] = $"%RememberPreviousModName".pressed
 			"Character Template":
-				_settings[section]["char_loader_Support"] = $"%char_loader_Support".pressed
+				settings[section]["char_loader_Support"] = $"%char_loader_Support".pressed
 			"Overwrites Template":
-				_settings[section]["add_anim_folder_overwrites"] = $"%add_anim_folder_overwrites".pressed
+				settings[section]["add_anim_folder_overwrites"] = $"%add_anim_folder_overwrites".pressed
 			"Experimental":
 				pass
 	
@@ -49,8 +49,8 @@ func _save_settings(text):
 		printerr("Unable to open settings config file - YH Mod Assistant")
 		return
 #	print("Creating Settings File For First Launch - YH Mod Assistant")
-#	print(_settings)
-	file.store_string(JSON.print(_settings, "\t"))
+#	print(settings)
+	file.store_string(JSON.print(settings, "\t"))
 	file.close()
 	
 

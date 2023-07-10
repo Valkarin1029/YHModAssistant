@@ -65,7 +65,8 @@ func _on_BlankTemp_toggled(button_pressed):
 func _on_CharTemp_toggled(button_pressed):
 	slideAnime($"%CharOptions", button_pressed, 145)
 	if button_pressed:
-		$"%Required".text = "char_loader"
+		if YHAGlobal.settings["Character Template"]["char_loader_Support"]:
+			$"%Required".text = "char_loader"
 		if $"%CharName".text == "":
 			$"%CharNameLabel".bbcode_text = "[color=red]Character Name[/color]"
 			$"%TemplatesNext".disabled = true
@@ -155,6 +156,14 @@ func _on_Create_pressed():
 		file.open(mod_dir.plus_file(scripts), File.WRITE)
 		file.store_string(contents)
 		file.close()
+	
+	if cfg.has_section(pressed.name+".char_loader"):
+		for scripts in cfg.get_section_keys(pressed.name+".char_loader"):
+			var contents = cfg.get_value(pressed.name+".char_loader",scripts)
+			contents = contents.format(formats)
+			file.open(mod_dir.plus_file(scripts), File.WRITE)
+			file.store_string(contents)
+			file.close()
 	
 	if pressed.name == "CharTemp":
 		_create_character_mod()

@@ -28,6 +28,8 @@ func _check_for_last_opened_dir():
 			$"%Continue_mod".visible = true
 		else:
 			printerr("Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose) - YH Mod Assistant")
+			cfg.set_value("Export", "LastOpenedDir", null)
+			cfg.save("res://addons/YHModAssistant/SaveData.cfg")
 
 func _on_Create_Mod_pressed():
 	YHAGlobal.change_scene("New Mod")
@@ -44,6 +46,12 @@ func _on_Select_Mod_pressed():
 func _on_Continue_mod_pressed():
 	var cfg = ConfigFile.new()
 	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	
+	if not is_valid_mod(cfg.get_value("Export", "LastOpenedDir", "")):
+		printerr("Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose) - YH Mod Assistant")
+		$"%Continue_mod".visible = false
+		return
+	
 	YHAGlobal.current_mod_path = cfg.get_value("Export", "LastOpenedDir", "")
 	YHAGlobal.change_scene("Mod Editor")
 	YHAGlobal.emit_signal("load_mod_info", true)
@@ -52,6 +60,9 @@ func _on_SelectFolder_dir_selected(dir):
 	var cfg = ConfigFile.new()
 	if not is_valid_mod(dir):
 		printerr("This is not a mod folder or missing modmain.gd -YH Assistant")
+		cfg.set_value("Export", "LastOpenedDir", null)
+		cfg.save("res://addons/YHModAssistant/SaveData.cfg")
+		
 		return
 	
 	YHAGlobal.current_mod_path = dir

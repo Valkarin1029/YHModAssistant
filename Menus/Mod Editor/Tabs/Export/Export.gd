@@ -3,7 +3,7 @@ extends Tabs
 
 onready var YHAGlobal = find_parent("YH Mod Assistant")
 #onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
-onready var DEFAULT_EXPORT_PATH = YHAGlobal._settings["General"]["defualt_export_path"]
+onready var DEFAULT_EXPORT_PATH = YHAGlobal.settings["General"]["defualt_export_path"]
 
 var current_mod_path = null
 
@@ -105,7 +105,7 @@ func _on_Export_pressed():
 	
 	previous_export_name = _export_name
 	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
-	if YHAGlobal._settings["General"]["RememberPreviousModName"]:
+	if YHAGlobal.settings["General"]["RememberPreviousModName"]:
 		cfg.set_value("Export", "PreviousExportName", previous_export_name)
 	else:
 		cfg.set_value("Export", "PreviousExportName", null)
