@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://addons/YHModAssistant/Menus/Settings/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHModAssistant/Menus/Settings/Tabs/General/General.gd" type="Script" id=2]
+
+[node name="General" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="ReopenLast" type="CheckButton" parent="VBoxContainer/VBoxContainer" index="0"]
+margin_right = 632.0
+margin_bottom = 40.0
+text = "Re-open last opened mod folder upon launch"
+clip_text = true
+align = 1

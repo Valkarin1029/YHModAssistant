@@ -1,6 +1,35 @@
-[gd_resource type="Theme" load_steps=2 format=2]
+[gd_resource type="Theme" load_steps=11 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Styles/RichText BG.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Medium.ttf" type="DynamicFontData" id=5]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 14
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 14
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+font_data = ExtResource( 4 )
 
 [resource]
+RichTextLabel/fonts/bold_font = SubResource( 1 )
+RichTextLabel/fonts/bold_italics_font = SubResource( 2 )
+RichTextLabel/fonts/italics_font = SubResource( 3 )
+RichTextLabel/fonts/mono_font = SubResource( 5 )
+RichTextLabel/fonts/normal_font = SubResource( 4 )
 RichTextLabel/styles/normal = ExtResource( 1 )
