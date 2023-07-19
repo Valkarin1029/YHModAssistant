@@ -2,7 +2,8 @@ tool
 extends Tabs
 
 onready var YHAGlobal = find_parent("YH Mod Assistant")
-onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
+#onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
+onready var DEFAULT_EXPORT_PATH = YHAGlobal.settings["General"]["defualt_export_path"]
 
 var current_mod_path = null
 
@@ -14,14 +15,18 @@ var previous_export_name = ""
 var mod_info
 
 func _ready():
+	var cfg = ConfigFile.new()
 	YHAGlobal = find_parent("YH Mod Assistant")
+	if DEFAULT_EXPORT_PATH == "":
+		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 	if not YHAGlobal == null:
 		current_mod_path = YHAGlobal.current_mod_path
 		YHAGlobal.connect("load_mod_info", self, "_load_mod_info")
 	
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 	
-	
+	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	previous_export_name = cfg.get_value("Export", "PreviousExportName", previous_export_name)
 	
 
 func _load_mod_info(replace):
@@ -79,7 +84,7 @@ func _on_OpenExportPath_pressed():
 
 func _on_Export_pressed():
 	var dir = Directory.new()
-	var file = Directory.new()
+	var cfg = ConfigFile.new()
 	
 	var _export_path = DEFAULT_EXPORT_PATH if export_path == "" else export_path
 	var _export_name = mod_info.name if export_name == "" else export_name
@@ -99,8 +104,14 @@ func _on_Export_pressed():
 		dir.remove(_export_path.plus_file(previous_export_name+".zip"))
 	
 	previous_export_name = _export_name
+	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	if YHAGlobal.settings["General"]["RememberPreviousModName"]:
+		cfg.set_value("Export", "PreviousExportName", previous_export_name)
+	else:
+		cfg.set_value("Export", "PreviousExportName", null)
+	cfg.save("res://addons/YHModAssistant/SaveData.cfg")
 	
-	var python_pth = ".\\addons\\YHModAssistant\\python-3.10.11-embed-amd64"
+	var python_pth = ".\\addons\\YHModAssistant\\Extras\\Python\\python-3.10.11-embed-amd64"
 	
 	var output = []
 	OS.execute("CMD.exe", 
@@ -115,7 +126,9 @@ func _on_Export_pressed():
 		)
 	],
 	true, 
-	output)
+	output,
+	true,
+	false)
 #	printt("Output", output)
 	
 	if dir.file_exists(_export_path.plus_file(_export_name+'.zip')):
@@ -129,3 +142,9 @@ func _on_Export_pressed():
 
 
 
+
+
+func _on_Button_pressed():
+	var character_folder = current_mod_path+"/characters/a"
+	print(load(character_folder.plus_file("a.tscn"))._bundled)
+	print(current_mod_path)
