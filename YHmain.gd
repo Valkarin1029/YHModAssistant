@@ -45,7 +45,7 @@ func _check_for_update():
 	assistant_path = ProjectSettings.globalize_path(assistant_path)
 	
 	OS.execute("CMD.exe",
-			["/C", 'git pull'.format(
+			["/C", 'cd addons/YHModAssistant && git pull'.format(
 				{
 					"git_path":git_path,
 					"assistant_path":assistant_path
@@ -57,7 +57,6 @@ func _check_for_update():
 			false
 			)
 	
-	print(output[0])
 	
 	if not output[0].match("*Already up to date*"):
 		return true

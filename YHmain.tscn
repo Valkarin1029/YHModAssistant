@@ -20,7 +20,6 @@ theme = ExtResource( 4 )
 script = ExtResource( 5 )
 
 [node name="Home" parent="." instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
@@ -61,6 +60,7 @@ margin_right = 640.0
 margin_bottom = 364.0
 
 [node name="RestartRequired" parent="." instance=ExtResource( 6 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
