@@ -10,7 +10,6 @@ func _enter_tree():
 #	print(templateButtonGroup)
 
 
-
 func slideAnime(object, open, distance):
 	var tween = $Tween
 	if open:
@@ -66,8 +65,7 @@ func _on_BlankTemp_toggled(button_pressed):
 func _on_CharTemp_toggled(button_pressed):
 	slideAnime($"%CharOptions", button_pressed, 145)
 	if button_pressed:
-		if YHAGlobal.settings["Character Template"]["char_loader_Support"]:
-			$"%Required".text = "char_loader"
+		$"%Required".text = "char_loader"
 		if $"%CharName".text == "":
 			$"%CharNameLabel".bbcode_text = "[color=red]Character Name[/color]"
 			$"%TemplatesNext".disabled = true
@@ -135,7 +133,6 @@ func _on_Create_pressed():
 	var dir = Directory.new()
 	var file = File.new()
 	var cfg = ConfigFile.new()
-	var save_data_cfg = ConfigFile.new()
 	cfg.load("res://addons/YHModAssistant/Menus/New Mod/templates.cfg")
 	
 	var mod_dir = "res://%s" % $"%Name".text
@@ -158,14 +155,6 @@ func _on_Create_pressed():
 		file.store_string(contents)
 		file.close()
 	
-	if cfg.has_section(pressed.name+".char_loader"):
-		for scripts in cfg.get_section_keys(pressed.name+".char_loader"):
-			var contents = cfg.get_value(pressed.name+".char_loader",scripts)
-			contents = contents.format(formats)
-			file.open(mod_dir.plus_file(scripts), File.WRITE)
-			file.store_string(contents)
-			file.close()
-	
 	if pressed.name == "CharTemp":
 		_create_character_mod()
 	elif pressed.name == "OverwritesTemp":
@@ -178,12 +167,6 @@ func _on_Create_pressed():
 	
 	print("Mod successfully created. Happy modding! - YH Mod Assistant")
 	YHAGlobal.current_mod_path = mod_dir
-	save_data_cfg.load("res://addons/YHModAssistant/SaveData.cfg")
-	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
-	save_data_cfg.save("res://addons/YHModAssistant/SaveData.cfg")
-	YHAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
-#	print(YHAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
-	
 	YHAGlobal.change_scene("Mod Editor")
 	_empty_inputs()
 	YHAGlobal.emit_signal("load_mod_info", true)
@@ -259,30 +242,33 @@ func _create_character_mod():
 	_create_character_scenes(character_folder)
 	
 
-func create_inherited_scene(inherits: PackedScene, root_name := "Scene") -> PackedScene:
-	var scene := PackedScene.new()
-	scene._bundled = { "names": [root_name], "variants": [inherits], "node_count": 1, "nodes": [-1, -1, 2147483647, 0, -1, 0, 0], "conn_count": 0, "conns": [], "node_paths": [], "editable_instances": [], "base_scene": 0, "version": 2 }
-	return scene
-
 func _create_character_scenes(character_folder):
-	var basePlayerInfo : PackedScene = load("res://characters/PlayerInfo.tscn")
-	var basePlayerExtra : PackedScene = load("res://ui/ActionSelector/PlayerExtra.tscn")
-	var baseChar : PackedScene = load("res://characters/BaseChar.tscn")
 	
-#	var baseCharInstance = baseChar.instance()
-#	baseCharInstance.set_script(load(character_folder.plus_file($"%CharName".text+".gd")))
-#	baseCharInstance.get_node_or_null("Flip/Sprite").frames = SpriteFrames.new()
-#
-#	var editiedBaseChar = PackedScene.new()
-#	editiedBaseChar.pack(baseCharInstance)
-#	print(editiedBaseChar._bundled)
+	var basePlayerInfo = load("res://characters/PlayerInfo.tscn").instance(3)
+	var basePlayerExtra = load("res://ui/ActionSelector/PlayerExtra.tscn").instance(3)
+	var baseChar = load("res://characters/BaseChar.tscn").instance(3)
 	
-	var newChar = create_inherited_scene(baseChar, $"%CharName".text)
-	print(newChar._bundled)
+	var newPlayerInfo = PackedScene.new()
+	var newPlayerExtra = PackedScene.new()
+	var newChar = PackedScene.new()
 	
-	var err = ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
-	print(err)
+	newPlayerInfo.pack(basePlayerInfo)
+	newPlayerExtra.pack(basePlayerExtra)
 	
+	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"), newPlayerInfo)
+	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"), newPlayerExtra)
+	
+	baseChar.name = $"%CharName".text
+	baseChar.set_script(load(character_folder.plus_file($"%CharName".text+".gd")))
+	baseChar.player_info_scene = load(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"))
+	baseChar.player_extra_params_scene = load(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"))
+	
+	newChar.pack(baseChar)
+	
+	ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
+	baseChar.queue_free()
+	basePlayerInfo.queue_free()
+	basePlayerExtra.queue_free()
 	
 
 func _create_overwrites_mod():
@@ -318,9 +304,6 @@ func _create_overwrites_mod():
 #	print(selected)
 	
 	for chars in selected:
-		dir.make_dir_recursive(OverwritesFolder+'/'+chars)
-		if not YHAGlobal.settings["Overwrite Template"]["add_anim_folder_overwrites"]:
-			continue
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/BaseSounds')
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/StateSounds')
 		

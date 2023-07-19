@@ -184,19 +184,7 @@ text = "Auto Export Mod"
 clip_text = true
 align = 1
 
-[node name="Button" type="Button" parent="VBoxContainer2" index="1"]
-visible = false
-margin_top = 44.0
-margin_right = 632.0
-margin_bottom = 69.0
-rect_min_size = Vector2( 0, 25 )
-text = "Print"
-clip_text = true
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="Export" type="Button" parent="VBoxContainer2" index="2"]
+[node name="Export" type="Button" parent="VBoxContainer2" index="1"]
 unique_name_in_owner = true
 margin_top = 49.0
 margin_right = 632.0
@@ -210,5 +198,4 @@ clip_text = true
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportPathContainer/HBoxContainer/SelectExportPath" to="." method="_on_SelectExportPath_pressed"]
 [connection signal="pressed" from="VBoxContainer/VBoxContainer/ExportPathContainer/OpenExportPath" to="." method="_on_OpenExportPath_pressed"]
 [connection signal="text_changed" from="VBoxContainer/VBoxContainer/FileNameContainer/FileName" to="." method="_on_FileName_text_changed"]
-[connection signal="pressed" from="VBoxContainer2/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="VBoxContainer2/Export" to="." method="_on_Export_pressed"]
