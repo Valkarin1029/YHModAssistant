@@ -45,7 +45,7 @@ func _check_for_update():
 	assistant_path = ProjectSettings.globalize_path(assistant_path)
 	
 	OS.execute("CMD.exe",
-			["/C", 'cd {git_path} && git pull "{assistant_path}"'.format(
+			["/C", 'git pull "{assistant_path}"'.format(
 				{
 					"git_path":git_path,
 					"assistant_path":assistant_path
@@ -56,6 +56,8 @@ func _check_for_update():
 			true,
 			false
 			)
+	
+	print(output[0])
 	
 	if not output[0].match("*Already up to date*"):
 		return true
