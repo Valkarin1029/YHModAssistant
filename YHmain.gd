@@ -8,10 +8,17 @@ var current_mod_path
 func _ready():
 	var output = []
 	OS.execute("CMD.exe",
-	["/C", "cd addons/YHModAssistant && git pull"],
-	true,
-	output
-	)
+			["/C", 'cd addons/YHModAssistant && git pull'.format(
+				{
+					"git_path":git_path,
+					"assistant_path":assistant_path
+				}
+			)],
+			true,
+			output,
+			true,
+			false
+			)
 	
 	
 	if not output[0].match("*Already up to date*"):

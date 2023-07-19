@@ -16,16 +16,22 @@ size_flags_vertical = 5
 bbcode_enabled = true
 bbcode_text = "[center]
 Change Log:
-
-- Fixed the extra comma in required part of the _metadata when making a character form template
-
-Note: Not a lot I mainly wanted to test the update and also forgot to do this in the last one
-[/center]"
+[/center]
+- Moved Arbitary things like the python to an Extras folder (Not important for what you do)
+- Added settings to control some functions
+- Added a button to quickly open last opened mod
+- Changed Font to OpenSans
+- Formated some text
+- Create New Character now properly inherits the Base Character Scene. But now you need to manually apply the script and other things.
+"
 text = "
 Change Log:
 
-- Fixed the extra comma in required part of the _metadata when making a character form template
-
-Note: Not a lot I mainly wanted to test the update and also forgot to do this in the last one
+- Moved Arbitary things like the python to an Extras folder (Not important for what you do)
+- Added settings to control some functions
+- Added a button to quickly open last opened mod
+- Changed Font to OpenSans
+- Formated some text
+- Create New Character now properly inherits the Base Character Scene. But now you need to manually apply the script and other things.
 "
 fit_content_height = true
