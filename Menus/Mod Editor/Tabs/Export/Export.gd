@@ -142,3 +142,9 @@ func _on_Export_pressed():
 
 
 
+
+
+func _on_Button_pressed():
+	var character_folder = current_mod_path+"/characters/a"
+	print(load(character_folder.plus_file("a.tscn"))._bundled)
+	print(current_mod_path)

@@ -10,6 +10,7 @@ func _enter_tree():
 #	print(templateButtonGroup)
 
 
+
 func slideAnime(object, open, distance):
 	var tween = $Tween
 	if open:
@@ -258,33 +259,30 @@ func _create_character_mod():
 	_create_character_scenes(character_folder)
 	
 
+func create_inherited_scene(inherits: PackedScene, root_name := "Scene") -> PackedScene:
+	var scene := PackedScene.new()
+	scene._bundled = { "names": [root_name], "variants": [inherits], "node_count": 1, "nodes": [-1, -1, 2147483647, 0, -1, 0, 0], "conn_count": 0, "conns": [], "node_paths": [], "editable_instances": [], "base_scene": 0, "version": 2 }
+	return scene
+
 func _create_character_scenes(character_folder):
+	var basePlayerInfo : PackedScene = load("res://characters/PlayerInfo.tscn")
+	var basePlayerExtra : PackedScene = load("res://ui/ActionSelector/PlayerExtra.tscn")
+	var baseChar : PackedScene = load("res://characters/BaseChar.tscn")
 	
-	var basePlayerInfo = load("res://characters/PlayerInfo.tscn").instance(3)
-	var basePlayerExtra = load("res://ui/ActionSelector/PlayerExtra.tscn").instance(3)
-	var baseChar = load("res://characters/BaseChar.tscn").instance(3)
+#	var baseCharInstance = baseChar.instance()
+#	baseCharInstance.set_script(load(character_folder.plus_file($"%CharName".text+".gd")))
+#	baseCharInstance.get_node_or_null("Flip/Sprite").frames = SpriteFrames.new()
+#
+#	var editiedBaseChar = PackedScene.new()
+#	editiedBaseChar.pack(baseCharInstance)
+#	print(editiedBaseChar._bundled)
 	
-	var newPlayerInfo = PackedScene.new()
-	var newPlayerExtra = PackedScene.new()
-	var newChar = PackedScene.new()
+	var newChar = create_inherited_scene(baseChar, $"%CharName".text)
+	print(newChar._bundled)
 	
-	newPlayerInfo.pack(basePlayerInfo)
-	newPlayerExtra.pack(basePlayerExtra)
+	var err = ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
+	print(err)
 	
-	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"), newPlayerInfo)
-	ResourceSaver.save(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"), newPlayerExtra)
-	
-	baseChar.name = $"%CharName".text
-	baseChar.set_script(load(character_folder.plus_file($"%CharName".text+".gd")))
-	baseChar.player_info_scene = load(character_folder.plus_file($"%CharName".text+"PlayerInfo"+".tscn"))
-	baseChar.player_extra_params_scene = load(character_folder.plus_file($"%CharName".text+"PlayerExtra"+".tscn"))
-	
-	newChar.pack(baseChar)
-	
-	ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
-	baseChar.queue_free()
-	basePlayerInfo.queue_free()
-	basePlayerExtra.queue_free()
 	
 
 func _create_overwrites_mod():

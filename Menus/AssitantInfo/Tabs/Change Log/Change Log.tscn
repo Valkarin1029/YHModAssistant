@@ -15,20 +15,24 @@ size_flags_vertical = 7
 bbcode_enabled = true
 bbcode_text = "[center]
 Change Log:
-
+[/center]
 - Added PortableGit to pull the newest git commits (How it will auto update for now)
 - Moved Arbitary things like the python to an Extras folder (Not important for what you do)
 - Added settings to control some functions
-- Added a quick open for last opened mod
-
-[/center]"
+- Added a button to quickly open last opened mod
+- Changed Font to OpenSans
+- Formated some text
+- Create New Character now properly inherits the Base Character Scene. But now you need to manually apply the script and other things.
+"
 text = "
 Change Log:
 
 - Added PortableGit to pull the newest git commits (How it will auto update for now)
 - Moved Arbitary things like the python to an Extras folder (Not important for what you do)
 - Added settings to control some functions
-- Added a quick open for last opened mod
-
+- Added a button to quickly open last opened mod
+- Changed Font to OpenSans
+- Formated some text
+- Create New Character now properly inherits the Base Character Scene. But now you need to manually apply the script and other things.
 "
 fit_content_height = true
