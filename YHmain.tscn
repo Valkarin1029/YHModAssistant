@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://addons/YHModAssistant/Menus/Home/Home.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Mod Editor.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://addons/YHModAssistant/YHmain.gd" type="Script" id=5]
 [ext_resource path="res://addons/YHModAssistant/Menus/Restart Plugin/RestartRequired.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Assistant Info.tscn" type="PackedScene" id=7]
+[ext_resource path="res://addons/YHModAssistant/Menus/Settings/Settings.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ButtonGroup" id=1]
 
@@ -29,9 +30,8 @@ rect_min_size = Vector2( 0, 360 )
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
-margin_top = 364.0
 margin_right = 640.0
-margin_bottom = 364.0
+margin_bottom = 360.0
 
 [node name="Mod Editor" parent="." instance=ExtResource( 2 )]
 visible = false
@@ -51,11 +51,17 @@ margin_right = 640.0
 margin_bottom = 364.0
 templateButtonGroup = SubResource( 1 )
 
+[node name="Settings" parent="." instance=ExtResource( 8 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 364.0
+margin_right = 640.0
+margin_bottom = 364.0
+
 [node name="RestartRequired" parent="." instance=ExtResource( 6 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 640.0
 margin_bottom = 360.0
-
-[connection signal="LoadMod" from="Home" to="." method="_on_Home_LoadMod"]
