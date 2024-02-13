@@ -1,5 +1,5 @@
 tool
 extends Tabs
 
-onready var YHAGlobal = find_parent("YH Mod Assistant")
+onready var YHAGlobal = find_parent("YHMA")
 

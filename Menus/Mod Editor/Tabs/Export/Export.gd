@@ -1,7 +1,7 @@
 tool
 extends Tabs
 
-onready var YHAGlobal = find_parent("YH Mod Assistant")
+onready var YHAGlobal = find_parent("YHMA")
 #onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 onready var DEFAULT_EXPORT_PATH = YHAGlobal.settings["General"]["defualt_export_path"]
 

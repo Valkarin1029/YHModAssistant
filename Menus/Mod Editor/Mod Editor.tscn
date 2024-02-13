@@ -30,6 +30,9 @@ visible = false
 
 [node name="Overwrites" parent="VBoxContainer/TabContainer" index="2" instance=ExtResource( 5 )]
 visible = false
+__meta__ = {
+"_tab_hidden": true
+}
 
 [node name="Padding" parent="VBoxContainer" index="1"]
 visible = false
