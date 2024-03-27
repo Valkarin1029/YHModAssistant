@@ -117,8 +117,7 @@ func _on_Export_pressed():
 	var succes = zip.zipDirectory(ProjectSettings.globalize_path(current_mod_path), 
 			_export_path.plus_file(_export_name+".zip"))
 	
-	print(succes)
-	return succes;
+	return succes
 	
 	pass
 
