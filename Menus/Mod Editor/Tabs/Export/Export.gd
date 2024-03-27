@@ -83,6 +83,7 @@ func _on_OpenExportPath_pressed():
 	OS.shell_open(DEFAULT_EXPORT_PATH if export_path == "" else export_path)
 
 func _on_Export_pressed():
+	var zip = ZipMod.new()
 	var dir = Directory.new()
 	var cfg = ConfigFile.new()
 	
@@ -104,6 +105,7 @@ func _on_Export_pressed():
 		dir.remove(_export_path.plus_file(previous_export_name+".zip"))
 	
 	previous_export_name = _export_name
+	
 	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
 	if YHAGlobal.settings["General"]["RememberPreviousModName"]:
 		cfg.set_value("Export", "PreviousExportName", previous_export_name)
@@ -111,32 +113,12 @@ func _on_Export_pressed():
 		cfg.set_value("Export", "PreviousExportName", null)
 	cfg.save("res://addons/YHModAssistant/SaveData.cfg")
 	
-	var python_pth = ".\\addons\\YHModAssistant\\Extras\\Python\\python-3.10.11-embed-amd64"
 	
-	var output = []
-	OS.execute("CMD.exe", 
-	["/C", 
-	"cd {python_path} && python.exe ..\\zipper.py -fn {mod_name} -td {mod_folder_path} -ep {export_path}".format(
-		{
-			"python_path": python_pth,
-			"mod_name": _export_name,
-			"mod_folder_path": '"'+ProjectSettings.globalize_path(current_mod_path)+'"',
-			"export_path": '"'+_export_path+'"'
-		}
-		)
-	],
-	true, 
-	output,
-	true,
-	false)
-#	printt("Output", output)
+	var succes = zip.zipDirectory(ProjectSettings.globalize_path(current_mod_path), 
+			_export_path.plus_file(_export_name+".zip"))
 	
-	if dir.file_exists(_export_path.plus_file(_export_name+'.zip')):
-		print("Sucessfully Exported The Mod -YH Mod Assistant")
-		return true
-	else:
-		printerr("Mod Failed to export -YH Mod Assistant")
-		return false
+	print(succes)
+	return succes;
 	
 	pass
 
@@ -145,14 +127,7 @@ func _on_Export_pressed():
 
 
 func _on_Button_pressed():
-	var z = ZipMod.new()
-	
-#	var f = ProjectSettings.globalize_path("res://A")
-#	f = f.replace("/", "\\")
-	
-#	print(f)
-#	z.zipDirectory(ProjectSettings.globalize_path("res://A"), DEFAULT_EXPORT_PATH.plus_file("A.zip"))
-	var _export_name = mod_info.name if export_name == "" else export_name
-	z.zipDirectory(ProjectSettings.globalize_path(current_mod_path), DEFAULT_EXPORT_PATH.plus_file(_export_name+".zip"))
+	for i in range(1000):
+		_on_Export_pressed()
 	pass
 
