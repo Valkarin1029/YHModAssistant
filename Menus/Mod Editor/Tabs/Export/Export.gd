@@ -16,7 +16,7 @@ var mod_info
 
 func _ready():
 	var cfg = ConfigFile.new()
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	if DEFAULT_EXPORT_PATH == "":
 		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 	if not YHAGlobal == null:
@@ -30,7 +30,7 @@ func _ready():
 	
 
 func _load_mod_info(replace):
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	
 	current_mod_path = YHAGlobal.current_mod_path
 	$"%ModFolderPath".text = current_mod_path
@@ -145,6 +145,14 @@ func _on_Export_pressed():
 
 
 func _on_Button_pressed():
-	var character_folder = current_mod_path+"/characters/a"
-	print(load(character_folder.plus_file("a.tscn"))._bundled)
-	print(current_mod_path)
+	var z = ZipMod.new()
+	
+#	var f = ProjectSettings.globalize_path("res://A")
+#	f = f.replace("/", "\\")
+	
+#	print(f)
+#	z.zipDirectory(ProjectSettings.globalize_path("res://A"), DEFAULT_EXPORT_PATH.plus_file("A.zip"))
+	var _export_name = mod_info.name if export_name == "" else export_name
+	z.zipDirectory(ProjectSettings.globalize_path(current_mod_path), DEFAULT_EXPORT_PATH.plus_file(_export_name+".zip"))
+	pass
+

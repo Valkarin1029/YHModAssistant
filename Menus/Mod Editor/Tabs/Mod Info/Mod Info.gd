@@ -7,7 +7,7 @@ var current_mod_path = null
 
 
 func _ready():
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	if not YHAGlobal == null:
 		current_mod_path = YHAGlobal.current_mod_path
 		YHAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
@@ -15,7 +15,7 @@ func _ready():
 	
 
 func _on_ApplyMeta_pressed():
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	current_mod_path = YHAGlobal.current_mod_path
 	
 	var meta_data_path = current_mod_path.plus_file("_metadata")
@@ -72,7 +72,7 @@ func _on_ApplyMeta_pressed():
 	YHAGlobal.emit_signal("load_mod_info", false)
 
 func _load_mod_info_from_metadata(updateInfo):
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	current_mod_path = YHAGlobal.current_mod_path
 	
 	if not updateInfo:

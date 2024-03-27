@@ -64,7 +64,8 @@ func _on_BlankTemp_toggled(button_pressed):
 	pass
 
 func _on_CharTemp_toggled(button_pressed):
-	slideAnime($"%CharOptions", button_pressed, 145)
+#	slideAnime($"%CharOptions", button_pressed, 145)
+	slideAnime($"%CharOptions", button_pressed, $"%CharOptions".get_child(0).rect_size.y)
 	if button_pressed:
 		if YHAGlobal.settings["Character Template"]["char_loader_Support"]:
 			$"%Required".text = "char_loader"
@@ -189,7 +190,7 @@ func _on_Create_pressed():
 	YHAGlobal.emit_signal("load_mod_info", true)
 
 func _gen_metadata(mod_dir):
-	YHAGlobal = find_parent("YH Mod Assistant")
+	YHAGlobal = find_parent("YHMA")
 	
 	var meta_data_path = mod_dir.plus_file("_metadata")
 	
@@ -319,7 +320,7 @@ func _create_overwrites_mod():
 	
 	for chars in selected:
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars)
-		if not YHAGlobal.settings["Overwrite Template"]["add_anim_folder_overwrites"]:
+		if not YHAGlobal.settings["Overwrites Template"]["add_anim_folder_overwrites"]:
 			continue
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/BaseSounds')
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/StateSounds')

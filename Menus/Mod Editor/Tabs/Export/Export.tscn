@@ -176,31 +176,27 @@ alignment = 2
 
 [node name="AutoExport" type="CheckButton" parent="VBoxContainer2" index="0"]
 unique_name_in_owner = true
-margin_top = 5.0
 margin_right = 632.0
-margin_bottom = 45.0
+margin_bottom = 40.0
 hint_tooltip = "Will export your mod when you run the debugger. Useful if you make a lot of small changes and test them right after"
 text = "Auto Export Mod"
 clip_text = true
 align = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2" index="1"]
-visible = false
 margin_top = 44.0
 margin_right = 632.0
-margin_bottom = 69.0
-rect_min_size = Vector2( 0, 25 )
-text = "Print"
+margin_bottom = 64.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Press"
 clip_text = true
-__meta__ = {
-"_editor_description_": ""
-}
 
 [node name="Export" type="Button" parent="VBoxContainer2" index="2"]
 unique_name_in_owner = true
-margin_top = 49.0
+margin_top = 68.0
 margin_right = 632.0
-margin_bottom = 74.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 0, 25 )
 text = "Export Mod"
 clip_text = true

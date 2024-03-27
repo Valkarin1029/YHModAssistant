@@ -143,6 +143,7 @@ unique_name_in_owner = true
 margin_top = 94.0
 margin_right = 640.0
 margin_bottom = 134.0
+rect_clip_content = true
 hint_tooltip = "Includes other folders inside the character folder such as sprites, states, sounds, etc"
 text = "Include Basic Folders"
 clip_text = true

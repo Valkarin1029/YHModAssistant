@@ -20,6 +20,7 @@ margin_bottom = 457.0
 [node name="FriendlyNameContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="0"]
 margin_right = 620.0
 margin_bottom = 43.0
+size_flags_horizontal = 3
 
 [node name="FriendlyNameLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/FriendlyNameContainer" index="0"]
 margin_right = 620.0
@@ -41,7 +42,6 @@ margin_top = 47.0
 margin_right = 620.0
 margin_bottom = 90.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="NameLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/NameContainer" index="0"]
 margin_right = 620.0
@@ -76,7 +76,6 @@ margin_top = 94.0
 margin_right = 620.0
 margin_bottom = 213.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="DescriptionLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/DescriptionContainer" index="0"]
 margin_right = 620.0
@@ -99,7 +98,6 @@ margin_top = 217.0
 margin_right = 620.0
 margin_bottom = 260.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="VersionLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/VersionContainer" index="0"]
 margin_right = 620.0
@@ -122,7 +120,6 @@ margin_top = 264.0
 margin_right = 620.0
 margin_bottom = 307.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="AuthorLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/AuthorContainer" index="0"]
 margin_right = 620.0
@@ -144,7 +141,6 @@ margin_top = 311.0
 margin_right = 620.0
 margin_bottom = 354.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="RequiredLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/RequiredContainer" index="0"]
 margin_right = 620.0
@@ -166,7 +162,6 @@ margin_top = 358.0
 margin_right = 620.0
 margin_bottom = 401.0
 size_flags_horizontal = 3
-size_flags_vertical = 3
 
 [node name="PriorityLabel" type="RichTextLabel" parent="VBoxContainer/VBoxContainer/PriorityContainer" index="0"]
 margin_right = 620.0
@@ -191,7 +186,6 @@ margin_right = 620.0
 margin_bottom = 429.0
 hint_tooltip = "Toggle if your mod is client side and does not affect the game as a whole"
 size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "Client Side"
 clip_text = true
 
@@ -202,7 +196,6 @@ margin_right = 620.0
 margin_bottom = 457.0
 hint_tooltip = "Used if your mod has overwrite textures for characters aka A Retexture Mod"
 size_flags_horizontal = 3
-size_flags_vertical = 3
 text = "Overwrites "
 clip_text = true
 
