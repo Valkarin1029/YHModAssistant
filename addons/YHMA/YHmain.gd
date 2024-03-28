@@ -27,9 +27,9 @@ var settings = {
 func _ready():
 	
 	
-	if _check_for_update():
-		change_scene("RestartRequired")
-		return
+	#if _check_for_update():
+	#	change_scene("RestartRequired")
+	#	return
 	
 	change_scene("Home")
 	_get_settings()
