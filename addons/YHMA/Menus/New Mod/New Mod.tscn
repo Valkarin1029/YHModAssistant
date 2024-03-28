@@ -159,7 +159,7 @@ margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 toggle_mode = true
 group = ExtResource( 3 )
-text = "Overwrites Tempalte"
+text = "Overwrites Template"
 clip_text = true
 
 [node name="OWOptions" type="Control" parent="VBoxContainer/Templates/ScrollContainer/VBoxContainer/OverwritesTempContainer" index="1"]
