@@ -31,7 +31,8 @@ Like my plugin? Support me. It gives me a big boost to keep improving this.
 2. Navigate to your Yomi Hustle Decompiled Folder
 3. Go to the addons Folder
 4. Extract the zip you downloaded in the addons folder
-5. Enable the plugin in godot project settings
+5. make sure that the YHMA folder is the one in the addons folder
+6. Enable the plugin in godot project settings
 
 If done correctly a new dock should appear to the right of the file system dock
 
