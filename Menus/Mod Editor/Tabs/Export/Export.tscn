@@ -137,7 +137,6 @@ text = "Include Version in the Export Name When Exported"
 clip_text = true
 
 [node name="MiscOptionsContainer" type="VBoxContainer" parent="VBoxContainer/VBoxContainer" index="3"]
-visible = false
 margin_top = 198.0
 margin_right = 632.0
 margin_bottom = 241.0
@@ -155,7 +154,8 @@ margin_top = 19.0
 margin_right = 632.0
 margin_bottom = 43.0
 
-[node name="CheckBox" type="CheckBox" parent="VBoxContainer/VBoxContainer/MiscOptionsContainer/VBoxContainer" index="0"]
+[node name="IncludeImport" type="CheckBox" parent="VBoxContainer/VBoxContainer/MiscOptionsContainer/VBoxContainer" index="0"]
+unique_name_in_owner = true
 margin_right = 632.0
 margin_bottom = 24.0
 hint_tooltip = "This is something you should only enable if you need custom textures and they are not loading."
@@ -164,7 +164,7 @@ clip_text = true
 
 [node name="Padding" parent="VBoxContainer/VBoxContainer" index="4"]
 visible = true
-margin_top = 198.0
+margin_top = 245.0
 margin_bottom = 250.0
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." index="2"]
@@ -176,16 +176,14 @@ alignment = 2
 
 [node name="AutoExport" type="CheckButton" parent="VBoxContainer2" index="0"]
 unique_name_in_owner = true
-margin_top = 5.0
 margin_right = 632.0
-margin_bottom = 45.0
+margin_bottom = 40.0
 hint_tooltip = "Will export your mod when you run the debugger. Useful if you make a lot of small changes and test them right after"
 text = "Auto Export Mod"
 clip_text = true
 align = 1
 
 [node name="Button" type="Button" parent="VBoxContainer2" index="1"]
-visible = false
 margin_top = 44.0
 margin_right = 632.0
 margin_bottom = 64.0
@@ -196,9 +194,9 @@ clip_text = true
 
 [node name="Export" type="Button" parent="VBoxContainer2" index="2"]
 unique_name_in_owner = true
-margin_top = 49.0
+margin_top = 68.0
 margin_right = 632.0
-margin_bottom = 74.0
+margin_bottom = 93.0
 rect_min_size = Vector2( 0, 25 )
 text = "Export Mod"
 clip_text = true

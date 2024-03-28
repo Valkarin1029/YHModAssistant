@@ -115,7 +115,11 @@ func _on_Export_pressed():
 	
 	
 	var succes = zip.zipDirectory(ProjectSettings.globalize_path(current_mod_path), 
-			_export_path.plus_file(_export_name+".zip"))
+			_export_path.plus_file(_export_name+".zip"), true)
+	
+	if $"%IncludeImport".pressed:
+		succes = zip.zipDirectory(ProjectSettings.globalize_path("res://.import"), 
+			_export_path.plus_file(_export_name+".zip"), false)
 	
 	return succes
 	
@@ -126,7 +130,8 @@ func _on_Export_pressed():
 
 
 func _on_Button_pressed():
-	for i in range(1000):
-		_on_Export_pressed()
+	var z = ZipMod.new()
+	
+	z.test(ProjectSettings.globalize_path(current_mod_path))
 	pass
 
