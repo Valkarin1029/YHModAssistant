@@ -9,7 +9,7 @@ func _ready():
 		if node.has_signal("pressed"):
 			node.connect("pressed", self, "_save_settings", [null])
 		if node.has_signal("text_changed"):
-			node.connect("text_changed", self, "_save_settings")
+			node.connect("text_changed", self, "_on_text_changed")
 	
 
 func _load_settings():
@@ -28,7 +28,7 @@ func _load_settings():
 			"Experimental":
 				pass
 
-func _save_settings(text):
+func _save_settings():
 	var settings = YHAGlobal.settings
 	for section in settings:
 		match section:
@@ -57,13 +57,19 @@ func _save_settings(text):
 
 
 func _on_Back_pressed():
+	_save_settings()
 	YHAGlobal.change_scene("Home")
 
 
 func _on_SelectExportFolderS_dir_selected(dir):
 	$"%defualt_export_path".text = dir
-	_save_settings(null)
+	_save_settings()
 
 
 func _on_SelectExportPath_pressed():
 	$"%SelectExportFolderS".popup()
+
+
+func _on_text_changed(new_text):
+	_save_settings()
+	pass # Replace with function body.

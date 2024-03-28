@@ -24,6 +24,9 @@ var settings = {
 	}
 }
 
+func _enter_tree():
+	_get_settings()
+
 func _ready():
 	
 	
@@ -32,7 +35,7 @@ func _ready():
 	#	return
 	
 	change_scene("Home")
-	_get_settings()
+#	_get_settings()
 	
 	if settings.General['ReopenLast']:
 		emit_signal("re_open_last")
