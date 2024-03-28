@@ -39,13 +39,13 @@ func _ready():
 
 func _check_for_update():
 	var output = []
-	var git_path = "res://addons/YHModAssistant/Extras/PortableGit/cmd"
-	var assistant_path = "res://addons/YHModAssistant"
+	var git_path = "res://addons/YHMA/Extras/PortableGit/cmd"
+	var assistant_path = "res://addons/YHMA"
 	git_path = ProjectSettings.globalize_path(git_path)
 	assistant_path = ProjectSettings.globalize_path(assistant_path)
 	
 	OS.execute("CMD.exe",
-			["/C", 'cd addons/YHModAssistant && git pull'.format(
+			["/C", 'cd addons/YHMA && git pull'.format(
 				{
 					"git_path":git_path,
 					"assistant_path":assistant_path
@@ -80,10 +80,10 @@ func _get_settings():
 	var file = File.new()
 	var dir = Directory.new()
 	
-	if not dir.file_exists("res://addons/YHModAssistant/settings.json"):
+	if not dir.file_exists("res://addons/YHMA/settings.json"):
 		_create_settings_config()
 	
-	if not file.open("res://addons/YHModAssistant/settings.json", File.READ) == OK:
+	if not file.open("res://addons/YHMA/settings.json", File.READ) == OK:
 		printerr("Could not open settings json file - YH Mod Assistnat")
 		return
 	
@@ -101,7 +101,7 @@ func _create_settings_config():
 #	var cfg = ConfigFile.new()
 	var file = File.new()
 	
-	if not file.open("res://addons/YHModAssistant/settings.json", File.WRITE) == OK:
+	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
 		printerr("Unable to make settings config file - YH Mod Assistant")
 		return
 	print("Creating Settings File For First Launch - YH Mod Assistant")

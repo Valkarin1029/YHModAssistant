@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Tabs/Credit/Credit.gd" type="Script" id=2]
-[ext_resource path="res://addons/YHModAssistant/Styles/YHAssistant.tres" type="Theme" id=3]
+[ext_resource path="res://addons/YHMA/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHMA/Menus/AssitantInfo/Tabs/Credit/Credit.gd" type="Script" id=2]
+[ext_resource path="res://addons/YHMA/Styles/YHAssistant.tres" type="Theme" id=3]
 
 [node name="Credit" instance=ExtResource( 1 )]
 theme = ExtResource( 3 )
@@ -24,7 +24,7 @@ bbcode_text = "[center][b]Creator:[/b] Valkarin
 [url]https://ko-fi.com/valkarin[/url]
 [b]Contributers:[/b]
 [b]Temple Slug[/b] from Yomi Temple, They made an icon for me to use
-[font=res://addons/YHModAssistant/Styles/Img Offset.tres][img=40]res://addons/YHModAssistant/icons/ValkUtilities/Valkarin_Utilities.png[/img][/font]
+[font=res://addons/YHMA/Styles/Img Offset.tres][img=40]res://addons/YHMA/icons/ValkUtilities/Valkarin_Utilities.png[/img][/font]
 [/center]
 
 [b]Note from Creator[/b]

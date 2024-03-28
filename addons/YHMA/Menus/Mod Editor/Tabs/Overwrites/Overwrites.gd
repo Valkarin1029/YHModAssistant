@@ -22,7 +22,7 @@ func _on_FileDialog_files_selected(paths):
 		
 		
 		
-		var sprite_holder = load("res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Overwrites/SpriteHolder.tscn").instance()
+		var sprite_holder = load("res://addons/YHMA/Menus/Mod Editor/Tabs/Overwrites/SpriteHolder.tscn").instance()
 		var sprite = sprite_holder.get_child(0)
 		
 		sprite.texture = img_texture

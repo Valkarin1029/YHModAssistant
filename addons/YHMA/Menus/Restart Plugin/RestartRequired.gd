@@ -1,5 +1,5 @@
 tool
-extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
+extends "res://addons/YHMA/Menus/BaseMenu/BaseMenu.gd"
 
 
 

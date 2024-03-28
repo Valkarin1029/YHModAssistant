@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Mod Info/Mod Info.gd" type="Script" id=2]
+[ext_resource path="res://addons/YHMA/Menus/Mod Editor/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHMA/Menus/Mod Editor/Tabs/Mod Info/Mod Info.gd" type="Script" id=2]
 
 [node name="Mod Info" instance=ExtResource( 1 )]
 script = ExtResource( 2 )

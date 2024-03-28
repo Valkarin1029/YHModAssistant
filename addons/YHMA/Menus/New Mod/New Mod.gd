@@ -1,5 +1,5 @@
 tool
-extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
+extends "res://addons/YHMA/Menus/BaseMenu/BaseMenu.gd"
 
 #export(ButtonGroup) var templateButtonGroup
 export(ButtonGroup) var templateButtonGroup 
@@ -137,7 +137,7 @@ func _on_Create_pressed():
 	var file = File.new()
 	var cfg = ConfigFile.new()
 	var save_data_cfg = ConfigFile.new()
-	cfg.load("res://addons/YHModAssistant/Menus/New Mod/templates.cfg")
+	cfg.load("res://addons/YHMA/Menus/New Mod/templates.cfg")
 	
 	var mod_dir = "res://%s" % $"%Name".text
 	
@@ -179,9 +179,9 @@ func _on_Create_pressed():
 	
 	print("Mod successfully created. Happy modding! - YH Mod Assistant")
 	YHAGlobal.current_mod_path = mod_dir
-	save_data_cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	save_data_cfg.load("res://addons/YHMA/SaveData.cfg")
 	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
-	save_data_cfg.save("res://addons/YHModAssistant/SaveData.cfg")
+	save_data_cfg.save("res://addons/YHMA/SaveData.cfg")
 	YHAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
 #	print(YHAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
 	
@@ -236,7 +236,7 @@ func _create_character_mod():
 	var dir = Directory.new()
 	var file = File.new()
 	var cfg = ConfigFile.new()
-	cfg.load("res://addons/YHModAssistant/Menus/New Mod/templates.cfg")
+	cfg.load("res://addons/YHMA/Menus/New Mod/templates.cfg")
 	
 	var mod_dir = "res://%s" % $"%Name".text
 	var character_folder = mod_dir+"/characters/%s" % $"%CharName".text

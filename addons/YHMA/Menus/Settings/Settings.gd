@@ -1,5 +1,5 @@
 tool
-extends "res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.gd"
+extends "res://addons/YHMA/Menus/BaseMenu/BaseMenu.gd"
 
 
 func _ready():
@@ -45,7 +45,7 @@ func _save_settings(text):
 	
 	var file = File.new()
 	
-	if not file.open("res://addons/YHModAssistant/settings.json", File.WRITE) == OK:
+	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
 		printerr("Unable to open settings config file - YH Mod Assistant")
 		return
 #	print("Creating Settings File For First Launch - YH Mod Assistant")

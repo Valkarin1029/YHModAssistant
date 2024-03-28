@@ -25,7 +25,7 @@ func _ready():
 	
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 	
-	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	cfg.load("res://addons/YHMA/SaveData.cfg")
 	previous_export_name = cfg.get_value("Export", "PreviousExportName", previous_export_name)
 	
 
@@ -106,12 +106,12 @@ func _on_Export_pressed():
 	
 	previous_export_name = _export_name
 	
-	cfg.load("res://addons/YHModAssistant/SaveData.cfg")
+	cfg.load("res://addons/YHMA/SaveData.cfg")
 	if YHAGlobal.settings["General"]["RememberPreviousModName"]:
 		cfg.set_value("Export", "PreviousExportName", previous_export_name)
 	else:
 		cfg.set_value("Export", "PreviousExportName", null)
-	cfg.save("res://addons/YHModAssistant/SaveData.cfg")
+	cfg.save("res://addons/YHMA/SaveData.cfg")
 	
 	
 	var succes = zip.zipDirectory(ProjectSettings.globalize_path(current_mod_path), 

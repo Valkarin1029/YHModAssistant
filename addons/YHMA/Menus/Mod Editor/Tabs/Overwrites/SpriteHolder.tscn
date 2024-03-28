@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Menus/Mod Editor/Tabs/Overwrites/SpriteDrag.gd" type="Script" id=2]
+[ext_resource path="res://addons/YHMA/Menus/Mod Editor/Tabs/Overwrites/SpriteDrag.gd" type="Script" id=2]
+
 
 [node name="SpriteHolder" type="Panel"]
 margin_right = 100.0

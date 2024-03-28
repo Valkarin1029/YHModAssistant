@@ -1,10 +1,10 @@
 [gd_resource type="Theme" load_steps=11 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Styles/RichText BG.tres" type="StyleBox" id=1]
-[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Italic.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://addons/YHModAssistant/Styles/Fonts/OpenSans-Medium.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://addons/YHMA/Styles/RichText BG.tres" type="StyleBox" id=1]
+[ext_resource path="res://addons/YHMA/Styles/Fonts/OpenSans-Bold.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://addons/YHMA/Styles/Fonts/OpenSans-Italic.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://addons/YHMA/Styles/Fonts/OpenSans-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://addons/YHMA/Styles/Fonts/OpenSans-Medium.ttf" type="DynamicFontData" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 14

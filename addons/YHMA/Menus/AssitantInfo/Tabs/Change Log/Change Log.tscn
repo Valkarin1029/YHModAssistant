@@ -1,6 +1,7 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHMA/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+
 
 [node name="Change Log" instance=ExtResource( 1 )]
 

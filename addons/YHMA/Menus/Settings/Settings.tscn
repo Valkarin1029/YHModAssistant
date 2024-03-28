@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://addons/YHModAssistant/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
-[ext_resource path="res://addons/YHModAssistant/Menus/Settings/Settings.gd" type="Script" id=2]
-[ext_resource path="res://addons/YHModAssistant/icons/Folder.svg" type="Texture" id=3]
+[ext_resource path="res://addons/YHMA/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHMA/Menus/Settings/Settings.gd" type="Script" id=2]
+[ext_resource path="res://addons/YHMA/icons/Folder.svg" type="Texture" id=3]
 
 [node name="Settings" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
