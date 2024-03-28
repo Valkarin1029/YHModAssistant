@@ -61,10 +61,10 @@ func _on_ApplyMeta_pressed():
 		file.store_string(JSON.print(contents, "\t"))
 		file.close()
 		
-		print("Metadata updated -YH Assistant")
+		print("[YHMA] Metadata updated")
 		
 	else:
-		print("Making new metadata -YH Assistant")
+		print("[YHMA] Making new metadata")
 		file.open(meta_data_path, File.WRITE)
 		file.store_string(JSON.print(new_meta, "\t"))
 		file.close()
@@ -100,9 +100,9 @@ func _load_mod_info_from_metadata(updateInfo):
 		$"%Client Side".pressed = contents.client_side if not null else false
 		$"%Overwrites".pressed = contents.overwrites if not null else false
 	
-		print("Loaded Meta Data -YH Assistant")
+		print("[YHMA] Loaded Meta Data")
 	else:
-		printerr("No Metadata to load from - YH Assistant")
+		printerr("[YHMA] No Metadata to load from")
 
 
 func _on_FriendlyName_text_changed(new_text):

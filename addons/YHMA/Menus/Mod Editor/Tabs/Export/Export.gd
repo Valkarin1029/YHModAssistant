@@ -91,11 +91,11 @@ func _on_Export_pressed():
 	var _export_name = mod_info.name if export_name == "" else export_name
 	
 	if not dir.dir_exists(current_mod_path):
-		printerr("The mod folder does not exist. Either the mod folder name changed or was removed - YH Mod Assistant")
+		printerr("[YHMA] The mod folder does not exist. Either the mod folder name changed or was removed")
 		return false
 	
 	if not dir.dir_exists(_export_path):
-		printerr("Export Directory Does Not Exist -YH Mod Assistant")
+		printerr("[YHMA] Export Directory Does Not Exist")
 		return false
 	
 	if $"%IncludeVersion".pressed:

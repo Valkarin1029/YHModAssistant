@@ -69,7 +69,7 @@ func _check_for_update():
 
 func change_scene(scene):
 	if scene == null:
-		printerr("Scene could not be loaded -YH Assistant")
+		printerr("[YHMA] Scene could not be loaded")
 		return
 	
 	for node in get_children():
@@ -87,7 +87,7 @@ func _get_settings():
 		_create_settings_config()
 	
 	if not file.open("res://addons/YHMA/settings.json", File.READ) == OK:
-		printerr("Could not open settings json file - YH Mod Assistnat")
+		printerr("[YHMA] Could not open settings json file")
 		return
 	
 	for sections in settings:
@@ -105,9 +105,9 @@ func _create_settings_config():
 	var file = File.new()
 	
 	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
-		printerr("Unable to make settings config file - YH Mod Assistant")
+		printerr("[YHMA] Unable to make settings config file")
 		return
-	print("Creating Settings File For First Launch - YH Mod Assistant")
+	print("[YHMA] Creating Settings File For First Launch")
 	file.store_string(JSON.print(settings, "\t"))
 	file.close()
 	

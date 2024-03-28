@@ -4,6 +4,7 @@ extends Control
 onready var YHAGlobal = find_parent("YHMA")
 
 func _ready():
+	YHAGlobal = find_parent("YHMA")
 	pass
 	
 
@@ -12,7 +13,7 @@ func is_valid_mod(dir):
 	d.open(dir)
 	
 	if not d.list_dir_begin(true) == OK:
-		printerr("Folder Empty -YH Assistant")
+		printerr("[YHMA] Folder Empty")
 		return
 	
 	while true:

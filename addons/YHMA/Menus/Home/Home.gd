@@ -12,7 +12,7 @@ func _set_version_label():
 	var dir = Directory.new()
 	var plugin_config = ConfigFile.new()
 	if plugin_config.load("res://addons/YHMA/plugin.cfg") != OK:
-		printerr("Could not read config file -YH Mod Assistant")
+		printerr("[YHMA] Could not read config file")
 	
 	$"%AssistantVersionLabel".bbcode_text = "[center]YH Mod Assistant {version}[/center]".format(
 		{"version": plugin_config.get_value("plugin", "version")}
@@ -27,7 +27,7 @@ func _check_for_last_opened_dir():
 		if dir.dir_exists(last_dir):
 			$"%Continue_mod".visible = true
 		else:
-			printerr("Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose) - YH Mod Assistant")
+			printerr("[YHMA] Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose)")
 			cfg.set_value("Export", "LastOpenedDir", null)
 			cfg.save("res://addons/YHMA/SaveData.cfg")
 
@@ -48,7 +48,7 @@ func _on_Continue_mod_pressed():
 	cfg.load("res://addons/YHMA/SaveData.cfg")
 	
 	if not is_valid_mod(cfg.get_value("Export", "LastOpenedDir", "")):
-		printerr("Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose) - YH Mod Assistant")
+		printerr("[YHMA] Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose)")
 		$"%Continue_mod".visible = false
 		return
 	
@@ -59,7 +59,7 @@ func _on_Continue_mod_pressed():
 func _on_SelectFolder_dir_selected(dir):
 	var cfg = ConfigFile.new()
 	if not is_valid_mod(dir):
-		printerr("This is not a mod folder or missing modmain.gd -YH Assistant")
+		printerr("[YHMA] This is not a mod folder or missing modmain.gd")
 		cfg.set_value("Export", "LastOpenedDir", null)
 		cfg.save("res://addons/YHMA/SaveData.cfg")
 		

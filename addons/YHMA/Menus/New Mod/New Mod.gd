@@ -142,7 +142,7 @@ func _on_Create_pressed():
 	var mod_dir = "res://%s" % $"%Name".text
 	
 	if not dir.make_dir(mod_dir) == OK:
-		printerr("Failed to make mod folder - YH Assistant")
+		printerr("[YHMA] Failed to make mod folder")
 		return
 	
 	var formats = {
@@ -177,7 +177,7 @@ func _on_Create_pressed():
 	EditorPlugin.new().get_editor_interface().get_resource_filesystem().scan()
 	
 	
-	print("Mod successfully created. Happy modding! - YH Mod Assistant")
+	print("[YHMA] Mod successfully created. Happy modding!")
 	YHAGlobal.current_mod_path = mod_dir
 	save_data_cfg.load("res://addons/YHMA/SaveData.cfg")
 	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
@@ -242,7 +242,7 @@ func _create_character_mod():
 	var character_folder = mod_dir+"/characters/%s" % $"%CharName".text
 	
 	if not dir.make_dir_recursive(character_folder) == OK:
-		printerr("Unable to make character template folder - YH Mod Assistant")
+		printerr("[YHMA] Unable to make character template folder")
 		return
 	
 	var include_directories = ['/sprites', '/states', '/sounds', '/projectiles', '/ActionUiData']
@@ -279,10 +279,10 @@ func _create_character_scenes(character_folder):
 #	print(editiedBaseChar._bundled)
 	
 	var newChar = create_inherited_scene(baseChar, $"%CharName".text)
-	print(newChar._bundled)
+#	print(newChar._bundled)
 	
 	var err = ResourceSaver.save(character_folder.plus_file($"%CharName".text+".tscn"), newChar)
-	print(err)
+#	print(err)
 	
 	
 

@@ -46,9 +46,9 @@ func _save_settings():
 	var file = File.new()
 	
 	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
-		printerr("Unable to open settings config file - YH Mod Assistant")
+		printerr("[YHMA] Unable to open settings config file")
 		return
-#	print("Creating Settings File For First Launch - YH Mod Assistant")
+#	print("[YHMA] Creating Settings File For First Launch")
 #	print(settings)
 	file.store_string(JSON.print(settings, "\t"))
 	file.close()

@@ -28,7 +28,7 @@ func build():
 	var exportSuccess = false
 	
 	if autoExport == null:
-		printerr("Auto Export Button not found -YH Assistant")
+		printerr("[YHMA] Auto Export Button not found")
 		return false
 	
 	if autoExport.pressed:
