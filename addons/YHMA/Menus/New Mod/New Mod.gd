@@ -67,8 +67,6 @@ func _on_CharTemp_toggled(button_pressed):
 #	slideAnime($"%CharOptions", button_pressed, 145)
 	slideAnime($"%CharOptions", button_pressed, $"%CharOptions".get_child(0).rect_size.y)
 	if button_pressed:
-		if YHAGlobal.settings["Character Template"]["char_loader_Support"]:
-			$"%Required".text = "char_loader"
 		if $"%CharName".text == "":
 			$"%CharNameLabel".bbcode_text = "[color=red]Character Name[/color]"
 			$"%TemplatesNext".disabled = true

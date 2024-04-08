@@ -16,6 +16,8 @@ bbcode_enabled = true
 bbcode_text = "[center]
 Change Log:
 [/center]
+- Actually works lmao
+
 - Removed Need for Python making file size way better along with the greatness of not needing python.
 - Disabled the current update system even though it wasn't really and update system and more of a hack
 - Fixed some typos while probably making more
@@ -24,6 +26,8 @@ Change Log:
 - Fixed the folder structure of the git for the assetlib ( as of writing this is yet to be updated on the asset lib. needs approval )"
 text = "
 Change Log:
+
+- Actually works lmao
 
 - Removed Need for Python making file size way better along with the greatness of not needing python.
 - Disabled the current update system even though it wasn't really and update system and more of a hack

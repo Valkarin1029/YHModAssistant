@@ -15,7 +15,6 @@ var settings = {
 		"RememberPreviousModName": true,
 	},
 	"Character Template": {
-		"char_loader_Support": true,
 	},
 	"Overwrites Template": {
 		"add_anim_folder_overwrites": true,
