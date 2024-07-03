@@ -121,8 +121,25 @@ func _on_Export_pressed():
 	cfg.save("res://addons/YHMA/SaveData.cfg")
 	
 	
-	var succes = zip.zipDirectory(ProjectSettings.globalize_path(current_mod_path), 
-			_export_path.plus_file(_export_name+".zip"), true)
+	var succes = false
+	var out = []
+	OS.execute("cmd.exe", ["/C",
+		'tar.exe -C "{projectPath}" -c -a -f "{exportPath}\\{exportName}.zip" "{modFolder}"'.format(
+			{
+				"projectPath": ProjectSettings.globalize_path("res://").replace("/","\\").rstrip("\\"),
+				"exportPath":_export_path.replace("/","\\"),
+				"exportName":_export_name.replace("/","\\"),
+				"modFolder":current_mod_path.split('/')[-1]
+			}
+		)
+	],
+	true,
+	out,
+	true,
+	false)
+	
+	if not out[0]:
+		succes = true
 	
 	if $"%IncludeImport".pressed:
 		succes = zip.zipDirectory(ProjectSettings.globalize_path("res://.import"), 
@@ -137,8 +154,6 @@ func _on_Export_pressed():
 
 
 func _on_Button_pressed():
-	var z = ZipMod.new()
 	
-	z.test(ProjectSettings.globalize_path(current_mod_path))
 	pass
 
