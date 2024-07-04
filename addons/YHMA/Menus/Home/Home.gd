@@ -4,9 +4,16 @@ extends "res://addons/YHMA/Menus/BaseMenu/BaseMenu.gd"
 # signal LoadMod()
 
 func _ready():
+	$VBoxContainer/NewRelease.visible = false
 	_set_version_label()
 	_check_for_last_opened_dir()
 	YHMAGlobal.connect("re_open_last", self, "_on_Continue_mod_pressed")
+	YHMAGlobal.connect("new_update", self, "_new_update")
+
+func _new_update(prerelease):
+	$VBoxContainer/NewRelease.visible = true
+	if prerelease:
+		$VBoxContainer/NewRelease.text = "New Prerelease Available"
 
 func _set_version_label():
 	$"%AssistantVersionLabel".bbcode_text = "[center]YH Mod Assistant {version}[/center]".format(
@@ -77,3 +84,8 @@ func _on_SelectFolder_dir_selected(dir):
 
 
 
+
+
+func _on_NewRelease_pressed():
+	OS.shell_open("https://github.com/Valkarin1029/YHModAssistant/releases/latest")
+	pass # Replace with function body.

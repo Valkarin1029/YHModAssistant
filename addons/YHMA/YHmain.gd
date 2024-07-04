@@ -5,6 +5,7 @@ signal load_mod_info(update_info_tab)
 signal loaded_settings()
 signal re_open_last()
 signal settings_updated()
+signal new_update(prerelease)
 
 var PLUGIN_VERSION
 
@@ -69,7 +70,6 @@ func _request_completed(result, response_code, headers, body):
 	
 	var response = parse_json(body.get_string_from_utf8())
 	
-	
 	if response["tag_name"] != PLUGIN_VERSION:
 		if response["prerelease"] and not settings["General"]["NotifyOfPreRelease"]:
 			return
@@ -81,11 +81,10 @@ func _request_completed(result, response_code, headers, body):
 		for x in range(0,3):
 			if int(check[x]) > int(cur_version[x]):
 				new_update = true
+				print("New Update")
+				emit_signal("new_update", response["prerelease"])
 				break
 			
-		if new_update:
-			print("New Update")
-		
 	
 	pass
 

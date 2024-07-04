@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://addons/YHMA/Menus/BaseMenu/BaseMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://addons/YHMA/Menus/Home/Home.gd" type="Script" id=2]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.192157, 0.00784314, 0.309804, 1 )
 
 [node name="Home" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
@@ -56,7 +59,17 @@ clip_text = true
 margin_top = 147.0
 margin_bottom = 263.0
 
-[node name="Settings" type="Button" parent="VBoxContainer" index="4"]
+[node name="NewRelease" type="Button" parent="VBoxContainer" index="4"]
+visible = false
+margin_top = 238.0
+margin_right = 640.0
+margin_bottom = 263.0
+rect_min_size = Vector2( 0, 25 )
+custom_styles/normal = SubResource( 1 )
+text = "New Release Available"
+clip_text = true
+
+[node name="Settings" type="Button" parent="VBoxContainer" index="5"]
 margin_top = 267.0
 margin_right = 640.0
 margin_bottom = 302.0
@@ -64,7 +77,7 @@ rect_min_size = Vector2( 0, 35 )
 text = "Settings"
 clip_text = true
 
-[node name="ChangeLog" type="Button" parent="VBoxContainer" index="5"]
+[node name="ChangeLog" type="Button" parent="VBoxContainer" index="6"]
 margin_top = 306.0
 margin_right = 640.0
 margin_bottom = 341.0
@@ -72,7 +85,7 @@ rect_min_size = Vector2( 0, 35 )
 text = "YH Mod Assistant Info"
 clip_text = true
 
-[node name="AssistantVersionLabel" type="RichTextLabel" parent="VBoxContainer" index="6"]
+[node name="AssistantVersionLabel" type="RichTextLabel" parent="VBoxContainer" index="7"]
 unique_name_in_owner = true
 margin_top = 345.0
 margin_right = 640.0
@@ -82,7 +95,7 @@ bbcode_text = "[center]YH Mod Assistant 2.1.1[/center]"
 text = "YH Mod Assistant 2.1.1"
 fit_content_height = true
 
-[node name="Back" type="Button" parent="VBoxContainer" index="7"]
+[node name="Back" type="Button" parent="VBoxContainer" index="8"]
 visible = false
 margin_top = 335.0
 margin_right = 640.0
@@ -95,5 +108,6 @@ clip_text = true
 [connection signal="pressed" from="VBoxContainer/Continue_mod" to="." method="_on_Continue_mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Create_Mod" to="." method="_on_Create_Mod_pressed"]
 [connection signal="pressed" from="VBoxContainer/Select_Mod" to="." method="_on_Select_Mod_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewRelease" to="." method="_on_NewRelease_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_Settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/ChangeLog" to="." method="_on_ChangeLog_pressed"]
