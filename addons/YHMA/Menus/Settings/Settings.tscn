@@ -24,7 +24,7 @@ access = 2
 
 [node name="General Settings" type="VBoxContainer" parent="VBoxContainer" index="0"]
 margin_right = 640.0
-margin_bottom = 149.0
+margin_bottom = 237.0
 size_flags_horizontal = 3
 
 [node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/General Settings" index="0"]
@@ -46,21 +46,42 @@ text = "Re-open last opened mod folder upon launch"
 clip_text = true
 align = 1
 
-[node name="RememberPreviousModName" type="CheckButton" parent="VBoxContainer/General Settings" index="2" groups=["setting"]]
+[node name="NotifyOfUpdate" type="CheckButton" parent="VBoxContainer/General Settings" index="2" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 63.0
 margin_right = 640.0
 margin_bottom = 103.0
+rect_pivot_offset = Vector2( -155, 10 )
+pressed = true
+text = "Get notified of new releases"
+clip_text = true
+align = 1
+
+[node name="NotifyOfPreRelease" type="CheckButton" parent="VBoxContainer/General Settings" index="3" groups=["setting"]]
+unique_name_in_owner = true
+margin_top = 107.0
+margin_right = 640.0
+margin_bottom = 147.0
+pressed = true
+text = "Get notified of pre-releases"
+clip_text = true
+align = 1
+
+[node name="RememberPreviousModName" type="CheckButton" parent="VBoxContainer/General Settings" index="4" groups=["setting"]]
+unique_name_in_owner = true
+margin_top = 151.0
+margin_right = 640.0
+margin_bottom = 191.0
 hint_tooltip = "When enabled it will remember the previous mod name that was exported and delete that mod upon pressing (or auto) export"
 pressed = true
 text = "Remember Previous Mod Name After Restart"
 clip_text = true
 align = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/General Settings" index="3"]
-margin_top = 107.0
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/General Settings" index="5"]
+margin_top = 195.0
 margin_right = 640.0
-margin_bottom = 149.0
+margin_bottom = 237.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
@@ -81,7 +102,7 @@ margin_bottom = 42.0
 unique_name_in_owner = true
 margin_right = 608.0
 margin_bottom = 24.0
-hint_tooltip = "Will auto change the defualt export path to this when ever you open a mod. Leave empty for defualt location."
+hint_tooltip = "The export path that is set on first launch of the the plugin"
 size_flags_horizontal = 3
 
 [node name="SelectExportPath" type="Button" parent="VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="1"]
@@ -92,39 +113,10 @@ margin_bottom = 24.0
 icon = ExtResource( 3 )
 clip_text = true
 
-[node name="CharTemplate Settings" type="VBoxContainer" parent="VBoxContainer" index="1"]
-visible = false
-margin_top = 153.0
+[node name="Overwrites Template Settings" type="VBoxContainer" parent="VBoxContainer" index="1"]
+margin_top = 241.0
 margin_right = 640.0
-margin_bottom = 212.0
-size_flags_horizontal = 3
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/CharTemplate Settings" index="0"]
-margin_right = 640.0
-margin_bottom = 15.0
-bbcode_enabled = true
-bbcode_text = "[center][b]Character Template Settings"
-text = "Character Template Settings"
-fit_content_height = true
-scroll_active = false
-
-[node name="char_loader_Support" type="CheckButton" parent="VBoxContainer/CharTemplate Settings" index="1" groups=["setting"]]
-unique_name_in_owner = true
-margin_top = 19.0
-margin_right = 640.0
-margin_bottom = 59.0
-hint_tooltip = "(Not recomended to turn off) If you use another way than Character Loader for your characters then you can turn this off."
-text = "Add char_loader support when creating"
-clip_text = true
-align = 1
-
-[node name="Overwrites Template Settings" type="VBoxContainer" parent="VBoxContainer" index="2"]
-margin_top = 153.0
-margin_right = 640.0
-margin_bottom = 212.0
+margin_bottom = 300.0
 size_flags_horizontal = 3
 __meta__ = {
 "_editor_description_": ""
@@ -144,17 +136,17 @@ unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 640.0
 margin_bottom = 59.0
-hint_tooltip = "When on will create all folders pertaining to the animations of the character."
+hint_tooltip = "When on, will create all folders pertaining to the animations of the character."
 pressed = true
 text = "Add animation folders for characters when created"
 clip_text = true
 align = 1
 
-[node name="Misc Settings" type="VBoxContainer" parent="VBoxContainer" index="3"]
+[node name="Misc Settings" type="VBoxContainer" parent="VBoxContainer" index="2"]
 visible = false
-margin_top = 279.0
+margin_top = 260.0
 margin_right = 640.0
-margin_bottom = 294.0
+margin_bottom = 275.0
 size_flags_horizontal = 3
 __meta__ = {
 "_editor_description_": ""
@@ -169,11 +161,39 @@ text = "Misc Settings"
 fit_content_height = true
 scroll_active = false
 
+[node name="Developer Settings" type="VBoxContainer" parent="VBoxContainer" index="3"]
+margin_top = 304.0
+margin_right = 640.0
+margin_bottom = 363.0
+size_flags_horizontal = 3
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/Developer Settings" index="0"]
+margin_right = 640.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Developer Settings"
+text = "Developer Settings"
+fit_content_height = true
+scroll_active = false
+
+[node name="Debug" type="CheckButton" parent="VBoxContainer/Developer Settings" index="1" groups=["setting"]]
+unique_name_in_owner = true
+margin_top = 19.0
+margin_right = 640.0
+margin_bottom = 59.0
+hint_tooltip = "A toggle so I can keep some things in without them spamming the output for normal users."
+text = "Debug"
+clip_text = true
+align = 1
+
 [node name="Experimental Settings" type="VBoxContainer" parent="VBoxContainer" index="4"]
 visible = false
-margin_top = 189.0
+margin_top = 260.0
 margin_right = 640.0
-margin_bottom = 204.0
+margin_bottom = 275.0
 size_flags_horizontal = 3
 __meta__ = {
 "_editor_description_": ""
@@ -189,13 +209,13 @@ fit_content_height = true
 scroll_active = false
 
 [node name="Padding" parent="VBoxContainer" index="5"]
-margin_top = 216.0
-margin_bottom = 336.0
+margin_top = 367.0
+margin_bottom = 367.0
 
 [node name="Back" type="Button" parent="VBoxContainer" index="6"]
-margin_top = 340.0
+margin_top = 371.0
 margin_right = 640.0
-margin_bottom = 360.0
+margin_bottom = 391.0
 text = "Home"
 
 [connection signal="dir_selected" from="SelectExportFolderS" to="." method="_on_SelectExportFolderS_dir_selected"]

@@ -1,5 +1,5 @@
 tool
 extends Tabs
 
-onready var YHAGlobal = find_parent("YHMA")
+onready var YHMAGlobal = find_parent("YHMA")
 

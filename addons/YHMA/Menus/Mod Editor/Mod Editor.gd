@@ -6,6 +6,6 @@ var current_mod_path = null
 
 func _on_Back_pressed():
 	find_node("AutoExport").pressed = false
-	YHAGlobal.change_scene("Home")
+	YHMAGlobal.change_scene("Home")
 	
 

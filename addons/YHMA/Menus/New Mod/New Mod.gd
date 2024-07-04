@@ -98,7 +98,7 @@ func _on_TemplatesNext_pressed():
 		$"%InputModName".visible = false
 
 func _on_TemplatesHome_pressed():
-	YHAGlobal.change_scene("Home")
+	YHMAGlobal.change_scene("Home")
 	_empty_inputs()
 
 func _on_ModInfoBack_pressed():
@@ -176,19 +176,19 @@ func _on_Create_pressed():
 	
 	
 	print("[YHMA] Mod successfully created. Happy modding!")
-	YHAGlobal.current_mod_path = mod_dir
+	YHMAGlobal.current_mod_path = mod_dir
 	save_data_cfg.load("res://addons/YHMA/SaveData.cfg")
 	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
 	save_data_cfg.save("res://addons/YHMA/SaveData.cfg")
-	YHAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
-#	print(YHAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
+	YHMAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
+#	print(YHMAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
 	
-	YHAGlobal.change_scene("Mod Editor")
+	YHMAGlobal.change_scene("Mod Editor")
 	_empty_inputs()
-	YHAGlobal.emit_signal("load_mod_info", true)
+	YHMAGlobal.emit_signal("load_mod_info", true)
 
 func _gen_metadata(mod_dir):
-	YHAGlobal = find_parent("YHMA")
+	YHMAGlobal = find_parent("YHMA")
 	
 	var meta_data_path = mod_dir.plus_file("_metadata")
 	
@@ -318,7 +318,7 @@ func _create_overwrites_mod():
 	
 	for chars in selected:
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars)
-		if not YHAGlobal.settings["Overwrites Template"]["add_anim_folder_overwrites"]:
+		if not YHMAGlobal.settings["Overwrites Template"]["add_anim_folder_overwrites"]:
 			continue
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/BaseSounds')
 		dir.make_dir_recursive(OverwritesFolder+'/'+chars+'/Sounds/StateSounds')

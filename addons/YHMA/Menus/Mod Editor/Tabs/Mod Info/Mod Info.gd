@@ -1,22 +1,22 @@
 tool
 extends Tabs
 
-onready var YHAGlobal = find_parent("YHMA")
+onready var YHMAGlobal = find_parent("YHMA")
 
 var current_mod_path = null
 
 
 func _ready():
-	YHAGlobal = find_parent("YHMA")
-	if not YHAGlobal == null:
-		current_mod_path = YHAGlobal.current_mod_path
-		YHAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
+	YHMAGlobal = find_parent("YHMA")
+	if not YHMAGlobal == null:
+		current_mod_path = YHMAGlobal.current_mod_path
+		YHMAGlobal.connect("load_mod_info", self, "_load_mod_info_from_metadata")
 	
 	
 
 func _on_ApplyMeta_pressed():
-	YHAGlobal = find_parent("YHMA")
-	current_mod_path = YHAGlobal.current_mod_path
+	YHMAGlobal = find_parent("YHMA")
+	current_mod_path = YHMAGlobal.current_mod_path
 	
 	var meta_data_path = current_mod_path.plus_file("_metadata")
 	
@@ -69,11 +69,11 @@ func _on_ApplyMeta_pressed():
 		file.store_string(JSON.print(new_meta, "\t"))
 		file.close()
 	
-	YHAGlobal.emit_signal("load_mod_info", false)
+	YHMAGlobal.emit_signal("load_mod_info", false)
 
 func _load_mod_info_from_metadata(updateInfo):
-	YHAGlobal = find_parent("YHMA")
-	current_mod_path = YHAGlobal.current_mod_path
+	YHMAGlobal = find_parent("YHMA")
+	current_mod_path = YHMAGlobal.current_mod_path
 	
 	if not updateInfo:
 		return

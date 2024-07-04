@@ -6,10 +6,14 @@ signal loaded_settings()
 signal re_open_last()
 signal settings_updated()
 
+var PLUGIN_VERSION
+
 var current_mod_path
 
 var settings = {
 	"General": {
+		"NotifyOfUpdate": true,
+		"NotifyOfPreRelease": false,
 		"ReopenLast": false,
 		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods"),
 		"RememberPreviousModName": true,
@@ -19,6 +23,9 @@ var settings = {
 	"Overwrites Template": {
 		"add_anim_folder_overwrites": true,
 	},
+	"Developer": {
+		"Debug": false
+	},
 	"Expermental": {
 		"experimental": false
 	}
@@ -26,13 +33,15 @@ var settings = {
 
 func _enter_tree():
 	_get_settings()
+	var plugin_config = ConfigFile.new()
+	if plugin_config.load("res://addons/YHMA/plugin.cfg") != OK:
+		printerr("[YHMA] Could not read plugin config file")
+	
+	PLUGIN_VERSION = plugin_config.get_value("plugin", "version", "0.0.0")
 
 func _ready():
-	
-	
-	#if _check_for_update():
-	#	change_scene("RestartRequired")
-	#	return
+	if settings["General"]["NotifyOfUpdate"]:
+		_check_for_update()
 	
 	change_scene("Home")
 	_get_settings()
@@ -41,31 +50,45 @@ func _ready():
 		emit_signal("re_open_last")
 
 func _check_for_update():
-	var output = []
-	var git_path = "res://addons/YHMA/Extras/PortableGit/cmd"
-	var assistant_path = "res://addons/YHMA"
-	git_path = ProjectSettings.globalize_path(git_path)
-	assistant_path = ProjectSettings.globalize_path(assistant_path)
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.connect("request_completed", self, "_request_completed")
+	var err = http_request.request(
+		"https://api.github.com/repos/{owner}/{repo}/releases/latest".format({
+		"owner":"Valkarin1029",
+		"repo":"YHModAssistant"
+	}))
+	if err != OK:
+		push_warning("[YHMA] Unable to check for latest version")
 	
-	OS.execute("CMD.exe",
-			["/C", 'cd addons/YHMA && git pull'.format(
-				{
-					"git_path":git_path,
-					"assistant_path":assistant_path
-				}
-			)],
-			true,
-			output,
-			true,
-			false
-			)
+
+func _request_completed(result, response_code, headers, body):
+	if response_code != 200:
+		push_warning("[YHMA] Failed to contact github")
+		return
+	
+	var response = parse_json(body.get_string_from_utf8())
 	
 	
-	if not output[0].match("*Already up to date*"):
-		return true
-#		print(output[0])
-	else:
-		return false
+	if response["tag_name"] != PLUGIN_VERSION:
+		if response["prerelease"] and not settings["General"]["NotifyOfPreRelease"]:
+			return
+		var cur_version = PLUGIN_VERSION.split(".", false)
+		var check = response["tag_name"].split(".", false)
+		
+		var new_update = false
+		
+		for x in range(0,3):
+			if int(check[x]) > int(cur_version[x]):
+				new_update = true
+				break
+			
+		if new_update:
+			print("New Update")
+		
+	
+	pass
+
 
 func change_scene(scene):
 	if scene == null:
@@ -73,6 +96,8 @@ func change_scene(scene):
 		return
 	
 	for node in get_children():
+		if node is HTTPRequest:
+			continue
 		if node.name == scene:
 			node.visible = true
 		else:
@@ -92,16 +117,12 @@ func _get_settings():
 	
 	for sections in settings:
 		var new_settings = JSON.parse(file.get_as_text()).result
-#		print(new_settings[sections])
 		settings[sections].merge(new_settings[sections], true)
 	
-#	print(settings)
 	file.close()
 	emit_signal("loaded_settings")
-#	print(settings) 
 
 func _create_settings_config():
-#	var cfg = ConfigFile.new()
 	var file = File.new()
 	
 	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:

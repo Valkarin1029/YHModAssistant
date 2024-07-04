@@ -1,10 +1,10 @@
 tool
 extends Control
 
-onready var YHAGlobal = find_parent("YHMA")
+onready var YHMAGlobal = find_parent("YHMA")
 
 func _ready():
-	YHAGlobal = find_parent("YHMA")
+	YHMAGlobal = find_parent("YHMA")
 	pass
 	
 

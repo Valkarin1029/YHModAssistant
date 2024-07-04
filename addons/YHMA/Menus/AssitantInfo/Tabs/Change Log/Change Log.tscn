@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://addons/YHMA/Menus/AssitantInfo/Tabs/BaseTabs.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/YHMA/Menus/AssitantInfo/Tabs/Change Log/Change Log.gd" type="Script" id=2]
 
 [node name="Change Log" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
 
 [node name="VBoxContainer" parent="VBoxContainer" index="0"]
 alignment = 1
@@ -14,25 +16,9 @@ size_flags_horizontal = 3
 size_flags_vertical = 7
 bbcode_enabled = true
 bbcode_text = "[center]
-Change Log:
-[/center]
-- Actually works lmao
-
-- Removed Need for Python making file size way better along with the greatness of not needing python.
-- Disabled the current update system even though it wasn't really and update system and more of a hack
-- Fixed some typos while probably making more
-- Fixed Settings not working properly such as the defualt export path along with updating their systems a bit
-- added a dll lib that I made to take over zipping mods
-- Fixed the folder structure of the git for the assetlib ( as of writing this is yet to be updated on the asset lib. needs approval )"
+Unable to get current version changelog
+[/center]"
 text = "
-Change Log:
-
-- Actually works lmao
-
-- Removed Need for Python making file size way better along with the greatness of not needing python.
-- Disabled the current update system even though it wasn't really and update system and more of a hack
-- Fixed some typos while probably making more
-- Fixed Settings not working properly such as the defualt export path along with updating their systems a bit
-- added a dll lib that I made to take over zipping mods
-- Fixed the folder structure of the git for the assetlib ( as of writing this is yet to be updated on the asset lib. needs approval )"
+Unable to get current version changelog
+"
 fit_content_height = true

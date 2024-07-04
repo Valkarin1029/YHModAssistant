@@ -1,9 +1,9 @@
 tool
 extends Tabs
 
-onready var YHAGlobal = find_parent("YHMA")
+onready var YHMAGlobal = find_parent("YHMA")
 #onready var DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
-onready var DEFAULT_EXPORT_PATH = YHAGlobal.settings["General"]["defualt_export_path"]
+onready var DEFAULT_EXPORT_PATH = YHMAGlobal.settings["General"]["defualt_export_path"]
 
 var current_mod_path = null
 
@@ -16,13 +16,13 @@ var mod_info
 
 func _ready():
 	var cfg = ConfigFile.new()
-	YHAGlobal = find_parent("YHMA")
+	YHMAGlobal = find_parent("YHMA")
 	if DEFAULT_EXPORT_PATH == "":
 		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
-	if not YHAGlobal == null:
-		current_mod_path = YHAGlobal.current_mod_path
-		YHAGlobal.connect("load_mod_info", self, "_load_mod_info")
-		YHAGlobal.connect("settings_updated", self, "_update_settings_changes")
+	if not YHMAGlobal == null:
+		current_mod_path = YHMAGlobal.current_mod_path
+		YHMAGlobal.connect("load_mod_info", self, "_load_mod_info")
+		YHMAGlobal.connect("settings_updated", self, "_update_settings_changes")
 	
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 	
@@ -31,15 +31,15 @@ func _ready():
 	
 
 func _update_settings_changes():
-	DEFAULT_EXPORT_PATH = YHAGlobal.settings["General"]["defualt_export_path"]
+	DEFAULT_EXPORT_PATH = YHMAGlobal.settings["General"]["defualt_export_path"]
 	if DEFAULT_EXPORT_PATH == "":
 		DEFAULT_EXPORT_PATH = OS.get_executable_path().get_base_dir().plus_file("mods")
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 
 func _load_mod_info(replace):
-	YHAGlobal = find_parent("YHMA")
+	YHMAGlobal = find_parent("YHMA")
 	
-	current_mod_path = YHAGlobal.current_mod_path
+	current_mod_path = YHMAGlobal.current_mod_path
 	$"%ModFolderPath".text = current_mod_path
 	
 	var meta_data_path = current_mod_path.plus_file("_metadata")
@@ -114,7 +114,7 @@ func _on_Export_pressed():
 	previous_export_name = _export_name
 	
 	cfg.load("res://addons/YHMA/SaveData.cfg")
-	if YHAGlobal.settings["General"]["RememberPreviousModName"]:
+	if YHMAGlobal.settings["General"]["RememberPreviousModName"]:
 		cfg.set_value("Export", "PreviousExportName", previous_export_name)
 	else:
 		cfg.set_value("Export", "PreviousExportName", null)

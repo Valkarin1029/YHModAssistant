@@ -6,16 +6,11 @@ extends "res://addons/YHMA/Menus/BaseMenu/BaseMenu.gd"
 func _ready():
 	_set_version_label()
 	_check_for_last_opened_dir()
-	YHAGlobal.connect("re_open_last", self, "_on_Continue_mod_pressed")
+	YHMAGlobal.connect("re_open_last", self, "_on_Continue_mod_pressed")
 
 func _set_version_label():
-	var dir = Directory.new()
-	var plugin_config = ConfigFile.new()
-	if plugin_config.load("res://addons/YHMA/plugin.cfg") != OK:
-		printerr("[YHMA] Could not read config file")
-	
 	$"%AssistantVersionLabel".bbcode_text = "[center]YH Mod Assistant {version}[/center]".format(
-		{"version": plugin_config.get_value("plugin", "version")}
+		{"version": YHMAGlobal.PLUGIN_VERSION}
 		)
 
 func _check_for_last_opened_dir():
@@ -34,13 +29,13 @@ func _check_for_last_opened_dir():
 			cfg.save("res://addons/YHMA/SaveData.cfg")
 
 func _on_Create_Mod_pressed():
-	YHAGlobal.change_scene("New Mod")
+	YHMAGlobal.change_scene("New Mod")
 
 func _on_ChangeLog_pressed():
-	YHAGlobal.change_scene("Assistant Info")
+	YHMAGlobal.change_scene("Assistant Info")
 
 func _on_Settings_pressed():
-	YHAGlobal.change_scene("Settings")
+	YHMAGlobal.change_scene("Settings")
 
 func _on_Select_Mod_pressed():
 	$"%SelectFolder".popup()
@@ -54,9 +49,9 @@ func _on_Continue_mod_pressed():
 		$"%Continue_mod".visible = false
 		return
 	
-	YHAGlobal.current_mod_path = cfg.get_value("Export", "LastOpenedDir", "")
-	YHAGlobal.change_scene("Mod Editor")
-	YHAGlobal.emit_signal("load_mod_info", true)
+	YHMAGlobal.current_mod_path = cfg.get_value("Export", "LastOpenedDir", "")
+	YHMAGlobal.change_scene("Mod Editor")
+	YHMAGlobal.emit_signal("load_mod_info", true)
 
 func _on_SelectFolder_dir_selected(dir):
 	var cfg = ConfigFile.new()
@@ -67,7 +62,7 @@ func _on_SelectFolder_dir_selected(dir):
 		
 		return
 	
-	YHAGlobal.current_mod_path = dir
+	YHMAGlobal.current_mod_path = dir
 	
 	cfg.load("res://addons/YHMA/SaveData.cfg")
 	cfg.set_value("Export", "LastOpenedDir", dir)
@@ -75,8 +70,8 @@ func _on_SelectFolder_dir_selected(dir):
 	
 	$"%Continue_mod".visible = true
 	
-	YHAGlobal.change_scene("Mod Editor")
-	YHAGlobal.emit_signal("load_mod_info", true)
+	YHMAGlobal.change_scene("Mod Editor")
+	YHMAGlobal.emit_signal("load_mod_info", true)
 	
 	
 
