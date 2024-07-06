@@ -26,7 +26,7 @@ func _ready():
 	
 	$"%Export Path".placeholder_text = DEFAULT_EXPORT_PATH
 	
-	cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.load(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	previous_export_name = cfg.get_value("Export", "PreviousExportName", previous_export_name)
 	
 
@@ -112,12 +112,12 @@ func _on_Export_pressed():
 	
 	previous_export_name = _export_name
 	
-	cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.load(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	if YHMAGlobal.settings["General"]["RememberPreviousModName"]:
 		cfg.set_value("Export", "PreviousExportName", previous_export_name)
 	else:
 		cfg.set_value("Export", "PreviousExportName", null)
-	cfg.save(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.save(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	
 	
 	var succes = false

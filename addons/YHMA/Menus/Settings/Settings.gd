@@ -73,3 +73,18 @@ func _on_SelectExportPath_pressed():
 func _on_text_changed(new_text):
 	_save_settings()
 	pass # Replace with function body.
+
+
+func _on_resetSettings_pressed():
+	var dir = Directory.new()
+	if dir.file_exists(YHMAGlobal.tempDirPath+"/settings.json"):
+		dir.remove(YHMAGlobal.tempDirPath+"/settings.json")
+	YHMAGlobal._create_settings_config()
+	YHMAGlobal._get_settings()
+	pass # Replace with function body.
+
+
+func _on_resetSavedData_pressed():
+	var dir = Directory.new()
+	if dir.file_exists(YHMAGlobal.tempDirPath+"/SaveData.cfg"):
+		dir.remove(YHMAGlobal.tempDirPath+"/SaveData.cfg")

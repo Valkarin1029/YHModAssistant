@@ -12,6 +12,27 @@ var PLUGIN_VERSION
 
 var current_mod_path
 
+var DEFUALT_SETTING = {
+	"General": {
+		"NotifyOfUpdate": true,
+		"NotifyOfPreRelease": false,
+		"ReopenLast": false,
+		"defualt_export_path": OS.get_executable_path().get_base_dir().plus_file("mods"),
+		"RememberPreviousModName": true,
+	},
+	"Character Template": {
+	},
+	"Overwrites Template": {
+		"add_anim_folder_overwrites": true,
+	},
+	"Developer": {
+		"Debug": false
+	},
+	"Experimental": {
+		"experimental": false
+	}
+}
+
 var settings = {
 	"General": {
 		"NotifyOfUpdate": true,
@@ -121,6 +142,7 @@ func _get_settings():
 	var dir = Directory.new()
 	
 	if not dir.file_exists(tempDirPath+"/settings.json"):
+		print("[YHMA] Creating Settings File For First Launch")
 		_create_settings_config()
 	
 	if not file.open(tempDirPath+"/settings.json", File.READ) == OK:
@@ -141,8 +163,7 @@ func _create_settings_config():
 	if not file.open(tempDirPath+"/settings.json", File.WRITE) == OK:
 		printerr("[YHMA] Unable to make settings config file")
 		return
-	print("[YHMA] Creating Settings File For First Launch")
-	file.store_string(JSON.print(settings, "\t"))
+	file.store_string(JSON.print(DEFUALT_SETTING, "\t"))
 	file.close()
 	
 	

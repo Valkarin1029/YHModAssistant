@@ -26,7 +26,7 @@ func _check_for_last_opened_dir():
 	$"%Continue_mod".visible = false
 	var cfg = ConfigFile.new()
 	var dir = Directory.new()
-	cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.load(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	var last_dir = cfg.get_value("Export", "LastOpenedDir", "")
 	if last_dir:
 		if dir.dir_exists(last_dir):
@@ -35,7 +35,7 @@ func _check_for_last_opened_dir():
 			printerr("[YHMA] Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose)")
 			$"%Continue_mod".visible = false
 			cfg.set_value("Export", "LastOpenedDir", null)
-			cfg.save(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+			cfg.save(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 
 func _on_Create_Mod_pressed():
 	YHMAGlobal.change_scene("New Mod")
@@ -51,7 +51,7 @@ func _on_Select_Mod_pressed():
 
 func _on_Continue_mod_pressed():
 	var cfg = ConfigFile.new()
-	cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.load(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	
 	if not is_valid_mod(cfg.get_value("Export", "LastOpenedDir", "")):
 		printerr("[YHMA] Failed to load last opened mod dir. This can be because it was removed. (Ignore if you removed the mod on purpose)")
@@ -67,15 +67,15 @@ func _on_SelectFolder_dir_selected(dir):
 	if not is_valid_mod(dir):
 		printerr("[YHMA] This is not a mod folder or missing modmain.gd")
 		cfg.set_value("Export", "LastOpenedDir", null)
-		cfg.save(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+		cfg.save(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 		
 		return
 	
 	YHMAGlobal.current_mod_path = dir
 	
-	cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.load(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	cfg.set_value("Export", "LastOpenedDir", dir)
-	cfg.save(YHMAGlobal.tempDirPath+"/SavaData.cfg")
+	cfg.save(YHMAGlobal.tempDirPath+"/SaveData.cfg")
 	
 	$"%Continue_mod".visible = true
 	
