@@ -50,34 +50,34 @@ text = "General Settings"
 fit_content_height = true
 scroll_active = false
 
-[node name="ReopenLast" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="1" groups=["setting"]]
+[node name="NotifyOfUpdate" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="1" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 19.0
 margin_right = 628.0
 margin_bottom = 59.0
-hint_tooltip = "Auto open your previous mod folder after restart"
-text = "Re-open last opened mod folder upon launch"
-clip_text = true
-align = 1
-
-[node name="NotifyOfUpdate" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="2" groups=["setting"]]
-unique_name_in_owner = true
-margin_top = 63.0
-margin_right = 628.0
-margin_bottom = 103.0
 rect_pivot_offset = Vector2( -155, 10 )
 pressed = true
 text = "Get notified of new releases"
 clip_text = true
 align = 1
 
-[node name="NotifyOfPreRelease" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="3" groups=["setting"]]
+[node name="NotifyOfPreRelease" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="2" groups=["setting"]]
+unique_name_in_owner = true
+margin_top = 63.0
+margin_right = 628.0
+margin_bottom = 103.0
+pressed = true
+text = "Get notified of pre-releases"
+clip_text = true
+align = 1
+
+[node name="ReopenLast" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="3" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 107.0
 margin_right = 628.0
 margin_bottom = 147.0
-pressed = true
-text = "Get notified of pre-releases"
+hint_tooltip = "Auto open your previous mod folder after restart"
+text = "Re-open last opened mod folder upon launch"
 clip_text = true
 align = 1
 

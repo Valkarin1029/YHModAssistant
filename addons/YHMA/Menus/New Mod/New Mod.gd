@@ -177,9 +177,9 @@ func _on_Create_pressed():
 	
 	print("[YHMA] Mod successfully created. Happy modding!")
 	YHMAGlobal.current_mod_path = mod_dir
-	save_data_cfg.load("res://addons/YHMA/SaveData.cfg")
+	save_data_cfg.load(YHMAGlobal.tempDirPath+"/SavaData.cfg")
 	save_data_cfg.set_value("Export", "LastOpenedDir", mod_dir)
-	save_data_cfg.save("res://addons/YHMA/SaveData.cfg")
+	save_data_cfg.save(YHMAGlobal.tempDirPath+"/SavaData.cfg")
 	YHMAGlobal.get_node("Home/VBoxContainer/Continue_mod").visible = true
 #	print(YHMAGlobal.get_node("Home/VBoxContainer/Continue_mod"))
 	

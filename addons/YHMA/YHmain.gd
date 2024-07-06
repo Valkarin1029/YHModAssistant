@@ -7,6 +7,7 @@ signal re_open_last()
 signal settings_updated()
 signal new_update(prerelease)
 
+var tempDirPath = "C:/temp/YHMA"
 var PLUGIN_VERSION
 
 var current_mod_path
@@ -38,9 +39,21 @@ func _enter_tree():
 	if plugin_config.load("res://addons/YHMA/plugin.cfg") != OK:
 		printerr("[YHMA] Could not read plugin config file")
 	
+	tempDirPath = "C:/temp/YHMA"
 	PLUGIN_VERSION = plugin_config.get_value("plugin", "version", "0.0.0")
 
 func _ready():
+	var dir = Directory.new()
+	if not dir.dir_exists(tempDirPath):
+		dir.open("C:/temp")
+		if not dir.make_dir("YHMA") == OK:
+			push_warning("[YHMA] Couldn't make temp directory")
+	
+	if dir.file_exists("res://addons/YHMA/settings.json"):
+		dir.remove("res://addons/YHMA/settings.json")
+	if dir.file_exists("res://addons/YHMA/SaveData.cfg"):
+		dir.remove("res://addons/YHMA/SaveData.cfg")
+	
 	if settings["General"]["NotifyOfUpdate"] and not settings["Developer"]["Debug"]:
 		_check_for_update()
 	
@@ -107,10 +120,10 @@ func _get_settings():
 	var file = File.new()
 	var dir = Directory.new()
 	
-	if not dir.file_exists("res://addons/YHMA/settings.json"):
+	if not dir.file_exists(tempDirPath+"/settings.json"):
 		_create_settings_config()
 	
-	if not file.open("res://addons/YHMA/settings.json", File.READ) == OK:
+	if not file.open(tempDirPath+"/settings.json", File.READ) == OK:
 		printerr("[YHMA] Could not open settings json file")
 		return
 	
@@ -125,7 +138,7 @@ func _get_settings():
 func _create_settings_config():
 	var file = File.new()
 	
-	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
+	if not file.open(tempDirPath+"/settings.json", File.WRITE) == OK:
 		printerr("[YHMA] Unable to make settings config file")
 		return
 	print("[YHMA] Creating Settings File For First Launch")

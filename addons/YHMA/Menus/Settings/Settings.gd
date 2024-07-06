@@ -48,7 +48,7 @@ func _save_settings():
 	
 	var file = File.new()
 	
-	if not file.open("res://addons/YHMA/settings.json", File.WRITE) == OK:
+	if not file.open(YHMAGlobal.tempDirPath+"/settings.json", File.WRITE) == OK:
 		printerr("[YHMA] Unable to open settings config file")
 		return
 	file.store_string(JSON.print(settings, "\t"))
