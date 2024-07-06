@@ -22,13 +22,27 @@ mode_overrides_title = false
 mode = 2
 access = 2
 
-[node name="General Settings" type="VBoxContainer" parent="VBoxContainer" index="0"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer" index="0"]
 margin_right = 640.0
+margin_bottom = 336.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_vertical = 27
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer" index="0"]
+margin_top = -27.0
+margin_right = 628.0
+margin_bottom = 336.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="General Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" index="0"]
+margin_right = 628.0
 margin_bottom = 237.0
 size_flags_horizontal = 3
 
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/General Settings" index="0"]
-margin_right = 640.0
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="0"]
+margin_right = 628.0
 margin_bottom = 15.0
 bbcode_enabled = true
 bbcode_text = "[center][b]General Settings"
@@ -36,20 +50,20 @@ text = "General Settings"
 fit_content_height = true
 scroll_active = false
 
-[node name="ReopenLast" type="CheckButton" parent="VBoxContainer/General Settings" index="1" groups=["setting"]]
+[node name="ReopenLast" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="1" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 19.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 59.0
 hint_tooltip = "Auto open your previous mod folder after restart"
 text = "Re-open last opened mod folder upon launch"
 clip_text = true
 align = 1
 
-[node name="NotifyOfUpdate" type="CheckButton" parent="VBoxContainer/General Settings" index="2" groups=["setting"]]
+[node name="NotifyOfUpdate" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="2" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 63.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 103.0
 rect_pivot_offset = Vector2( -155, 10 )
 pressed = true
@@ -57,20 +71,20 @@ text = "Get notified of new releases"
 clip_text = true
 align = 1
 
-[node name="NotifyOfPreRelease" type="CheckButton" parent="VBoxContainer/General Settings" index="3" groups=["setting"]]
+[node name="NotifyOfPreRelease" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="3" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 107.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 147.0
 pressed = true
 text = "Get notified of pre-releases"
 clip_text = true
 align = 1
 
-[node name="RememberPreviousModName" type="CheckButton" parent="VBoxContainer/General Settings" index="4" groups=["setting"]]
+[node name="RememberPreviousModName" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="4" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 151.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 191.0
 hint_tooltip = "When enabled it will remember the previous mod name that was exported and delete that mod upon pressing (or auto) export"
 pressed = true
@@ -78,52 +92,52 @@ text = "Remember Previous Mod Name After Restart"
 clip_text = true
 align = 1
 
-[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/General Settings" index="5"]
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings" index="5"]
 margin_top = 195.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 237.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RTLabel" type="Label" parent="VBoxContainer/General Settings/HBoxContainer" index="0"]
-margin_right = 640.0
+[node name="RTLabel" type="Label" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings/HBoxContainer" index="0"]
+margin_right = 628.0
 margin_bottom = 14.0
 size_flags_horizontal = 9
 text = "Defualt Export Path"
 align = 1
 clip_text = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/General Settings/HBoxContainer" index="1"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings/HBoxContainer" index="1"]
 margin_top = 18.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 42.0
 
-[node name="defualt_export_path" type="LineEdit" parent="VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="0" groups=["setting"]]
+[node name="defualt_export_path" type="LineEdit" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="0" groups=["setting"]]
 unique_name_in_owner = true
-margin_right = 608.0
+margin_right = 596.0
 margin_bottom = 24.0
 hint_tooltip = "The export path that is set on first launch of the the plugin"
 size_flags_horizontal = 3
 
-[node name="SelectExportPath" type="Button" parent="VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="1"]
+[node name="SelectExportPath" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/General Settings/HBoxContainer/HBoxContainer" index="1"]
 unique_name_in_owner = true
-margin_left = 612.0
-margin_right = 640.0
+margin_left = 600.0
+margin_right = 628.0
 margin_bottom = 24.0
 icon = ExtResource( 3 )
 clip_text = true
 
-[node name="Overwrites Template Settings" type="VBoxContainer" parent="VBoxContainer" index="1"]
+[node name="Overwrites Template Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" index="1"]
 margin_top = 241.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 300.0
 size_flags_horizontal = 3
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/Overwrites Template Settings" index="0"]
-margin_right = 640.0
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/Overwrites Template Settings" index="0"]
+margin_right = 628.0
 margin_bottom = 15.0
 bbcode_enabled = true
 bbcode_text = "[center][b]Overwrites Template Settings"
@@ -131,10 +145,10 @@ text = "Overwrites Template Settings"
 fit_content_height = true
 scroll_active = false
 
-[node name="add_anim_folder_overwrites" type="CheckButton" parent="VBoxContainer/Overwrites Template Settings" index="1" groups=["setting"]]
+[node name="add_anim_folder_overwrites" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Overwrites Template Settings" index="1" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 19.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 59.0
 hint_tooltip = "When on, will create all folders pertaining to the animations of the character."
 pressed = true
@@ -142,36 +156,17 @@ text = "Add animation folders for characters when created"
 clip_text = true
 align = 1
 
-[node name="Misc Settings" type="VBoxContainer" parent="VBoxContainer" index="2"]
-visible = false
-margin_top = 260.0
-margin_right = 640.0
-margin_bottom = 275.0
-size_flags_horizontal = 3
-__meta__ = {
-"_editor_description_": ""
-}
-
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/Misc Settings" index="0"]
-margin_right = 640.0
-margin_bottom = 15.0
-bbcode_enabled = true
-bbcode_text = "[center][b]Misc Settings"
-text = "Misc Settings"
-fit_content_height = true
-scroll_active = false
-
-[node name="Developer Settings" type="VBoxContainer" parent="VBoxContainer" index="3"]
+[node name="Developer Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" index="2"]
 margin_top = 304.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 363.0
 size_flags_horizontal = 3
 __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/Developer Settings" index="0"]
-margin_right = 640.0
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer Settings" index="0"]
+margin_right = 628.0
 margin_bottom = 15.0
 bbcode_enabled = true
 bbcode_text = "[center][b]Developer Settings"
@@ -179,17 +174,43 @@ text = "Developer Settings"
 fit_content_height = true
 scroll_active = false
 
-[node name="Debug" type="CheckButton" parent="VBoxContainer/Developer Settings" index="1" groups=["setting"]]
+[node name="Debug" type="CheckButton" parent="VBoxContainer/ScrollContainer/VBoxContainer/Developer Settings" index="1" groups=["setting"]]
 unique_name_in_owner = true
 margin_top = 19.0
-margin_right = 640.0
+margin_right = 628.0
 margin_bottom = 59.0
 hint_tooltip = "A toggle so I can keep some things in without them spamming the output for normal users."
 text = "Debug"
 clip_text = true
 align = 1
 
-[node name="Experimental Settings" type="VBoxContainer" parent="VBoxContainer" index="4"]
+[node name="Misc Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" index="3"]
+visible = false
+margin_top = 367.0
+margin_right = 628.0
+margin_bottom = 406.0
+size_flags_horizontal = 3
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/Misc Settings" index="0"]
+margin_right = 628.0
+margin_bottom = 15.0
+bbcode_enabled = true
+bbcode_text = "[center][b]Misc Settings"
+text = "Misc Settings"
+fit_content_height = true
+scroll_active = false
+
+[node name="resetSettings" type="Button" parent="VBoxContainer/ScrollContainer/VBoxContainer/Misc Settings" index="1"]
+margin_top = 19.0
+margin_right = 628.0
+margin_bottom = 39.0
+hint_tooltip = "Removes existing settings file and starts a new one"
+text = "Clear Settings"
+
+[node name="Experimental Settings" type="VBoxContainer" parent="VBoxContainer/ScrollContainer/VBoxContainer" index="4"]
 visible = false
 margin_top = 260.0
 margin_right = 640.0
@@ -199,7 +220,7 @@ __meta__ = {
 "_editor_description_": ""
 }
 
-[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/Experimental Settings" index="0"]
+[node name="RTLabel" type="RichTextLabel" parent="VBoxContainer/ScrollContainer/VBoxContainer/Experimental Settings" index="0"]
 margin_right = 640.0
 margin_bottom = 15.0
 bbcode_enabled = true
@@ -208,16 +229,17 @@ text = "Experimental Settings"
 fit_content_height = true
 scroll_active = false
 
-[node name="Padding" parent="VBoxContainer" index="5"]
-margin_top = 367.0
-margin_bottom = 367.0
+[node name="Padding" parent="VBoxContainer" index="1"]
+visible = false
+margin_top = 188.0
+margin_bottom = 336.0
 
-[node name="Back" type="Button" parent="VBoxContainer" index="6"]
-margin_top = 371.0
+[node name="Back" type="Button" parent="VBoxContainer" index="2"]
+margin_top = 340.0
 margin_right = 640.0
-margin_bottom = 391.0
+margin_bottom = 360.0
 text = "Home"
 
 [connection signal="dir_selected" from="SelectExportFolderS" to="." method="_on_SelectExportFolderS_dir_selected"]
-[connection signal="pressed" from="VBoxContainer/General Settings/HBoxContainer/HBoxContainer/SelectExportPath" to="." method="_on_SelectExportPath_pressed"]
+[connection signal="pressed" from="VBoxContainer/ScrollContainer/VBoxContainer/General Settings/HBoxContainer/HBoxContainer/SelectExportPath" to="." method="_on_SelectExportPath_pressed"]
 [connection signal="pressed" from="VBoxContainer/Back" to="." method="_on_Back_pressed"]

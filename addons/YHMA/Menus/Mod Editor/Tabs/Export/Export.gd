@@ -90,7 +90,6 @@ func _on_OpenExportPath_pressed():
 	OS.shell_open(DEFAULT_EXPORT_PATH if export_path == "" else export_path)
 
 func _on_Export_pressed():
-	var zip = ZipMod.new()
 	var dir = Directory.new()
 	var cfg = ConfigFile.new()
 	
@@ -140,10 +139,8 @@ func _on_Export_pressed():
 	
 	if not out[0]:
 		succes = true
+		print("[YHMA] Successfully Exported Mod")
 	
-	if $"%IncludeImport".pressed:
-		succes = zip.zipDirectory(ProjectSettings.globalize_path("res://.import"), 
-			_export_path.plus_file(_export_name+".zip"), false)
 	
 	return succes
 	

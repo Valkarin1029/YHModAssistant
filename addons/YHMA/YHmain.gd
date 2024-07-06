@@ -27,7 +27,7 @@ var settings = {
 	"Developer": {
 		"Debug": false
 	},
-	"Expermental": {
+	"Experimental": {
 		"experimental": false
 	}
 }
@@ -41,7 +41,7 @@ func _enter_tree():
 	PLUGIN_VERSION = plugin_config.get_value("plugin", "version", "0.0.0")
 
 func _ready():
-	if settings["General"]["NotifyOfUpdate"]:
+	if settings["General"]["NotifyOfUpdate"] and not settings["Developer"]["Debug"]:
 		_check_for_update()
 	
 	change_scene("Home")
@@ -116,7 +116,8 @@ func _get_settings():
 	
 	for sections in settings:
 		var new_settings = JSON.parse(file.get_as_text()).result
-		settings[sections].merge(new_settings[sections], true)
+		if new_settings.has(sections):
+			settings[sections].merge(new_settings[sections], true)
 	
 	file.close()
 	emit_signal("loaded_settings")
